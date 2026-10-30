@@ -138,4 +138,10 @@ Neutral Solid 상태 배경 [최신 확정]: Default gray/900, Pressed·Loading 
 
 Action Button 배치 [확정]: Neutral Weak 보조(Dismiss/초기화) + 주요 Solid의 가로 조합은 gap 제외 3:7. 긴 라벨·좁은 폭에서는 세로 Fill 전환. 모든 조합에 강제하지 않는다. Prefix·Suffix 동시 사용 금지. Text Only, Icon+Text, Text+Icon, Icon Only 4 Layout만 사용.
 
+Action Button 배치 [확정]: 두 동작이 똑같이 중요하면 가용 너비를 5:5로 나눈다. 어느 쪽이 주요 동작인지가 비율을 정한다.
+
+승인된 프로젝트 예외 [확정]: 반달이 푸터의 AI 고지 문구와 공식 안내 링크는 10/16을 쓴다. 이 프로젝트의 이 문구에만 적용한다.
+
 신규 컴포넌트 초안 [proposal]: Badge, Callout, Page Banner, Bottom Sheet, Dialog, Menu Sheet, Segmented Control, Select Box, Progress Circle, Skeleton, Scroll Fog. 웹 #component-{slug}에 구조·동작 예시 제공. 신규 치수·색상·상태는 확정 규칙이 아니며 제품 구현 기준으로 임의 사용 금지.
+
+프로젝트 제안 [proposal]: 반달이 적용값 — Suggestion Chip: h36 · 패딩 8/14 · 14/20 · 500 · 전체 반경 · 안쪽 1px 선 · 터치 영역 44 / Source Link: Action Button XSmall · h28 · 6/12 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44 / Toggle: 40×24 · 손잡이 20 · 안쪽 2px · 전체 반경 · 켬 brand · 끔 gray/300 · 행 전체가 스위치 / List Row: 최소 높이 60 / Text Link: 12/16 · 패딩 0/12 · 밑줄 offset 2 · 터치 영역 44 · 흐린 글자색 / Progress Bar: 높이 4 · 전체 반경 · 트랙 white · 채움 brand / Bottom Sheet: 최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 38 · 손잡이 없음 · 선택 행 main/50 배경 + main/700 선 · main/100·200 사용 안 함 / Dialog: 너비 화면 − 40 (최대 430) · 반경 20 · 패딩은 Bottom Sheet와 같음 · 설명 14/20 · 설명 아래 16 · 버튼 Large 48 · 5:5 · gap 10 · ✕ 없음 / Callout 경고 톤: 패딩 8/12·반경 12·선 1·아이콘 20·12/16·제목 700·bg #FFF4EB·fg #8A452E·선 #E5BCA6. 확정 토큰이 아니며 웹 #project-proposals에서 검토한다.
