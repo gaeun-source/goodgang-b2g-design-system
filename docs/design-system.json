@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": "1.0",
+  "title": "굳갱랩스 B2G 디자인 시스템",
+  "language": "ko",
+  "scope": "cross-project UI design",
+  "precedence": [
+    "latest_explicit_user_instruction",
+    "approved_project_overrides",
+    "confirmed_rules"
+  ],
+  "rules": {
+    "navigation.height": {
+      "status": "confirmed",
+      "value": 56,
+      "unit": "css-px",
+      "scope": "all browsers",
+      "safeAreaIncluded": false
+    },
+    "font.family": {
+      "status": "confirmed",
+      "byPlatform": {
+        "iOS": "system-ui",
+        "Android": "system-ui",
+        "macOS": "system-ui",
+        "Windows": "Pretendard"
+      },
+      "fallback": "system-ui, sans-serif",
+      "windowsImplementation": "Pretendard Variable webfont"
+    },
+    "spacing.scale": {
+      "status": "confirmed",
+      "values": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        48,
+        56,
+        64
+      ],
+      "unit": "css-px",
+      "roleAssignments": "project-specific; not globally fixed"
+    },
+    "icon.frame": {
+      "status": "confirmed",
+      "default": 24,
+      "sm": 20,
+      "xs": 16,
+      "unit": "css-px",
+      "preserveArtworkAspectRatio": true
+    },
+    "actionButton.sizes": {
+      "status": "confirmed",
+      "values": [
+        "XSmall",
+        "Small",
+        "Medium",
+        "Large"
+      ],
+      "usage": {
+        "XSmall": "작은 공간용 Pill",
+        "Small": "화면 중앙 범용",
+        "Medium": "화면 중앙 범용",
+        "Large": "주로 CTA"
+      }
+    },
+    "actionButton.properties": {
+      "status": "confirmed",
+      "values": [
+        "Size",
+        "Layout",
+        "Variant",
+        "State",
+        "Width"
+      ]
+    },
+    "actionButton.dimensions": {
+      "status": "confirmed",
+      "unit": "css-px",
+      "fontFamily": "platform-specific; see font.family",
+      "width": "Hug",
+      "sizes": {
+        "XSmall": {
+          "height": 28,
+          "paddingY": 6,
+          "paddingX": 12,
+          "gap": 2,
+          "icon": 16,
+          "fontSize": 12,
+          "lineHeight": 14,
+          "weight": 500,
+          "radius": 9999
+        },
+        "Small": {
+          "height": 32,
+          "paddingY": 8,
+          "paddingX": 12,
+          "gap": 4,
+          "icon": 16,
+          "fontSize": 13,
+          "lineHeight": 16,
+          "weight": 500,
+          "radius": 8
+        },
+        "Medium": {
+          "height": 40,
+          "paddingY": 10,
+          "paddingX": 14,
+          "gap": 4,
+          "icon": 20,
+          "fontSize": 14,
+          "lineHeight": 18,
+          "weight": 500,
+          "radius": 8
+        },
+        "Large": {
+          "height": 48,
+          "paddingY": 12,
+          "paddingX": 16,
+          "gap": 6,
+          "icon": 24,
+          "fontSize": 16,
+          "lineHeight": 20,
+          "weight": 500,
+          "radius": 10
+        }
+      },
+      "note": "background and foreground are project Variant tokens; visual sizes do not define hit target policy"
+    },
+    "actionButton.variantOptions": {
+      "status": "proposal",
+      "playgroundOnly": [
+        "Solid",
+        "Outline",
+        "Ghost"
+      ]
+    },
+    "actionButton.stateOptions": {
+      "status": "proposal",
+      "playgroundOnly": [
+        "Enabled",
+        "Pressed",
+        "Disabled",
+        "Loading"
+      ]
+    },
+    "typography.styles": {
+      "status": "proposal",
+      "source": "guide.md#타이포그래피"
+    },
+    "color.paletteKeys": {
+      "status": "confirmed",
+      "families": [
+        "gray",
+        "main",
+        "sub"
+      ],
+      "steps": [
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "hexValues": "project-specific; unset"
+    },
+    "color.semanticMapping": {
+      "status": "proposal",
+      "note": "가이드의 밝은 테마 예시는 대비 검증 후 프로젝트에서 확정"
+    },
+    "radii": {
+      "status": "confirmed",
+      "values": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24,
+        9999
+      ],
+      "unit": "css-px",
+      "full": 9999,
+      "application": "component-specific; no universal radius"
+    },
+    "border.widths": {
+      "status": "proposal",
+      "default": 1,
+      "emphasis": 2,
+      "unit": "css-px"
+    },
+    "font.weights": {
+      "status": "confirmed",
+      "values": [
+        400,
+        500,
+        700
+      ],
+      "names": {
+        "regular": 400,
+        "medium": 500,
+        "bold": 700
+      },
+      "migration": {
+        "600": 500
+      }
+    },
+    "icon.construction": {
+      "status": "confirmed",
+      "baseFrame": 24,
+      "unit": "css-px",
+      "priorities": [
+        "시각적 굵기의 일관성",
+        "시각적 정렬의 일관성",
+        "디테일 수준의 일관성"
+      ],
+      "scaling": "proportional; preserve source SVG aspect ratio and strokes",
+      "opticalAdjustments": "document per asset; do not override strokes per screen",
+      "smallSizeCheck": 16,
+      "universalStrokeWidth": null,
+      "universalInternalPadding": null,
+      "defaultInternalPadding": 2,
+      "defaultLiveArea": [
+        20,
+        20
+      ],
+      "internalPaddingPolicy": "24px 원본 기준 기본 2px. 모양별 광학 보정 허용. 비례 축소 시 여유도 함께 축소하며 모든 크기에서 2px로 고정하지 않음."
+    },
+    "icon.linecap": {
+      "status": "confirmed",
+      "value": "round",
+      "svgAttribute": "stroke-linecap",
+      "scope": "open stroke endpoints",
+      "outlinedAssets": "preserve rounded endpoints in source geometry"
+    },
+    "icon.linejoin": {
+      "status": "confirmed",
+      "value": "round",
+      "svgAttribute": "stroke-linejoin",
+      "scope": "stroke corners",
+      "outlinedAssets": "preserve rounded joins in source geometry"
+    },
+    "icon.cornerRadius": {
+      "status": "confirmed",
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "unit": "css-px",
+      "referenceFrame": 24,
+      "scope": "new icon path geometry, including AI-created icons absent from Figma",
+      "selection": "choose per shape; keep set consistent; document chosen value",
+      "scaling": "scale with source SVG",
+      "notEquivalentTo": "stroke-linejoin round",
+      "independentOf": "button and container radii"
+    },
+    "font.letterSpacing": {
+      "status": "confirmed",
+      "value": "-2%",
+      "cssValue": "-0.02em",
+      "policy": "Default tracking is -2% of font size. Enter PERCENT -2 directly in Figma text styles; do not bind tracking to a numeric variable. Do not interpret as -2px.",
+      "exceptions": {
+        "bubble": "-0.4px"
+      }
+    },
+    "color.neutralReference": {
+      "status": "confirmed",
+      "policy": "메인 컬러는 프로젝트마다 다르며 반달이의 Forest 팔레트는 예시일 뿐 공통 기본값이 아니다. 뉴트럴은 참고 Stone 스케일의 단계별 채도(S)·밝기(B) 구조를 출발점으로 삼되, 색상(H)은 프로젝트별로 변경할 수 있다. 참고 HEX와 H는 전 프로젝트의 확정 색상이 아니다. HSB의 B는 지각적 밝기나 명암 대비가 아니므로 H를 바꾼 뒤 텍스트·배경·테두리의 실제 대비와 시각적 균형을 다시 확인한다. 대비·가독성에 필요한 S·B 조정은 프로젝트별 예외로 기록한다.",
+      "referenceScaleStatus": "reference-not-project-approved",
+      "referenceScale": [
+        {
+          "step": 50,
+          "referenceHex": "#F7F9F7",
+          "h": 120.0,
+          "s": 0.8032128514056196,
+          "b": 97.6470588235294
+        },
+        {
+          "step": 100,
+          "referenceHex": "#EEF2EF",
+          "h": 135.0,
+          "s": 1.6528925619834651,
+          "b": 94.90196078431372
+        },
+        {
+          "step": 200,
+          "referenceHex": "#DDE4DE",
+          "h": 128.57142857142853,
+          "s": 3.0701754385964923,
+          "b": 89.41176470588236
+        },
+        {
+          "step": 300,
+          "referenceHex": "#C4CEC6",
+          "h": 131.99999999999994,
+          "s": 4.854368932038831,
+          "b": 80.7843137254902
+        },
+        {
+          "step": 400,
+          "referenceHex": "#9DAAA0",
+          "h": 133.84615384615384,
+          "s": 7.6470588235294015,
+          "b": 66.66666666666666
+        },
+        {
+          "step": 500,
+          "referenceHex": "#728077",
+          "h": 141.42857142857142,
+          "s": 10.937499999999995,
+          "b": 50.19607843137255
+        },
+        {
+          "step": 600,
+          "referenceHex": "#546359",
+          "h": 139.99999999999997,
+          "s": 15.151515151515154,
+          "b": 38.82352941176471
+        },
+        {
+          "step": 700,
+          "referenceHex": "#3A4A40",
+          "h": 142.5,
+          "s": 21.621621621621628,
+          "b": 29.01960784313726
+        },
+        {
+          "step": 800,
+          "referenceHex": "#283A2F",
+          "h": 143.33333333333334,
+          "s": 31.03448275862069,
+          "b": 22.745098039215687
+        },
+        {
+          "step": 900,
+          "referenceHex": "#1B2A21",
+          "h": 144.00000000000003,
+          "s": 35.714285714285715,
+          "b": 16.470588235294116
+        }
+      ],
+      "hue": "project-specific",
+      "saturationAndBrightness": "reference starting point; project exceptions require documentation"
+    },
+    "color.mainPalette": {
+      "status": "confirmed",
+      "policy": "project-specific; Forest is example only; no universal main HEX"
+    },
+    "testing.viewport": {
+      "status": "confirmed",
+      "referenceDevice": "iPhone 16",
+      "width": 393,
+      "height": 660,
+      "unit": "css-px",
+      "purpose": "브라우저 UI 높이를 고려한 프로젝트 콘텐츠 테스트 영역",
+      "notDeviceScreenResolution": true,
+      "doNotFixPageHeight": true,
+      "physicalDeviceChecks": [
+        "browser chrome expanded and collapsed",
+        "top and bottom safe areas",
+        "back navigation"
+      ],
+      "reporting": "desktop viewport preview is not physical-device verification"
+    },
+    "color.scaleEditor": {
+      "status": "confirmed",
+      "families": [
+        "main",
+        "sub",
+        "gray"
+      ],
+      "steps": [
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "policy": "Main·Sub는 프로젝트별 편집 가능한 50~900 초안 스케일이다. Main의 기준 브랜드색은 500에 연결한다. Sub 추천은 현재 Main 500과 편집된 Neutral을 고려한 보색·유사색·분할보색 휴리스틱이며, 생성된 S·B와 색상은 공통 확정 토큰이 아니다. 후보 적용 후 개별 HSB를 조정하고 실제 역할별 대비를 검증한다. 추천 대비 표시는 후보 Sub 500과 Neutral 50·900만 비교하며 전체 팔레트의 접근성을 보장하지 않는다. 편집은 브라우저 로컬에 저장되고 공통 가이드를 변경하지 않는다.",
+      "recommendationEngine": "local harmony heuristic; not Coolors API"
+    },
+    "color.neutralBrightness": {
+      "status": "confirmed",
+      "steps": [
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "brightnessPercent": [
+        97.5,
+        95,
+        90,
+        82,
+        70,
+        55,
+        42,
+        32,
+        23,
+        16
+      ],
+      "scope": "Neutral default B values; H and S remain project-editable"
+    },
+    "color.neutralSaturation": {
+      "status": "confirmed",
+      "steps": [
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "saturationPercent": [
+        0.8,
+        1.6,
+        3,
+        4.5,
+        6,
+        9,
+        14,
+        20,
+        28,
+        36
+      ],
+      "scope": "Neutral default S values; H remains project-editable"
+    },
+    "color.neutralHue": {
+      "status": "confirmed",
+      "policy": "Neutral 500 H follows Main 500 H. Apply reference offsets to remaining steps, preserve Neutral S/B. Individual hue edits are temporary overrides until Main changes.",
+      "anchorStep": 500,
+      "referenceOffsetsDegrees": [
+        -16,
+        -12,
+        -8,
+        -4,
+        -2,
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "exampleAnchorHue": 188,
+      "anchorSource": "main/500.h"
+    },
+    "color.mainScaleReference": {
+      "status": "confirmed",
+      "steps": [
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "hueOffsetReference": [
+        -70,
+        -50,
+        -30,
+        -15,
+        -7,
+        0,
+        7,
+        15,
+        20,
+        22
+      ],
+      "saturationPercent": [
+        3,
+        10,
+        18,
+        30,
+        55,
+        90,
+        96,
+        80,
+        65,
+        50
+      ],
+      "brightnessPercent": [
+        99,
+        98,
+        94,
+        88,
+        80,
+        68,
+        58,
+        44,
+        32,
+        24
+      ],
+      "huePolicy": "Project-specific anchor; offsets are reference only. HEX is calculated, not fixed."
+    },
+    "color.textContrast": {
+      "status": "confirmed",
+      "minimumRatio": 4.5,
+      "scope": "Normal text including button labels against its actual background",
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+    },
+    "color.mainScaleGeneration": {
+      "status": "confirmed",
+      "anchorStep": 500,
+      "preserveInputHex": true,
+      "hue": "Apply reference offsets relative to input hue",
+      "saturation": "Scale reference saturation relative to reference 500 saturation 90; clamp to 100",
+      "brightness": "Normalize light steps toward 100 and dark steps toward 0 relative to reference 500 brightness 68"
+    },
+    "actionButton.variants": {
+      "status": "confirmed",
+      "values": [
+        "Neutral Solid",
+        "Brand Solid",
+        "Critical Solid",
+        "Neutral Weak",
+        "Brand Outline",
+        "Neutral Outline"
+      ]
+    },
+    "actionButton.outlineColor": {
+      "status": "confirmed",
+      "token": "color.gray.300",
+      "appliesTo": [
+        "Brand Outline",
+        "Neutral Outline"
+      ]
+    },
+    "actionButton.statePreview": {
+      "status": "proposal",
+      "states": [
+        "Pressed",
+        "Disabled",
+        "Loading"
+      ],
+      "note": "Gallery colors are review examples, not approved tokens"
+    },
+    "color.pageBackground": {
+      "status": "confirmed",
+      "direction": "vertical top to bottom",
+      "minimumStops": 3,
+      "tokens": [
+        "bg/page/top",
+        "bg/page/middle",
+        "bg/page/bottom",
+        "bg/page/gradient"
+      ],
+      "palettePolicy": "Derive project background colors from brand palette; adjust saturation and brightness separately. No universal saturation cap.",
+      "edgePolicy": "Header/top edge share first stop; footer wrapper/body/bottom safe area share final stop.",
+      "referencePositionsPercent": [
+        12,
+        32,
+        64
+      ],
+      "referenceStatus": "example, not mandatory",
+      "safari": "Opaque real edge elements; viewport-fit=cover; no duplicate safe areas; actual device verification required",
+      "bottomToken": "color.gray.50",
+      "topToken": "color.main.100",
+      "middlePolicy": "Separate light hue accent; never a simple blend of top and bottom. Designer override allowed.",
+      "middleGeneration": {
+        "status": "proposal",
+        "method": "Shift main/100 hue; retain its saturation and brightness",
+        "defaultHueShiftDegrees": -22,
+        "manualOverride": true,
+        "note": "Reference example only; validate across brand hues before approval"
+      }
+    },
+    "color.white": {
+      "status": "confirmed",
+      "value": "#FFFFFF",
+      "type": "palette",
+      "name": "white"
+    },
+    "color.bubbleTokens": {
+      "status": "confirmed",
+      "aliases": {
+        "bg/bubble/avatar": "main/700",
+        "fg/bubble/avatar": "white",
+        "bg/bubble/user": "white",
+        "fg/bubble/user": "gray/900"
+      },
+      "contrastPolicy": "Check actual pairs for 4.5:1 after theme changes; do not silently change mappings"
+    },
+    "typography.bubble": {
+      "status": "confirmed",
+      "fontSizePx": 14,
+      "lineHeightPx": 22,
+      "letterSpacingPx": -0.4,
+      "scope": [
+        "avatar bubble text",
+        "user bubble text"
+      ],
+      "note": "Bubble-specific tracking; does not change global letter-spacing policy",
+      "textLayout": "One text box per bubble. Line breaks use line-height 22px only; no extra margin or gap between lines."
+    },
+    "spacing.bubbleGap": {
+      "status": "confirmed",
+      "valuePx": 10,
+      "scope": "Vertical gap between adjacent message bubbles",
+      "note": "10px applies between bubbles only, never between lines within one bubble."
+    },
+    "actionButton.neutralSolidBackground": {
+      "status": "confirmed",
+      "default": "gray/900",
+      "pressed": "gray/700",
+      "rendering": "Use exact token colors without brightness filters",
+      "loading": "gray/700"
+    },
+    "actionButton.brandSolidForeground": {
+      "status": "confirmed",
+      "token": "fg/on-brand-solid",
+      "candidates": [
+        "white",
+        "gray/900"
+      ],
+      "minimumContrast": 4.5,
+      "states": [
+        "Default",
+        "Pressed",
+        "Loading"
+      ],
+      "selection": "Choose candidate passing all active states; if both pass maximize minimum contrast. Maintain same foreground across states.",
+      "failure": "Flag background adjustment required if neither passes; do not silently approve fallback.",
+      "disabled": "Separate disabled tokens"
+    },
+    "actionButton.outlinePressedBackground": {
+      "status": "confirmed",
+      "token": "bg/neutral-weak",
+      "palette": "gray/50",
+      "variants": [
+        "Neutral Outline",
+        "Brand Outline"
+      ],
+      "widths": [
+        "Hug",
+        "Fill"
+      ],
+      "rendering": "Exact palette color, no brightness filter"
+    },
+    "actionButton.brandSolidDisabled": {
+      "status": "confirmed",
+      "background": "gray/100",
+      "foreground": "gray/500"
+    },
+    "actionButton.solidDisabled": {
+      "status": "confirmed",
+      "variants": [
+        "Neutral Solid",
+        "Brand Solid"
+      ],
+      "backgroundToken": "bg/disabled",
+      "background": "gray/100",
+      "foregroundToken": "fg/disabled",
+      "foreground": "gray/500"
+    },
+    "actionButton.outlineDisabled": {
+      "status": "confirmed",
+      "variants": [
+        "Neutral Outline",
+        "Brand Outline"
+      ],
+      "background": "transparent",
+      "stroke": "none",
+      "foregroundToken": "fg/disabled",
+      "foreground": "gray/500"
+    },
+    "typography.baseScale": {
+      "status": "confirmed",
+      "sizesPx": [
+        12,
+        13,
+        14,
+        16,
+        18,
+        20,
+        24,
+        28
+      ],
+      "lineHeightsPx": [
+        16,
+        18,
+        20,
+        22,
+        26,
+        28,
+        34,
+        40
+      ],
+      "lineHeightRule": "nearest even integer to fontSize * 1.4",
+      "letterSpacing": "-2%",
+      "cssLetterSpacing": "-0.02em",
+      "exceptions": "Preserve explicit component line heights; bubble tracking remains -0.4px. Button tracking uses default -2%."
+    },
+    "layout.safeArea": {
+      "status": "confirmed",
+      "source": "https://seed-design.io/patterns/safe-area",
+      "browserInsets": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "fixedDeviceInsets": false,
+      "background": "Extend backgrounds to viewport edges; keep meaningful content and fixed controls inside current safe area.",
+      "spacing": "Base spacing measured inward from safe area boundary. One responsible ancestor per inset, no duplicate application.",
+      "scroll": "Allow scrollport to edges; first and last items must be fully reachable inside safe area with base spacing.",
+      "fixedFooter": "Reserve actual overlap once; do not duplicate inset already included in footer size.",
+      "browserChrome": "Safe-area values are not browser toolbar or keyboard height. Safari edge colors require separate verified implementation.",
+      "validation": [
+        "portrait",
+        "landscape both directions",
+        "scroll endpoints",
+        "browser toolbar changes",
+        "keyboard",
+        "navigation back"
+      ],
+      "illustrationDevice": "iPhone 16",
+      "illustrationNote": "Schematic only; not actual inset dimensions or device verification. Project web test viewport remains 393x660 CSS px."
+    },
+    "actionButton.layout": {
+      "status": "confirmed",
+      "values": [
+        "Text Only",
+        "Icon + Text",
+        "Text + Icon",
+        "Icon Only"
+      ],
+      "prefixAndSuffixTogether": false
+    },
+    "actionButton.pairLayout": {
+      "status": "confirmed",
+      "ratio": [
+        3,
+        7
+      ],
+      "scope": "Dismiss/reset Neutral Weak secondary paired horizontally with primary Solid",
+      "gapExcludedFromRatio": true,
+      "overflow": "Switch to vertical Fill rather than shrinking or clipping labels"
+    }
+  },
+  "constraints": [
+    "Do not modify unrelated UI.",
+    "Do not treat playground CSS or this documentation website styling as product design tokens.",
+    "Do not replace undecided values with invented standards.",
+    "Reuse approved project tokens and components.",
+    "Preserve safe areas and opaque edge backgrounds for mobile Safari.",
+    "Do not claim device verification from desktop previews."
+  ],
+  "resources": {
+    "humanGuide": "guide.md",
+    "machineRules": "design-system.json",
+    "projectThemeTemplate": "project-theme.json"
+  },
+  "implementationReport": [
+    "changed_properties",
+    "before_and_after",
+    "reason",
+    "verification_environment",
+    "unresolved_decisions"
+  ],
+  "documentEditPolicy": {
+    "status": "confirmed",
+    "owner": "조가은 디자이너",
+    "allowedEditors": [
+      "조가은 디자이너",
+      "조가은이 사용하는 에이전트"
+    ],
+    "others": "read and reference only; submit change proposals separately; do not modify source, rules, tokens or code examples",
+    "enforcement": "document policy; hosting permissions are managed separately"
+  },
+  "referencePolicy": {
+    "status": "confirmed",
+    "sources": [
+      {
+        "name": "SEED",
+        "url": "https://seed-design.io/",
+        "purpose": "토큰·컴포넌트·상태"
+      },
+      {
+        "name": "Apple HIG",
+        "url": "https://developer.apple.com/design/human-interface-guidelines",
+        "purpose": "플랫폼 관례·안전 영역·터치·접근성"
+      },
+      {
+        "name": "KRDS",
+        "url": "https://www.krds.go.kr/",
+        "purpose": "공공서비스 정보 구조·안내·접근성"
+      },
+      {
+        "name": "Material Design",
+        "url": "https://m3.material.io/",
+        "purpose": "Google의 디자인 원칙·컴포넌트 지침"
+      },
+      {
+        "name": "MUI",
+        "url": "https://mui.com/material-ui/",
+        "purpose": "React 컴포넌트 구현·속성·상태·스타일링 사례"
+      }
+    ],
+    "rules": "다섯 자료를 공식 참고 기준으로 사용한다. Material Design은 Google의 디자인 시스템이며 MUI는 별도 조직의 구현 라이브러리다. 서로 다른 시스템의 수치를 무조건 혼합하지 않고, 프로젝트에 맞는 일관된 규칙을 선택해 근거를 기록한다. 사용자가 확정한 수치와 규칙은 참고 자료보다 우선한다."
+  },
+  "actionButtonColorSummary": {
+    "note": "Summary only; row status distinguishes approved and preview values",
+    "columns": [
+      "variant",
+      "state",
+      "background",
+      "foreground",
+      "stroke",
+      "status"
+    ],
+    "rows": [
+      [
+        "Neutral Solid",
+        "Default",
+        "bg/neutral-solid → gray/900",
+        "fg/on-neutral-solid → white",
+        "없음",
+        "배경 확정 · 전경 검토"
+      ],
+      [
+        "Neutral Solid",
+        "Pressed · Loading",
+        "bg/neutral-solid-pressed → gray/700",
+        "fg/on-neutral-solid → white",
+        "없음",
+        "배경 확정 · 전경 검토"
+      ],
+      [
+        "Neutral Solid",
+        "Disabled",
+        "bg/disabled → gray/100",
+        "fg/disabled → gray/500",
+        "없음",
+        "확정"
+      ],
+      [
+        "Brand Solid",
+        "Default",
+        "bg/brand-solid → main/500",
+        "fg/on-brand-solid → White 또는 gray/900",
+        "없음",
+        "전경 선택 규칙 확정 · 배경 단계 검토"
+      ],
+      [
+        "Brand Solid",
+        "Pressed · Loading",
+        "bg/brand-solid-pressed → 미정",
+        "fg/on-brand-solid → 기본 상태와 동일",
+        "없음",
+        "전경 규칙 확정 · 배경 검토"
+      ],
+      [
+        "Brand Solid",
+        "Disabled",
+        "bg/disabled → gray/100",
+        "fg/disabled → gray/500",
+        "없음",
+        "확정"
+      ],
+      [
+        "Neutral Outline",
+        "Default",
+        "배경 없음",
+        "fg/neutral → gray/900",
+        "stroke/neutral → gray/300",
+        "테두리 확정 · 전경 검토"
+      ],
+      [
+        "Brand Outline",
+        "Default",
+        "배경 없음",
+        "fg/brand → 단계 미정",
+        "stroke/neutral → gray/300",
+        "테두리 확정 · 전경 검토"
+      ],
+      [
+        "Neutral Outline · Brand Outline",
+        "Pressed",
+        "bg/neutral-weak → gray/50",
+        "각 Variant 기본 전경 유지",
+        "stroke/neutral → gray/300",
+        "배경·테두리 확정 · 전경 검토"
+      ],
+      [
+        "Neutral Outline · Brand Outline",
+        "Disabled",
+        "배경 없음",
+        "fg/disabled → gray/500",
+        "없음",
+        "확정"
+      ],
+      [
+        "Neutral Outline · Brand Outline",
+        "Loading",
+        "미정",
+        "미정",
+        "미정",
+        "검토"
+      ],
+      [
+        "Critical Solid",
+        "전체 상태",
+        "미정",
+        "미정",
+        "미정",
+        "Variant만 확정"
+      ],
+      [
+        "Neutral Weak",
+        "전체 상태",
+        "미정",
+        "미정",
+        "미정",
+        "Variant만 확정"
+      ]
+    ]
+  },
+  "componentDrafts": {
+    "badge": {
+      "name": "Badge",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/badge",
+      "purpose": "대상의 상태나 속성을 짧게 표시합니다.",
+      "anatomy": "Container · Label · 선택적 Prefix / 설명 Action",
+      "optionsToReview": "Size · Tone · Variant · Prefix / Action",
+      "guidelineDraft": "선택 입력이나 액션 버튼과 구분합니다. 강조가 반복되면 약한 표현부터 검토합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "callout": {
+      "name": "Callout",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/callout",
+      "purpose": "현재 내용과 관련된 안내나 주의사항을 강조합니다.",
+      "anatomy": "Container · Icon · Title · Description · 선택적 Link / Action",
+      "optionsToReview": "Display · Actionable · Dismissible · Tone",
+      "guidelineDraft": "카드 전체가 클릭되면 안에 중첩된 링크를 넣지 않습니다. 색뿐 아니라 문구와 아이콘으로 의미를 전달합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "page-banner": {
+      "name": "Page Banner",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/page-banner",
+      "purpose": "페이지 전체에 영향을 주는 중요한 안내를 표시합니다.",
+      "anatomy": "Container · Icon · Title · 선택적 Link / Dismiss",
+      "optionsToReview": "Tone · Interaction · Icon · Dismiss",
+      "guidelineDraft": "특정 항목만의 설명은 Callout으로 분리합니다. 배경은 끝까지, 안내와 조작은 안전 영역 안에 둡니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "bottom-sheet": {
+      "name": "Bottom Sheet",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/bottom-sheet",
+      "purpose": "현재 화면 위에서 보충 정보나 작업 공간을 제공합니다.",
+      "anatomy": "Backdrop · Container · Header · Content · Footer",
+      "optionsToReview": "Header · Handle · Close · Footer · 확장 높이",
+      "guidelineDraft": "콘텐츠와 가용 높이에 맞춰 내부 스크롤을 제공합니다. 닫기·드래그·입력 중 이탈 정책은 프로젝트별로 결정합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "dialog": {
+      "name": "Dialog",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/dialog",
+      "purpose": "작업에 집중하도록 화면 위에 별도의 모달 공간을 엽니다.",
+      "anatomy": "Backdrop · Header · Content · Footer",
+      "optionsToReview": "Title · Description · Close · Actions",
+      "guidelineDraft": "열릴 때 초점을 내부로 이동하고 닫힌 뒤 실행 버튼으로 돌려줍니다. 중요한 경고·되돌릴 수 없는 결정은 Alert Dialog와 구분합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "menu-sheet": {
+      "name": "Menu Sheet",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/menu-sheet",
+      "purpose": "현재 대상에 대해 실행할 수 있는 관련 동작을 모읍니다.",
+      "anatomy": "Backdrop · Header · Menu Group · Item · Close",
+      "optionsToReview": "항목 그룹 · Icon · Destructive action · Close",
+      "guidelineDraft": "설정값을 고르는 입력 컴포넌트와 구분합니다. 관련 동작을 묶고 위험한 동작은 의미를 분명하게 표시합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "segmented-control": {
+      "name": "Segmented Control",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/segmented-control",
+      "purpose": "동등한 옵션 중 하나를 골라 콘텐츠를 즉시 전환합니다.",
+      "anatomy": "Container · Segment · Label · 선택적 Badge",
+      "optionsToReview": "Selected · Unselected · Disabled",
+      "guidelineDraft": "즉시 전환되는 필터·보기 선택에 사용합니다. 페이지 이동 탭이나 저장이 필요한 입력과 구분합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "select-box": {
+      "name": "Select Box",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/select-box",
+      "purpose": "정보가 있는 박스 단위로 하나 이상의 옵션을 선택합니다.",
+      "anatomy": "Container · Title · Description · Control · 선택적 Content",
+      "optionsToReview": "단일 / 다중 선택 · Selected · Pressed · Disabled",
+      "guidelineDraft": "박스 전체를 터치 영역으로 사용합니다. 즉시 액션을 실행하는 버튼이 아니라 입력이며, 별도 적용 버튼으로 확정합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "progress-circle": {
+      "name": "Progress Circle",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/progress-circle",
+      "purpose": "진행 중인 작업 또는 측정 가능한 진행률을 표시합니다.",
+      "anatomy": "Track · Indicator",
+      "optionsToReview": "Indeterminate · Determinate · Size · Tone",
+      "guidelineDraft": "진행률을 모르면 임의 퍼센트를 표시하지 않습니다. 무엇을 처리 중인지 읽을 수 있는 이름을 제공합니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "skeleton": {
+      "name": "Skeleton",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/skeleton",
+      "purpose": "곧 표시될 콘텐츠의 구조를 미리 보여줍니다.",
+      "anatomy": "Placeholder · Radius · Shimmer",
+      "optionsToReview": "Width · Height · Radius · Tone · Motion",
+      "guidelineDraft": "실제 콘텐츠의 배치를 반영합니다. 같은 영역에 Progress Circle을 겹쳐 중복 안내하지 않습니다. 움직임 감소 환경에서는 애니메이션을 줄입니다.",
+      "demoValues": "Preview only; not approved tokens"
+    },
+    "scroll-fog": {
+      "name": "Scroll Fog",
+      "status": "proposal",
+      "source": "https://seed-design.io/components/scroll-fog",
+      "purpose": "스크롤할 수 있는 방향에 더 많은 내용이 있음을 알립니다.",
+      "anatomy": "Scroll Area · 겹쳐 놓는 Fade",
+      "optionsToReview": "Direction · Edge · Visibility",
+      "guidelineDraft": "실제 스크롤 영역 위에 겹치고 터치·스크롤을 막지 않습니다. 끝에 도달하면 해당 방향의 힌트를 숨깁니다.",
+      "demoValues": "Preview only; not approved tokens"
+    }
+  }
+}

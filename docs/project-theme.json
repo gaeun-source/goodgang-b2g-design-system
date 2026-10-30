@@ -1,0 +1,76 @@
+{
+  "status": "project-values-required",
+  "palette": {
+    "gray": {
+      "50": null,
+      "100": null,
+      "200": null,
+      "300": null,
+      "400": null,
+      "500": null,
+      "600": null,
+      "700": null,
+      "800": null,
+      "900": null
+    },
+    "main": {
+      "50": null,
+      "100": null,
+      "200": null,
+      "300": null,
+      "400": null,
+      "500": null,
+      "600": null,
+      "700": null,
+      "800": null,
+      "900": null
+    },
+    "sub": {
+      "50": null,
+      "100": null,
+      "200": null,
+      "300": null,
+      "400": null,
+      "500": null,
+      "600": null,
+      "700": null,
+      "800": null,
+      "900": null
+    },
+    "white": "#FFFFFF"
+  },
+  "fontFamily": {
+    "iOS": "system-ui",
+    "Android": "system-ui",
+    "macOS": "system-ui",
+    "Windows": "Pretendard"
+  },
+  "screenGutter": null,
+  "semantic": {
+    "surface/page": null,
+    "surface/default": null,
+    "text/primary": null,
+    "text/secondary": null,
+    "text/disabled": null,
+    "border/default": null,
+    "action/primary/background": null,
+    "action/primary/foreground": null,
+    "selection/background": null,
+    "selection/border": null,
+    "focus/ring": null,
+    "feedback/error": null,
+    "feedback/success": null,
+    "feedback/warning": null,
+    "feedback/info": null,
+    "overlay/scrim": null,
+    "surface/top-edge": null,
+    "surface/bottom-edge": null,
+    "bg/bubble/avatar": "{palette.main.700}",
+    "fg/bubble/avatar": "{palette.white}",
+    "bg/bubble/user": "{palette.white}",
+    "fg/bubble/user": "{palette.gray.900}"
+  },
+  "navigationBarHeight": {
+    "default": 56
+  }
+}
