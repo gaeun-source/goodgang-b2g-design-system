@@ -34,10 +34,12 @@
 - [상단바](./#navigation)
 - [반경과 선](./#shape)
 - [안전 영역](./#safe-area)
+- [실사용 컴포넌트](./#library-section): 앱 실제 마크업과 현재 토큰값
 - [컴포넌트 초안](./#component-bottom-sheet)
 - [프로젝트 제안](./#project-proposals)
 - [디자인 스튜디오](studio.html): 토큰을 화면에서 편집하는 도구
 - [토큰값](tokens.json): 현재 토큰값의 기준 파일
+- [컴포넌트 목록](library.json): 실사용 컴포넌트의 상태, 토큰, 마크업
 
 ## 규칙 찾기
 
@@ -57,6 +59,7 @@
 | 상단바 | 상단바 | navigation.height |
 | 액션 버튼 | 액션 버튼 | actionButton.* |
 | 말풍선 | 말풍선 | typography.bubble, color.bubbleTokens, spacing.bubbleGap |
+| 실사용 컴포넌트 | 실사용 컴포넌트 | componentLibrary |
 | 신규 컴포넌트 | 컴포넌트와 상태 | componentDrafts |
 | 안전 영역, Safari | 안전 영역 배치, 모바일 Safari | layout.safeArea |
 | 검수 방법 | 화면 테스트 기준, 구현 검수와 사용 방법 | implementationReport |

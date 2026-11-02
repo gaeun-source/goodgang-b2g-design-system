@@ -188,7 +188,17 @@ $("#token-unused").onchange = renderTokens;
 // 「N곳」을 누르면 쓰이는 곳 목록이 열리고, 항목을 누르면 그 화면으로 가서 요소를 고른다.
 let usageRow = null;
 let places = {};
-fetch("preview-usage.json").then((r) => r.json()).then((map) => (places = map)).catch(() => {});
+fetch("preview-usage.json").then((r) => r.json()).then((map) => {
+  places = map;
+  // studio.html?go=선택자: 문서의 「스튜디오에서 수정」에서 그 요소를 골라 연다.
+  const at = places[new URLSearchParams(location.search).get("go")];
+  if (!at?.page) return;
+  if (!modeOn) setMode(true);
+  page = at.page;
+  document.querySelectorAll("[data-page]").forEach((other) => other.setAttribute("aria-pressed", other.dataset.page === page));
+  pending = new URLSearchParams(location.search).get("go");
+  openFrame(at.modal);
+}).catch(() => {});
 function goTo(selector) {
   const at = places[selector];
   if (!modeOn) setMode(true);

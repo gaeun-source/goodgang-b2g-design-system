@@ -1180,5 +1180,138 @@
       "appliedValues": "높이 4 · 전체 반경 · 트랙 white · 채움 brand",
       "note": "Project value under review; not a confirmed token."
     }
+  },
+  "componentLibrary": {
+    "source": "library.json",
+    "values": "tokens.json",
+    "rule": "앱 화면에서 수집한 실제 마크업과 CSS를 보여 준다. 값은 tokens.json을 따른다. proposal은 반달이 실사용값이며 확정 규칙이 아니다.",
+    "items": [
+      {
+        "id": "start-button",
+        "name": "시작 버튼",
+        "group": "입력과 버튼",
+        "status": "proposal",
+        "note": "대기 화면의 대화 시작 버튼."
+      },
+      {
+        "id": "text-input",
+        "name": "텍스트 입력창",
+        "group": "입력과 버튼",
+        "status": "proposal",
+        "note": "문자 대화의 입력창과 보내기."
+      },
+      {
+        "id": "voice-controls",
+        "name": "음성 버튼",
+        "group": "입력과 버튼",
+        "status": "proposal",
+        "note": "스피커, 마이크, 대화 전환."
+      },
+      {
+        "id": "suggestion-chip",
+        "name": "추천 칩",
+        "group": "입력과 버튼",
+        "status": "proposal",
+        "note": "질문을 바로 고르는 칩."
+      },
+      {
+        "id": "icon-button",
+        "name": "상단바",
+        "group": "입력과 버튼",
+        "status": "confirmed",
+        "note": "뒤로, 제목, 언어, 더보기. 높이 56."
+      },
+      {
+        "id": "bubble",
+        "name": "말풍선",
+        "group": "대화",
+        "status": "confirmed",
+        "note": "아바타와 사용자 말풍선. 14/22."
+      },
+      {
+        "id": "source-link",
+        "name": "출처 링크",
+        "group": "대화",
+        "status": "proposal",
+        "note": "답변 아래 공식 안내 링크. Action Button XSmall."
+      },
+      {
+        "id": "rating",
+        "name": "답변 평가",
+        "group": "대화",
+        "status": "proposal",
+        "note": "도움 여부를 묻는 행."
+      },
+      {
+        "id": "rating-form",
+        "name": "평가 의견",
+        "group": "대화",
+        "status": "proposal",
+        "note": "도움이 안 됐을 때 여는 폼."
+      },
+      {
+        "id": "badge",
+        "name": "BETA 뱃지",
+        "group": "대화",
+        "status": "proposal",
+        "note": "서비스 시험 표시."
+      },
+      {
+        "id": "callout",
+        "name": "경고 안내",
+        "group": "대화",
+        "status": "proposal",
+        "note": "호우 특보 같은 안전 경고."
+      },
+      {
+        "id": "bottom-sheet",
+        "name": "바텀시트",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "언어 선택. 선택 상태는 브랜드 선."
+      },
+      {
+        "id": "option-row",
+        "name": "옵션 행",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "바텀시트 안의 선택 행."
+      },
+      {
+        "id": "list-row",
+        "name": "목록 행",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "더보기의 이동 행."
+      },
+      {
+        "id": "toggle",
+        "name": "토글 행",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "켜고 끄는 설정."
+      },
+      {
+        "id": "radio-chip",
+        "name": "라디오 칩",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "의견 종류 선택."
+      },
+      {
+        "id": "feedback-form",
+        "name": "의견 양식",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "입력칸과 보내기."
+      },
+      {
+        "id": "dialog",
+        "name": "다이얼로그",
+        "group": "시트와 목록",
+        "status": "proposal",
+        "note": "되돌리기 어려운 확인. 버튼 쌍은 3:7, 둘 다 중요하면 5:5."
+      }
+    ]
   }
 }
