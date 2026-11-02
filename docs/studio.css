@@ -84,3 +84,5 @@ dialog small{color:var(--muted);font-weight:400}
 .value-field:has(input[type=color]){grid-template-columns:28px 1fr}
 .value-field:has(input[type=color]) select{grid-column:1/-1}
 .value-field input[type=color]{width:28px;padding:0}
+.offscale-row.open{background:#fff0f8}
+.offscale-edit{margin:0 6px 8px 34px;padding:4px 8px 8px;border-radius:6px;background:#fff7fb}

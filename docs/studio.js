@@ -29,6 +29,15 @@ const save = (key, value) => {
   }
 };
 
+// 체크리스트 상태. 프레임이 먼저 말을 걸 수 있어 파일 앞쪽에 둔다.
+let items = [];
+const checked = new Set(load("offscale-checked", []));
+let present = new Set();
+let marking = false;
+let focused = null;
+let openRow = null;
+const sendMarks = () => send({ kind: "offscale", items: items.map(({ id, value, probe, group }) => ({ id, value, probe, group })), on: marking, focused });
+
 let variant = "default";
 let page = "entry";
 let modeOn = false;
@@ -41,6 +50,7 @@ const send = (message) => frame.contentWindow?.postMessage(message, location.ori
 function refresh() {
   save("studio-edits", edits);
   if (!$("#tab-all").hidden) renderTokens();
+  if (!$("#tab-offscale").hidden && items.length) renderList();
   const count = Object.keys(edits).length;
   $("#edit-count").textContent = count ? `변경 ${count}개` : "변경 없음";
   $("#apply").disabled = $("#reset-all").disabled = $("#export").disabled = !count;
@@ -418,13 +428,7 @@ $("#apply-form").onsubmit = async (event) => {
   $("#apply-confirm").disabled = false;
 };
 
-// 스케일 밖 간격 체크리스트
-const items = await fetch("preview-offscale.json").then((r) => r.json());
-const checked = new Set(load("offscale-checked", []));
-let present = new Set();
-let marking = false;
-let focused = null;
-const sendMarks = () => send({ kind: "offscale", items: items.map(({ id, value, probe, group }) => ({ id, value, probe, group })), on: marking, focused });
+// 스케일 밖 간격 체크리스트: 줄을 누르면 그 컴포넌트로 가고, 그 자리에서 값을 고친다.
 const TITLES = [["visible", "화면에 보이는 값"], ["focus", "키보드 포커스 때만 보이는 값"], ["hidden", "지금은 안 보이는 값 (로딩 중이거나 다른 규칙에 덮임)"]];
 function renderList() {
   const list = $("#offscale-list");
@@ -433,7 +437,8 @@ function renderList() {
     const rows = items.filter((item) => item.group === group);
     list.append(el("div", { className: "offscale-group", textContent: `${title} · ${rows.length}` }));
     for (const item of rows) {
-      const box = el("input", { type: "checkbox", checked: checked.has(item.id) });
+      const box = el("input", { type: "checkbox", checked: checked.has(item.id), ariaLabel: "확인함" });
+      box.onclick = (event) => event.stopPropagation();
       box.onchange = () => {
         box.checked ? checked.add(item.id) : checked.delete(item.id);
         save("offscale-checked", [...checked]);
@@ -441,10 +446,30 @@ function renderList() {
       };
       const where = item.screens.join(", ") || (group === "focus" ? "키보드로 이동할 때" : "표시되지 않음");
       const text = el("span", {}, el("b", { textContent: item.label }), el("small", { textContent: `${item.prop} · ${where}${group === "visible" && !present.has(item.id) ? " · 이 화면에 없음" : ""}` }), el("small", { textContent: `제안: ${item.lower} 또는 ${item.upper}` }));
-      const row = el("label", { className: `offscale-row${checked.has(item.id) ? " checked" : ""}` }, box, text, el("em", { textContent: `${item.value}px` }));
+      const open = openRow === item.id;
+      const row = el("div", { className: `offscale-row${checked.has(item.id) ? " checked" : ""}${open ? " open" : ""}`, role: "button", tabIndex: 0 }, box, text, el("em", { textContent: `${item.value}px` }));
+      const go = () => {
+        openRow = open ? null : item.id;
+        renderList();
+        if (open) return;
+        if (places[item.selector]?.page) goTo(item.selector);
+        else toast("지금 화면 구성에서는 보이지 않는 값이에요. 값은 여기서 고칠 수 있어요");
+      };
+      row.onclick = go;
+      row.onkeydown = (event) => {
+        if (event.target === row && (event.key === "Enter" || event.key === " ")) {
+          event.preventDefault();
+          go();
+        }
+      };
       row.onmouseenter = () => ((focused = item.id), sendMarks());
       row.onmouseleave = () => ((focused = null), sendMarks());
       list.append(row);
+      if (open && defs[item.token] !== undefined) {
+        const edit = el("div", { className: "offscale-edit" }, stepRow({ name: item.token, value: edits[item.token] ?? defs[item.token] }));
+        edit.onclick = (event) => event.stopPropagation();
+        list.append(edit);
+      }
     }
   }
   $("#offscale-count").textContent = `${items.filter((item) => checked.has(item.id)).length}/${items.length}`;
@@ -461,6 +486,9 @@ $("#offscale-toggle").onclick = () => {
   sendMarks();
 };
 frame.addEventListener("load", () => setTimeout(sendMarks, 600));
-renderList();
+fetch("preview-offscale.json").then((r) => r.json()).then((list) => {
+  items = list;
+  renderList();
+});
 setInterval(sendMarks, 2000);
 refresh();
