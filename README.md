@@ -18,7 +18,8 @@ python3 -m http.server 8000 --directory docs
 - `docs/design-system.json`: 기계가 읽는 규칙과 토큰
 - `docs/guide.md`: 디자인 가이드
 - `docs/project-theme.json`: 프로젝트 테마
-- `docs/llms.txt`: AI가 참고할 시작점
+- `docs/preview/`: 반달이 UI 미리보기. 별도 테스트 환경에서 빌드한 결과물이라 직접 고치지 않습니다
+- `docs/llms.txt`: AI가 참고할 시작점. 규칙 본문은 넣지 않고 `guide.md`와 JSON으로 안내합니다
 
 ## 협업 규칙
 

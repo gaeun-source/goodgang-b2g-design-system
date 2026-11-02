@@ -1,0 +1,62 @@
+[
+  {
+    "id": "waterfall-1",
+    "author": "Martin Eklund",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Waterfall_in_forest.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Waterfall_in_forest.jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized to maximum 1200 pixels; displayed with a cover crop in the gallery",
+    "bytes": 283883
+  },
+  {
+    "id": "waterfall-2",
+    "author": "Jon Sullivan",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Waterfalls_in_forest.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Waterfalls_in_forest.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Waterfalls_in_forest.jpg",
+    "changes": "Resized to maximum 1200 pixels; displayed with a cover crop in the gallery",
+    "bytes": 413831
+  },
+  {
+    "id": "forest-1",
+    "author": "SelfishSeahorse",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Forest_path_in_the_mountains.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Forest_path_in_the_mountains.jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized to maximum 1200 pixels; displayed with a cover crop in the gallery",
+    "bytes": 533442
+  },
+  {
+    "id": "forest-2",
+    "author": "Benjamin Balázs",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Forest_path_%2813965624207%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Forest_path_%2813965624207%29.jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized to maximum 1200 pixels; displayed with a cover crop in the gallery",
+    "bytes": 464939
+  },
+  {
+    "id": "ridge-green-1",
+    "author": "Oliver.C.Cartwright",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cresting_Peaks.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Cresting_Peaks.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized to maximum 1200 pixels; displayed with a cover crop in the gallery",
+    "bytes": 193336
+  },
+  {
+    "id": "ridge-green-3",
+    "author": "Oliver.C.Cartwright",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Heights_of_Seoraksan.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Heights_of_Seoraksan.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized to maximum 1200 pixels; displayed with a cover crop in the gallery",
+    "bytes": 262460
+  }
+]

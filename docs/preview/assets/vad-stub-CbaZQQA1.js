@@ -1,0 +1,1 @@
+var e={new:async()=>({start(){},pause(){},destroy(){}})},t={MicVAD:e};export{e as MicVAD,t as default};

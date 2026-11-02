@@ -1,0 +1,11 @@
+<svg width="256" height="100" viewBox="0 0 256 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Temporary English wordmark (CTO 2026-10-22) until the designer's final file; the leaf is from wordmark.svg. -->
+<path transform="translate(19.5 -1) rotate(-2.5 13 63.5)" d="M0 83V20H11C19 20 23 25 23 32C23 41.5 18 48.5 10 48.5H0M10 48.5H13C21 48.5 26 55.5 26 65.75C26 76 20 83 12 83H0" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(61.9 0.6) rotate(2 11 63.5)" d="M22 63.5A11 19.5 0 1 1 0 63.5A11 19.5 0 1 1 22 63.5M22 44V83" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(100.3 -0.6) rotate(-1.5 9.5 63.5)" d="M0 44V83M0 58C0 49 4.5 44 9.75 44C15 44 19 48 19 55V83" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(135.7 0.8) rotate(2 11 63.5)" d="M22 63.5A11 19.5 0 1 1 0 63.5A11 19.5 0 1 1 22 63.5M22 15V83" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(174.1 -0.4) rotate(-2 11 63.5)" d="M22 63.5A11 19.5 0 1 1 0 63.5A11 19.5 0 1 1 22 63.5M22 44V83" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(212.5 0.6) rotate(1.5 4.25 63.5)" d="M0 15V74C0 79.5 3.5 83 8.5 83" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M236 44.5V83" stroke="#3A474A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M228.945 19.2178C228.976 18.0631 228.999 16.9608 229.225 15.8227C229.643 13.71 230.906 11.7435 232.476 10.2783C236.703 6.3322 242.945 5.8506 248.408 5.2185C248.516 5.20587 248.734 5.27589 248.834 5.31441C249.119 6.01685 248.681 9.2193 248.57 10.1672C247.421 19.9067 242.186 26.0892 232.366 26.81C231.922 26.8512 231.528 26.8443 231.082 26.8421L230.901 26.657C231.045 24.5778 234.802 18.4918 236.383 16.7284C237.53 15.4498 239.052 13.9087 240.233 12.5498C236.547 14.5992 233.213 17.5676 231.059 21.2092C230.715 21.7916 230.283 22.7774 229.63 22.974C229.105 22.3719 229.015 20.1039 228.945 19.2178Z" fill="#829A6D"/>
+</svg>

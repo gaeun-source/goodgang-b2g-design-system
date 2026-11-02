@@ -29,3 +29,9 @@ dialog.ds-project-alert[open]{animation:none}
 .ds-project-static{width:min(393px,100%);max-width:100%;box-shadow:none;align-self:center}
 .ds-project-static.ds-project-alert{width:min(353px,100%);border-radius:20px}
 dialog.ds-project-modal:focus{outline:0}
+.section-head>div[id]{flex:1 1 100%;min-width:0;max-width:100%}
+.preview-states{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px}
+.preview-states button{min-height:32px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-size:13px}
+.preview-states button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.preview-phone{box-sizing:border-box;width:min(393px,100%);height:660px;margin:0 auto 12px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#f7f9f7}
+.preview-phone iframe{display:block;width:100%;height:100%;border:0}
