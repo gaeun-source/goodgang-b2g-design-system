@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>디자인 스튜디오</title>
-<link rel="stylesheet" href="studio.css">
+<link rel="stylesheet" href="studio.css?v=2611021142">
 </head>
 <body>
 <header class="studio-bar">
@@ -42,7 +42,7 @@
     <div class="studio-tabs" role="tablist">
       <button type="button" role="tab" data-tab="tokens" aria-selected="true">토큰 편집</button>
       <button type="button" role="tab" data-tab="all" aria-selected="false">전체 토큰</button>
-      <button type="button" role="tab" data-tab="offscale" aria-selected="false">스케일 밖 간격 <span id="offscale-count"></span></button>
+      <button type="button" role="tab" data-tab="clean" aria-selected="false">토큰 정리 <span id="clean-count"></span></button>
     </div>
     <div id="tab-tokens">
       <button type="button" id="mode" class="studio-toggle" aria-pressed="false">토큰 편집 켜기</button>
@@ -55,10 +55,10 @@
       <p class="studio-note" id="token-summary"></p>
       <div id="token-list"></div>
     </div>
-    <div id="tab-offscale" hidden>
-      <button type="button" id="offscale-toggle" class="studio-toggle" aria-pressed="false">화면에 표시</button>
-      <p class="studio-note">토큰 스케일에 없는 간격입니다. 고칠지 유지할지 확인해 주세요.</p>
-      <div id="offscale-list"></div>
+    <div id="tab-clean" hidden>
+      <p class="studio-note">스케일에 없는 토큰이에요. 제안값을 확인하고 한 번에 바꾸세요. 화면에 바로 보이고, 저장은 위쪽 「적용」으로 해요. 줄을 누르면 쓰는 곳으로 이동해요.</p>
+      <button type="button" id="clean-all" class="solid clean-all"></button>
+      <div id="clean-list"></div>
     </div>
   </section>
 </main>
@@ -79,6 +79,6 @@
   </form>
 </dialog>
 <div id="toast" role="status"></div>
-<script src="studio.js" type="module"></script>
+<script src="studio.js?v=2611021142" type="module"></script>
 </body>
 </html>

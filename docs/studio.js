@@ -29,15 +29,9 @@ const save = (key, value) => {
   }
 };
 
-// 체크리스트 상태. 프레임이 먼저 말을 걸 수 있어 파일 앞쪽에 둔다.
-let items = [];
-const checked = new Set(load("offscale-checked", []));
-let present = new Set();
-let marking = false;
-let focused = null;
-let openRow = null;
-const sendMarks = () => send({ kind: "offscale", items: items.map(({ id, value, probe, group }) => ({ id, value, probe, group })), on: marking, focused });
-
+let picks = load("clean-picks", {});
+const choices = load("clean-choices", {});
+let goFirst = null;
 let variant = "default";
 let page = "entry";
 let modeOn = false;
@@ -50,7 +44,7 @@ const send = (message) => frame.contentWindow?.postMessage(message, location.ori
 function refresh() {
   save("studio-edits", edits);
   if (!$("#tab-all").hidden) renderTokens();
-  if (!$("#tab-offscale").hidden && items.length) renderList();
+  if (Object.keys(defs).length) renderClean();
   const count = Object.keys(edits).length;
   $("#edit-count").textContent = count ? `변경 ${count}개` : "변경 없음";
   $("#apply").disabled = $("#reset-all").disabled = $("#export").disabled = !count;
@@ -157,7 +151,8 @@ function renderTokens() {
   const box = $("#token-list");
   const query = $("#token-search").value.trim().toLowerCase();
   const onlyUnused = $("#token-unused").checked;
-  const names = Object.keys(defs).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  const merged = (name) => /^--(space|size|radius|font-size|font-line|stroke-width)-/.test(name) && followsToken(name);
+  const names = Object.keys({ ...defs, ...edits }).filter((name) => query || !merged(name)).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
   box.replaceChildren();
   let shown = 0;
   const placed = new Set();
@@ -205,6 +200,13 @@ function goTo(selector) {
   } else send({ kind: "select-selector", selector });
 }
 function renderUsage({ name, tokens, places: rows }) {
+  if (goFirst === name) {
+    goFirst = null;
+    const first = rows.find((row) => places[row.selector]?.page);
+    if (first) goTo(first.selector);
+    else toast("지금 화면 구성에서는 보이지 않는 값이에요");
+    return;
+  }
   document.querySelectorAll(".usage-list").forEach((list) => list.remove());
   if (!usageRow?.isConnected) return;
   const list = el("div", { className: "usage-list" });
@@ -340,7 +342,6 @@ addEventListener("message", (event) => {
     tree = data;
     renderLayers();
   }
-  if (data?.kind === "offscale-present") setPresent(data.ids);
 });
 
 $("#mode").onclick = () => setMode(!modeOn);
@@ -349,7 +350,7 @@ document.querySelectorAll("[data-tab]").forEach((tab) => {
     document.querySelectorAll("[data-tab]").forEach((other) => other.setAttribute("aria-selected", other === tab));
     $("#tab-tokens").hidden = tab.dataset.tab !== "tokens";
     $("#tab-all").hidden = tab.dataset.tab !== "all";
-    $("#tab-offscale").hidden = tab.dataset.tab !== "offscale";
+    $("#tab-clean").hidden = tab.dataset.tab !== "clean";
     if (tab.dataset.tab === "all") renderTokens();
   };
 });
@@ -357,7 +358,7 @@ document.querySelectorAll("[data-variant]").forEach((button) => {
   button.onclick = () => {
     variant = button.dataset.variant;
     document.querySelectorAll("[data-variant]").forEach((other) => other.setAttribute("aria-pressed", other === button));
-    document.querySelectorAll("[data-page], #mode, #offscale-toggle").forEach((control) => (control.disabled = variant !== "default"));
+    document.querySelectorAll("[data-page], #mode").forEach((control) => (control.disabled = variant !== "default"));
     openFrame();
   };
 });
@@ -428,67 +429,89 @@ $("#apply-form").onsubmit = async (event) => {
   $("#apply-confirm").disabled = false;
 };
 
-// 스케일 밖 간격 체크리스트: 줄을 누르면 그 컴포넌트로 가고, 그 자리에서 값을 고친다.
-const TITLES = [["visible", "화면에 보이는 값"], ["focus", "키보드 포커스 때만 보이는 값"], ["hidden", "지금은 안 보이는 값 (로딩 중이거나 다른 규칙에 덮임)"]];
-function renderList() {
-  const list = $("#offscale-list");
-  list.replaceChildren();
-  for (const [group, title] of TITLES) {
-    const rows = items.filter((item) => item.group === group);
-    list.append(el("div", { className: "offscale-group", textContent: `${title} · ${rows.length}` }));
-    for (const item of rows) {
-      const box = el("input", { type: "checkbox", checked: checked.has(item.id), ariaLabel: "확인함" });
-      box.onclick = (event) => event.stopPropagation();
-      box.onchange = () => {
-        box.checked ? checked.add(item.id) : checked.delete(item.id);
-        save("offscale-checked", [...checked]);
-        renderList();
-      };
-      const where = item.screens.join(", ") || (group === "focus" ? "키보드로 이동할 때" : "표시되지 않음");
-      const text = el("span", {}, el("b", { textContent: item.label }), el("small", { textContent: `${item.prop} · ${where}${group === "visible" && !present.has(item.id) ? " · 이 화면에 없음" : ""}` }), el("small", { textContent: `제안: ${item.lower} 또는 ${item.upper}` }));
-      const open = openRow === item.id;
-      const row = el("div", { className: `offscale-row${checked.has(item.id) ? " checked" : ""}${open ? " open" : ""}`, role: "button", tabIndex: 0 }, box, text, el("em", { textContent: `${item.value}px` }));
-      const go = () => {
-        openRow = open ? null : item.id;
-        renderList();
-        if (open) return;
-        if (places[item.selector]?.page) goTo(item.selector);
-        else toast("지금 화면 구성에서는 보이지 않는 값이에요. 값은 여기서 고칠 수 있어요");
-      };
-      row.onclick = go;
-      row.onkeydown = (event) => {
-        if (event.target === row && (event.key === "Enter" || event.key === " ")) {
-          event.preventDefault();
-          go();
-        }
-      };
-      row.onmouseenter = () => ((focused = item.id), sendMarks());
-      row.onmouseleave = () => ((focused = null), sendMarks());
-      list.append(row);
-      if (open && defs[item.token] !== undefined) {
-        const edit = el("div", { className: "offscale-edit" }, stepRow({ name: item.token, value: edits[item.token] ?? defs[item.token] }));
-        edit.onclick = (event) => event.stopPropagation();
-        list.append(edit);
-      }
-    }
-  }
-  $("#offscale-count").textContent = `${items.filter((item) => checked.has(item.id)).length}/${items.length}`;
-}
-function setPresent(ids) {
-  const next = new Set(ids);
-  if ([...next].join() === [...present].join()) return;
-  present = next;
-  renderList();
-}
-$("#offscale-toggle").onclick = () => {
-  marking = !marking;
-  $("#offscale-toggle").setAttribute("aria-pressed", marking);
-  sendMarks();
+// 토큰 정리: 스케일에 없는 토큰을 모아 제안값으로 한 번에 바꾼다. 교체는 토큰이 다른 토큰을 따르게 하는 것이라 되돌릴 수 있다.
+const SCALES = {
+  "--space-": { title: "간격", scale: SCALE },
+  "--size-": { title: "크기", scale: [...SCALE, 44].sort((a, b) => a - b) },
+  "--font-size-": { title: "글자 크기", scale: [12, 13, 14, 16, 18, 20, 24, 28] },
+  "--font-line-": { title: "행간", scale: [14, 16, 18, 20, 22, 26, 28, 34, 40] },
+  "--radius-": { title: "반경", scale: [2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 9999] },
+  "--stroke-width-": { title: "선 두께", scale: [1, 2] },
 };
-frame.addEventListener("load", () => setTimeout(sendMarks, 600));
-fetch("preview-offscale.json").then((r) => r.json()).then((list) => {
-  items = list;
-  renderList();
-});
-setInterval(sendMarks, 2000);
+// 일부러 둔 값: 화면 읽기용 숨김 처리와 승인된 AI 고지 10px.
+const KEEP = new Set(["--space-1", "--size-1", "--font-size-10"]);
+// 값이 크게 바뀌는 항목은 기본으로 고르지 않는다. 체크한 뒤 바꾼다.
+const isChosen = (row) => (row.name in choices ? choices[row.name] : !Number.isInteger(row.value) || Math.abs(row.target - row.value) <= 2);
+const followsToken = (name) => /^var\(/.test(edits[name] ?? defs[name] ?? "");
+function targetOf(prefix, value, scale) {
+  // 화면 크기처럼 스케일을 넘는 값은 2 단위로 반올림한다.
+  if (prefix === "--size-" && value > 64) return Math.round(value / 2) * 2;
+  return scale.reduce((best, step) => (Math.abs(step - value) < Math.abs(best - value) || (Math.abs(step - value) === Math.abs(best - value) && step > best) ? step : best));
+}
+function offScale() {
+  const rows = [];
+  for (const name of Object.keys(defs)) {
+    const prefix = Object.keys(SCALES).find((key) => name.startsWith(key));
+    const value = parseFloat(defs[name]);
+    if (!prefix || !/px$/.test(defs[name] ?? "") || KEEP.has(name) || followsToken(name)) continue;
+    const { scale, title } = SCALES[prefix];
+    const large = prefix === "--size-" && value > 64;
+    if (large ? Number.isInteger(value) : scale.includes(value)) continue;
+    const suggested = targetOf(prefix, value, scale);
+    rows.push({ name, value, title, prefix, scale, target: picks[name] ?? suggested });
+  }
+  return rows.sort((a, b) => a.title.localeCompare(b.title) || a.value - b.value);
+}
+function replaceToken(row) {
+  const target = `${row.prefix}${String(row.target).replace(".", "_")}`;
+  if (defs[target] === undefined) edits[target] = `${row.target}px`;
+  edits[row.name] = `var(${target})`;
+}
+function renderClean() {
+  const rows = offScale();
+  const list = $("#clean-list");
+  list.replaceChildren();
+  let title = "";
+  for (const row of rows) {
+    if (row.title !== title) {
+      title = row.title;
+      list.append(el("div", { className: "offscale-group", textContent: title }));
+    }
+    const box = el("input", { type: "checkbox", checked: isChosen(row), ariaLabel: "바꾸기에 포함" });
+    box.onclick = (event) => event.stopPropagation();
+    box.onchange = () => {
+      choices[row.name] = box.checked;
+      save("clean-choices", choices);
+      renderClean();
+    };
+    const choose = el("select", { ariaLabel: `${row.name} 제안값` });
+    for (const step of [...new Set([...row.scale, row.target])].sort((a, b) => a - b)) choose.append(el("option", { value: step, textContent: `${step}px`, selected: step === row.target }));
+    choose.onclick = (event) => event.stopPropagation();
+    choose.onchange = () => {
+      picks[row.name] = Number(choose.value);
+      save("clean-picks", picks);
+      renderClean();
+    };
+    const text = el("span", {}, el("b", { textContent: row.name.replace(/^--/, "") }), el("small", { textContent: `${uses[row.name] ?? 0}곳에서 사용 · 누르면 이동` }));
+    const item = el("div", { className: "clean-row" }, box, text, el("em", { textContent: `${row.value}px →` }), choose);
+    item.onclick = () => {
+      goFirst = row.name;
+      send({ kind: "token-usage", name: row.name });
+    };
+    item.onmouseenter = () => send({ kind: "token-show", name: row.name });
+    item.onmouseleave = () => send({ kind: "token-show", name: null });
+    list.append(item);
+  }
+  const chosen = rows.filter(isChosen);
+  $("#clean-count").textContent = rows.length || "";
+  $("#clean-all").textContent = rows.length ? `선택한 ${chosen.length}개 한 번에 바꾸기` : "정리할 토큰이 없어요";
+  $("#clean-all").disabled = !chosen.length;
+}
+$("#clean-all").onclick = () => {
+  const chosen = offScale().filter(isChosen);
+  chosen.forEach(replaceToken);
+  refresh();
+  renderClean();
+  toast(`${chosen.length}개를 바꿨어요. 화면을 확인하고 「적용」을 누르세요`);
+};
 refresh();
