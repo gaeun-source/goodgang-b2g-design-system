@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>디자인 스튜디오</title>
+<link rel="stylesheet" href="studio.css">
+</head>
+<body>
+<header class="studio-bar">
+  <a class="studio-home" href="./">← 디자인 시스템</a>
+  <strong>디자인 스튜디오</strong>
+  <span id="edit-count" class="studio-count"></span>
+  <div class="studio-actions">
+    <button type="button" id="reset-all">초기화</button>
+    <button type="button" id="export">내보내기</button>
+    <button type="button" id="apply" class="solid">적용</button>
+  </div>
+</header>
+<main class="studio">
+  <section class="studio-left" aria-label="화면 구성">
+    <h2>화면</h2>
+    <div class="studio-group" id="variants" role="group" aria-label="화면 종류">
+      <button type="button" data-variant="default" aria-pressed="true">디폴트</button>
+      <button type="button" data-variant="bandali" aria-pressed="false">반달이</button>
+    </div>
+    <h2>페이지</h2>
+    <div class="studio-group vertical" id="pages" role="group" aria-label="페이지">
+      <button type="button" data-page="entry" aria-pressed="true">대기화면</button>
+      <button type="button" data-page="avatar" aria-pressed="false">아바타 화면</button>
+      <button type="button" data-page="chat" aria-pressed="false">대화 화면</button>
+    </div>
+    <h2>레이어</h2>
+    <div id="layers" class="layers" role="tree" aria-label="레이어"></div>
+    <p class="studio-note">더미 답변입니다. 음성과 립싱크는 없습니다. 토큰 편집과 레이어는 디폴트 화면에서만 됩니다.</p>
+  </section>
+  <section class="studio-center" aria-label="화면 미리보기">
+    <div class="studio-phone"><iframe id="frame" title="서비스 화면" src="preview/index.html?variant=default"></iframe></div>
+  </section>
+  <section class="studio-right" aria-label="편집">
+    <div class="studio-tabs" role="tablist">
+      <button type="button" role="tab" data-tab="tokens" aria-selected="true">토큰 편집</button>
+      <button type="button" role="tab" data-tab="all" aria-selected="false">전체 토큰</button>
+      <button type="button" role="tab" data-tab="offscale" aria-selected="false">스케일 밖 간격 <span id="offscale-count"></span></button>
+    </div>
+    <div id="tab-tokens">
+      <button type="button" id="mode" class="studio-toggle" aria-pressed="false">토큰 편집 켜기</button>
+      <p class="studio-note" id="mode-note">켠 뒤 화면에서 고칠 곳을 누르면 값이 여기에 나와요. 값을 바꾸면 화면에 바로 보이고, 저장은 위쪽 「적용」으로 해요. 켜 있는 동안 화면의 버튼은 동작하지 않아요.</p>
+      <div id="pick"></div>
+    </div>
+    <div id="tab-all" hidden>
+      <input id="token-search" type="search" placeholder="토큰 이름이나 값으로 찾기" aria-label="토큰 찾기">
+      <label class="studio-check"><input id="token-unused" type="checkbox"> 안 쓰는 토큰만 보기</label>
+      <p class="studio-note" id="token-summary"></p>
+      <div id="token-list"></div>
+    </div>
+    <div id="tab-offscale" hidden>
+      <button type="button" id="offscale-toggle" class="studio-toggle" aria-pressed="false">화면에 표시</button>
+      <p class="studio-note">토큰 스케일에 없는 간격입니다. 고칠지 유지할지 확인해 주세요.</p>
+      <div id="offscale-list"></div>
+    </div>
+  </section>
+</main>
+<dialog id="apply-dialog" aria-labelledby="apply-title">
+  <form method="dialog" id="apply-form">
+    <h2 id="apply-title">디자인 시스템에 적용</h2>
+    <p>공개 저장소의 <code>tokens.json</code>에 바로 커밋됩니다. 모든 페이지에 반영되고, 되돌리려면 이전 커밋으로 복구해야 해요.</p>
+    <ul id="apply-list"></ul>
+    <label id="token-field">GitHub 토큰
+      <input id="github-token" type="password" autocomplete="off" placeholder="이 저장소의 쓰기 권한 토큰">
+      <small>이 브라우저에만 보관합니다. 공용 PC에서는 쓰지 마세요.</small>
+    </label>
+    <p id="apply-error" role="alert"></p>
+    <div class="studio-dialog-actions">
+      <button type="button" id="apply-cancel">취소</button>
+      <button type="submit" id="apply-confirm" class="solid">적용</button>
+    </div>
+  </form>
+</dialog>
+<div id="toast" role="status"></div>
+<script src="studio.js" type="module"></script>
+</body>
+</html>

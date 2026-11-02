@@ -1,0 +1,3050 @@
+{
+"#root": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "#root"
+},
+"*": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "*"
+},
+"*::after": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "*::after (장식)"
+},
+"*::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "*::before (장식)"
+},
+".ai-notice-link": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".ai-notice-link"
+},
+".answer-author": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "답변 프로필"
+},
+".answer-author > span": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "답변 프로필"
+},
+".answer-author img": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "답변 프로필"
+},
+".answer-author strong": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "답변 프로필"
+},
+".answer-card": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-card"
+},
+".answer-card .answer-links": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-links"
+},
+".answer-card .answer-more": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-more"
+},
+".answer-links": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-links"
+},
+".answer-links a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "a"
+},
+".answer-links svg": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "svg"
+},
+".answer-more": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-more"
+},
+".answer-more .icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".icon"
+},
+".answer-more:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-more:active:not(:disable"
+},
+".answer-more[aria-expanded=\"true\"] .icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".icon"
+},
+".answer-pending": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-pending"
+},
+".app": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".app"
+},
+".app-footer": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "하단 영역"
+},
+".app-header": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "상단바"
+},
+".avatar": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타"
+},
+".avatar-image img": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타 이미지"
+},
+".bandali-app": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".bandali-app"
+},
+".bandali-app .app-header > .icon-button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "상단바"
+},
+".bandali-app .avatar": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타"
+},
+".bandali-app .avatar-canvas": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".avatar-canvas"
+},
+".bandali-app .avatar-canvas.shown": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".avatar-canvas.shown"
+},
+".bandali-app .avatar-image": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타 이미지"
+},
+".bandali-app .avatar-image img": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타 이미지"
+},
+".bandali-app .batu-face": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".batu-face"
+},
+".bandali-app .batu-row": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".batu-row"
+},
+".bandali-app .brand": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".bandali-app .chat-log": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 목록"
+},
+".bandali-app .chat-log .batu-message": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "아바타 답변"
+},
+".bandali-app .chat-log .suggestions": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "대화 목록"
+},
+".bandali-app .chat-log .suggestions button": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "대화 목록"
+},
+".bandali-app .chat-log .user-message": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "사용자 말풍선"
+},
+".bandali-app .chat-log > :first-child": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 목록"
+},
+".bandali-app .chat-panel": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".chat-panel"
+},
+".bandali-app .chat-panel > .chat-log": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 목록"
+},
+".bandali-app .chat-stage": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".chat-stage"
+},
+".bandali-app .chat-stage[hidden]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".chat-stage[hidden]"
+},
+".bandali-app .chat-turn": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".chat-turn"
+},
+".bandali-app .chat-turn .nearby-results": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".nearby-results"
+},
+".bandali-app .context-panel": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".context-panel"
+},
+".bandali-app .footer-note": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "AI 고지"
+},
+".bandali-app .greeting": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "말풍선"
+},
+".bandali-app .muted": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": ".muted"
+},
+".bandali-app .panel-heading": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".bandali-app .places-panel": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".places-panel"
+},
+".bandali-app .primary": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+".bandali-app .secondary": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "보조 버튼"
+},
+".bandali-app .stage": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "화면 영역"
+},
+".bandali-app .typing-dots span": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "span"
+},
+".bandali-app.chat-mode .avatar": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "아바타"
+},
+".bandali-app.chat-mode .avatar-image": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "아바타 이미지"
+},
+".bandali-app.chat-mode .context-panel": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".context-panel"
+},
+".bandali-app.chat-mode .greeting": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "말풍선"
+},
+".bandali-app.chat-mode.chat-overflow .avatar-image": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 이미지"
+},
+".bandali-app.chat-mode.comeback-open .avatar": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타"
+},
+".bandali-app.chat-mode:not(.compact) .avatar-canvas": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".avatar-canvas"
+},
+".bandali-app.chat-mode:not(.compact) .avatar-image img": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "아바타 이미지"
+},
+".bandali-app.comeback-open .greeting": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "말풍선"
+},
+".bandali-app.comeback-open .stage": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "화면 영역"
+},
+".bandali-app.comeback-open .suggest-list": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "추천 칩"
+},
+".bandali-app:not(.compact) .avatar-canvas": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".avatar-canvas"
+},
+".batu-message": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "아바타 답변"
+},
+".brand": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".bubble-clamp": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".bubble-clamp"
+},
+".bubble-more": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".bubble-more"
+},
+".bubble-more.overlay": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".bubble-more.overlay"
+},
+".bubble-more::before": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".bubble-more::before (장식)"
+},
+".bubble-text.clamped": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".bubble-text.clamped"
+},
+".chat-log": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 목록"
+},
+".chat-mode .context-panel": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".context-panel"
+},
+".chat-panel > .muted": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".muted"
+},
+".course-details": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": ".course-details"
+},
+".course-details summary": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "summary"
+},
+".emergency-link": {
+"page": "avatar",
+"modal": "emergency",
+"where": "긴급 안내 시트",
+"label": ".emergency-link"
+},
+".entry-ai-notice": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "AI 고지"
+},
+".entry-art": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-art"
+},
+".entry-backdrop": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "배경 영상"
+},
+".entry-beta": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-beta"
+},
+".entry-bottom": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "하단 영역"
+},
+".entry-conversations": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "시작 버튼"
+},
+".entry-conversations .entry-avatar": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타 음성 대화"
+},
+".entry-conversations button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "시작 버튼"
+},
+".entry-conversations button > .v7-icon:first-child": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "시작 버튼"
+},
+".entry-conversations button > .v7-icon:last-child": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "시작 버튼"
+},
+".entry-conversations button span": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "시작 버튼"
+},
+".entry-conversations button:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "시작 버튼"
+},
+".entry-heading": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "제목 영역"
+},
+".entry-language": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼 영역"
+},
+".entry-language .language-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".entry-language .language-button .v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".entry-main": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-main"
+},
+".entry-opening > .app-footer > *": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "하단 영역"
+},
+".entry-opening > .app-footer > .ai-notice": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "AI 고지"
+},
+".entry-opening > .stage > :not(.entry-skeleton)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "화면 영역"
+},
+".entry-opening > .status-slot": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".status-slot"
+},
+".entry-screen": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대기화면"
+},
+".entry-service": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "안내 문구"
+},
+".entry-skeleton": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".entry-skeleton"
+},
+".entry-skeleton.skeleton-mode-avatar": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".entry-skeleton.skeleton-mode-av"
+},
+".entry-skeleton.skeleton-mode-text": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".entry-skeleton.skeleton-mode-te"
+},
+".entry-video": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-video"
+},
+".entry-video.is-blocked": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-video.is-blocked"
+},
+".entry-video::-webkit-media-controls": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-video::-webkit-media-cont (장식)"
+},
+".entry-video::-webkit-media-controls-overlay-play-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-video::-webkit-media-cont (장식)"
+},
+".entry-video::-webkit-media-controls-panel": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-video::-webkit-media-cont (장식)"
+},
+".entry-video::-webkit-media-controls-start-playback-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".entry-video::-webkit-media-cont (장식)"
+},
+".entry-wordmark": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "서비스 이름"
+},
+".entry-wordmark img": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "서비스 이름"
+},
+".facility-start:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".facility-start:active:not(:disa"
+},
+".fatal": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".fatal"
+},
+".feedback-categories": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": ".feedback-categories"
+},
+".feedback-categories input": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "input"
+},
+".feedback-categories label": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "label"
+},
+".feedback-categories label.selected": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "label.selected"
+},
+".feedback-categories label:focus-within": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "label:focus-within"
+},
+".feedback-categories legend": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "legend"
+},
+".feedback-error": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".feedback-error"
+},
+".feedback-notice": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": ".feedback-notice"
+},
+".feedback-receipt": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".feedback-receipt"
+},
+".feedback-sheet": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": ".feedback-sheet"
+},
+".feedback-text": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": ".feedback-text"
+},
+".feedback-text small": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "small"
+},
+".feedback-text textarea": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "textarea"
+},
+".footer-note": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "AI 고지"
+},
+".full-width": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": ".full-width"
+},
+".greeting": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "말풍선"
+},
+".header-beta": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".header-beta"
+},
+".home-ask .icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "입력창"
+},
+".home-ask button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "입력창"
+},
+".home-ask input": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".home-ask input:focus-visible": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".home-ask:has(input:focus-visible)": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".icon"
+},
+".icon-button": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": ".icon-button"
+},
+".icon-button:active:not(:disabled)": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": ".icon-button:active:not(:disable"
+},
+".language-button:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".language-options": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".language-options .muted": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "언어 목록"
+},
+".language-options > button": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".language-options > button > .icon": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".language-options > button > span": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".language-options > button[aria-pressed=\"true\"]": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".language-options small": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".language-options strong": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "언어 목록"
+},
+".loading": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".loading"
+},
+".location-card strong": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "strong"
+},
+".map-controls button:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button:active:not(:disabled)"
+},
+".mic-check": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".mic-check"
+},
+".mic-check p": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "p"
+},
+".mic-check-actions": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".mic-check-actions"
+},
+".modal-body": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 내용"
+},
+".modal-later": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".modal-later"
+},
+".modal-subtitle": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".modal-subtitle"
+},
+".more-options > button": {
+"page": "avatar",
+"modal": "more",
+"where": "더보기 시트",
+"label": "더보기 목록"
+},
+".more-options > button > .icon": {
+"page": "avatar",
+"modal": "more",
+"where": "더보기 시트",
+"label": "더보기 목록"
+},
+".muted": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": ".muted"
+},
+".panel-heading": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".panel-heading h2": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".park-options": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".park-options"
+},
+".park-options > button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button"
+},
+".park-options > button > .icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".icon"
+},
+".park-options > button > span:not(.park-option-icon)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "span:not(.park-option-icon)"
+},
+".park-options small": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "small"
+},
+".park-options strong": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "strong"
+},
+".place-search input:focus-visible": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "input:focus-visible"
+},
+".place-search:has(input:focus-visible)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".place-search:has(input:focus-vi"
+},
+".primary": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+".primary:active:not(:disabled)": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+".privacy-copy": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": ".privacy-copy"
+},
+".privacy-copy .primary": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "주요 버튼"
+},
+".privacy-copy h3": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "h3"
+},
+".scenario-options": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": ".scenario-options"
+},
+".scenario-options button": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "button"
+},
+".scenario-options button[aria-pressed=\"true\"]": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "button[aria-pressed=\"true\"]"
+},
+".secondary": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "보조 버튼"
+},
+".settings-options .toggle": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "토글"
+},
+".settings-options .toggle::after": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "토글 (장식)"
+},
+".settings-options > [aria-checked=\"true\"] > .toggle": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "토글"
+},
+".settings-options > [aria-checked=\"true\"] > .toggle::after": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "토글 (장식)"
+},
+".settings-options > button": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "설정 목록"
+},
+".settings-options > button > .icon": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "설정 목록"
+},
+".skeleton-answer": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-answer"
+},
+".skeleton-author": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-author"
+},
+".skeleton-block": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-block"
+},
+".skeleton-character": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-character"
+},
+".skeleton-face": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-face"
+},
+".skeleton-line": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-line"
+},
+".skeleton-line-short": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-line-short"
+},
+".skeleton-name": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".skeleton-name"
+},
+".source": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": ".source"
+},
+".source-statuses p": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "p"
+},
+".sr-only": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".sr-only"
+},
+".suggestions": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": ".suggestions"
+},
+".suggestions button": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "button"
+},
+".text-button": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": ".text-button"
+},
+".text-button:active:not(:disabled)": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": ".text-button:active:not(:disable"
+},
+".user-message": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "사용자 말풍선"
+},
+".v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon"
+},
+".v7-icon::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon::before (장식)"
+},
+".v7-icon[data-icon=\"Arrow\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Arrow\"]"
+},
+".v7-icon[data-icon=\"Chat\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Chat\"]"
+},
+".v7-icon[data-icon=\"Chat\"]::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Chat\"]::befo (장식)"
+},
+".v7-icon[data-icon=\"Chevron\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Chevron\"]"
+},
+".v7-icon[data-icon=\"Close\"]": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": ".v7-icon[data-icon=\"Close\"]"
+},
+".v7-icon[data-icon=\"FAQ\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"FAQ\"]"
+},
+".v7-icon[data-icon=\"HeaderBack\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"HeaderBack\"]"
+},
+".v7-icon[data-icon=\"HeaderBack\"]::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"HeaderBack\"] (장식)"
+},
+".v7-icon[data-icon=\"HeaderLanguage\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"HeaderLangua"
+},
+".v7-icon[data-icon=\"Locate\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Locate\"]"
+},
+".v7-icon[data-icon=\"Mic\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Mic\"]"
+},
+".v7-icon[data-icon=\"MicOff\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"MicOff\"]"
+},
+".v7-icon[data-icon=\"Mountain\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Mountain\"]"
+},
+".v7-icon[data-icon=\"Mountain16\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Mountain16\"]"
+},
+".v7-icon[data-icon=\"PanelChevron\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"PanelChevron"
+},
+".v7-icon[data-icon=\"Parking\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Parking\"]"
+},
+".v7-icon[data-icon=\"Pin\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Pin\"]"
+},
+".v7-icon[data-icon=\"RestAreaLeaf\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"RestAreaLeaf"
+},
+".v7-icon[data-icon=\"ScenarioWarning\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"ScenarioWarn"
+},
+".v7-icon[data-icon=\"Send\"]": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": ".v7-icon[data-icon=\"Send\"]"
+},
+".v7-icon[data-icon=\"Shelter\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Shelter\"]"
+},
+".v7-icon[data-icon=\"SourceLink\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"SourceLink\"]"
+},
+".v7-icon[data-icon=\"Sun\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Sun\"]"
+},
+".v7-icon[data-icon=\"Toilet\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Toilet\"]"
+},
+".v7-icon[data-icon=\"Voice\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Voice\"]"
+},
+".v7-icon[data-icon=\"Voice\"]::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Voice\"]::bef (장식)"
+},
+".v7-icon[data-icon=\"Volume\"]": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-icon[data-icon=\"Volume\"]"
+},
+".v7-icon[data-icon=\"VolumeOff\"]": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".v7-icon[data-icon=\"VolumeOff\"]"
+},
+".v7-icon[data-icon=\"Walk\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Walk\"]"
+},
+".v7-icon[data-icon=\"Warning\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"Warning\"]"
+},
+".v7-icon[data-icon=\"WeatherCloudy\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"WeatherCloud"
+},
+".v7-icon[data-icon=\"WeatherHeavyRain\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"WeatherHeavy"
+},
+".v7-icon[data-icon=\"WeatherLightRain\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"WeatherLight"
+},
+".v7-icon[data-icon=\"WeatherOvercast\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"WeatherOverc"
+},
+".v7-icon[data-icon=\"WeatherSunny\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"WeatherSunny"
+},
+".v7-icon[data-icon=\"WeatherUnknown\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon[data-icon=\"WeatherUnkno"
+},
+".v7-shell": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".v7-shell"
+},
+".v7-shell .ai-notice": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "AI 고지"
+},
+".v7-shell .answer-links .v7-icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon"
+},
+".v7-shell .answer-links a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "a"
+},
+".v7-shell .answer-links a::after": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "a::after (장식)"
+},
+".v7-shell .answer-more::after": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-more::after (장식)"
+},
+".v7-shell .answer-pending": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-pending"
+},
+".v7-shell .app-footer": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "하단 영역"
+},
+".v7-shell .app-footer > .ai-notice": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "AI 고지"
+},
+".v7-shell .app-footer > .footer-note": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "AI 고지"
+},
+".v7-shell .app-footer:has(> .conversation-controls)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "입력 영역"
+},
+".v7-shell .app-footer:has(> .conversation-controls:not(.voice-controls)) > :is(.ai-notice, .footer-note)": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "AI 고지"
+},
+".v7-shell .app-footer:has(> .voice-controls)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "음성 버튼"
+},
+".v7-shell .app-header": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "상단바"
+},
+".v7-shell .app-header .brand": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".v7-shell .app-header .brand:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".v7-shell .app-header .language-button:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".v7-shell .app-header :is(.brand, .language-button)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".v7-shell .app-header :is(.brand, .language-button)::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼 (장식)"
+},
+".v7-shell .app-header :is(.brand, .language-button):active:not(:disabled)::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼 (장식)"
+},
+".v7-shell .app-header > .brand": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".v7-shell .app-header > .brand::after": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼 (장식)"
+},
+".v7-shell .avatar-image img": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "아바타 이미지"
+},
+".v7-shell .batu-content": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".batu-content"
+},
+".v7-shell .batu-face": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".batu-face"
+},
+".v7-shell .batu-message .answer-links": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell .batu-message .answer-links .v7-icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell .batu-message .answer-links a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell .batu-message .answer-links button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell .batu-message a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell .batu-row": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".batu-row"
+},
+".v7-shell .brand": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".v7-shell .brand .v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼"
+},
+".v7-shell .brand::after": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "뒤로 버튼 (장식)"
+},
+".v7-shell .chat-author": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".chat-author"
+},
+".v7-shell .chat-log": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 목록"
+},
+".v7-shell .chat-log .batu-message": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "아바타 답변"
+},
+".v7-shell .chat-log .suggestions": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "대화 목록"
+},
+".v7-shell .chat-log .user-message": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "사용자 말풍선"
+},
+".v7-shell .chat-panel": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".chat-panel"
+},
+".v7-shell .chat-turn .nearby-results": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".nearby-results"
+},
+".v7-shell .connection-line": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".connection-line"
+},
+".v7-shell .conversation-controls": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "입력 영역"
+},
+".v7-shell .conversation-controls > .mode-switch": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 전환 버튼"
+},
+".v7-shell .conversation-controls > .mode-switch .v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 전환 버튼"
+},
+".v7-shell .conversation-controls.voice-controls": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "음성 버튼"
+},
+".v7-shell .footer-note": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "AI 고지"
+},
+".v7-shell .greeting": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "말풍선"
+},
+".v7-shell .greeting p": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "말풍선"
+},
+".v7-shell .header-actions": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "상단바 버튼"
+},
+".v7-shell .header-title": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "제목"
+},
+".v7-shell .header-title > strong": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "제목"
+},
+".v7-shell .home-ask": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".v7-shell .home-ask .mode-switch": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "대화 전환 버튼"
+},
+".v7-shell .home-ask .mode-switch .v7-icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "대화 전환 버튼"
+},
+".v7-shell .home-ask input": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".v7-shell .home-ask input::placeholder": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창 (장식)"
+},
+".v7-shell .home-ask input:focus-visible": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".v7-shell .home-ask.pointer-focus:has(input:focus-visible)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "입력창"
+},
+".v7-shell .home-ask.sending": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "입력창"
+},
+".v7-shell .home-ask:focus-within": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".v7-shell .home-ask:has(input:focus-visible)": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".v7-shell .icon-button:active:not(:disabled)": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": ".icon-button:active:not(:disable"
+},
+".v7-shell .language-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".v7-shell .language-button .v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+".v7-shell .language-button.more-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "더보기 버튼"
+},
+".v7-shell .language-button.more-button::after": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "더보기 버튼 (장식)"
+},
+".v7-shell .location-chip": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".location-chip"
+},
+".v7-shell .location-chip > i": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "i"
+},
+".v7-shell .location-chip > span:not([aria-hidden])": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "span:not([aria-hidden])"
+},
+".v7-shell .location-chip u": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "u"
+},
+".v7-shell .location-chip-row": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".location-chip-row"
+},
+".v7-shell .location-chip-row.location-status": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".location-chip-row.location-stat"
+},
+".v7-shell .location-chip.off": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ".location-chip.off"
+},
+".v7-shell .map-controls button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button"
+},
+".v7-shell .map-controls button::after": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button::after (장식)"
+},
+".v7-shell .mic-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "마이크 버튼"
+},
+".v7-shell .mic-button .v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "마이크 버튼"
+},
+".v7-shell .mic-button.listening": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "마이크 버튼"
+},
+".v7-shell .mode-switch:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 전환 버튼"
+},
+".v7-shell .more-button .icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "더보기 버튼"
+},
+".v7-shell .panel-action .primary": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "주요 버튼"
+},
+".v7-shell .panel-heading": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell .panel-heading .icon-button": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell .panel-heading .icon-button .v7-icon": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell .panel-heading .icon-button::after": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목 (장식)"
+},
+".v7-shell .panel-heading h2": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell .park-picker": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".park-picker"
+},
+".v7-shell .park-picker .v7-icon": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".v7-icon"
+},
+".v7-shell .park-picker::after": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".park-picker::after (장식)"
+},
+".v7-shell .park-picker:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".park-picker:active:not(:disable"
+},
+".v7-shell .primary": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+".v7-shell .quick-actions button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button"
+},
+".v7-shell .quick-actions button::after": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button::after (장식)"
+},
+".v7-shell .quick-actions button:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button:active:not(:disabled)"
+},
+".v7-shell .quick-actions button[aria-pressed=\"true\"]:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button[aria-pressed=\"true\"]:acti"
+},
+".v7-shell .rating": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".rating"
+},
+".v7-shell .rating-actions": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-actions"
+},
+".v7-shell .rating-actions button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button"
+},
+".v7-shell .rating-actions button[type=\"submit\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button[type=\"submit\"]"
+},
+".v7-shell .rating-actions button[type=\"submit\"]:disabled": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button[type=\"submit\"]:disabled"
+},
+".v7-shell .rating-button": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".rating-button"
+},
+".v7-shell .rating-button:active:not(:disabled)": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".rating-button:active:not(:disab"
+},
+".v7-shell .rating-button:hover": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".rating-button:hover"
+},
+".v7-shell .rating-comment": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-comment"
+},
+".v7-shell .rating-comment textarea": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "textarea"
+},
+".v7-shell .rating-error": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-error"
+},
+".v7-shell .rating-form": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-form"
+},
+".v7-shell .rating-form fieldset": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "fieldset"
+},
+".v7-shell .rating-form legend": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "legend"
+},
+".v7-shell .rating-hint": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-hint"
+},
+".v7-shell .rating-prompt": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".rating-prompt"
+},
+".v7-shell .rating-reason": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-reason"
+},
+".v7-shell .rating-reason input": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "input"
+},
+".v7-shell .rating-row": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".rating-row"
+},
+".v7-shell .rating-thanks": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".rating-thanks"
+},
+".v7-shell .send-button": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "보내기 버튼"
+},
+".v7-shell .send-button .v7-icon": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "보내기 버튼"
+},
+".v7-shell .send-button:active:not(:disabled)": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "보내기 버튼"
+},
+".v7-shell .send-button:disabled": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "보내기 버튼"
+},
+".v7-shell .send-button:not(:disabled)": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "보내기 버튼"
+},
+".v7-shell .stage": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "화면 영역"
+},
+".v7-shell .stage .chat-log": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 목록"
+},
+".v7-shell .stage.interruptible": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "화면 영역"
+},
+".v7-shell .status-slot": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": ".status-slot"
+},
+".v7-shell .status-slot .interrupt-hint": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".interrupt-hint"
+},
+".v7-shell .status-slot .voice-input-status": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".voice-input-status"
+},
+".v7-shell .status-slot .voice-level": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".voice-level"
+},
+".v7-shell .status-slot .voice-level i": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "i"
+},
+".v7-shell .status-slot.needs-action": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".status-slot.needs-action"
+},
+".v7-shell .status-slot.needs-action .voice-input-status": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".voice-input-status"
+},
+".v7-shell .suggest-list": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "추천 칩"
+},
+".v7-shell .suggest-list button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "추천 칩"
+},
+".v7-shell .suggest-list button::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "추천 칩 (장식)"
+},
+".v7-shell .suggest-list button:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "추천 칩"
+},
+".v7-shell .suggest-list::-webkit-scrollbar": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "추천 칩 (장식)"
+},
+".v7-shell .suggest-list[data-fade-end]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "추천 칩"
+},
+".v7-shell .suggest-list[data-fade-start]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "추천 칩"
+},
+".v7-shell .suggest-list[data-fade-start][data-fade-end]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "추천 칩"
+},
+".v7-shell .v4-navigation .layer-heading button:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button:active:not(:disabled)"
+},
+".v7-shell .v4-navigation .navigation-instruction .instruction-action:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".instruction-action:active:not(:"
+},
+".v7-shell .v4-navigation .navigation-instruction .navigation-handoff:active": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".navigation-handoff:active"
+},
+".v7-shell .v4-navigation .navigation-links button:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button:active:not(:disabled)"
+},
+".v7-shell .v4-navigation .navigation-links button[aria-pressed=\"true\"]:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "button[aria-pressed=\"true\"]:acti"
+},
+".v7-shell .voice-controls .mic-button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .mic-button .stop-glyph": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .mic-button.on": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .mic-button.on:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .mic-button.speaking": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .mic-button.speaking:active:not(:disabled)": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .mic-button:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "마이크 버튼"
+},
+".v7-shell .voice-controls .v7-icon": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "음성 버튼"
+},
+".v7-shell .voice-controls > .mode-switch": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "대화 전환 버튼"
+},
+".v7-shell .voice-controls > .sound-toggle": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "스피커 버튼"
+},
+".v7-shell .voice-controls > .sound-toggle:active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "스피커 버튼"
+},
+".v7-shell .voice-controls > .sound-toggle[aria-pressed=\"false\"]": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "스피커 버튼"
+},
+".v7-shell > .stage > .entry-skeleton": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "화면 영역"
+},
+".v7-shell button.primary": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+".v7-shell button.primary:disabled": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+".v7-shell details > summary": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "summary"
+},
+".v7-shell dialog > .panel-heading": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell dialog > .panel-heading .icon-button": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell dialog > .panel-heading h2": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+".v7-shell input:not([type])": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "input:not([type])"
+},
+".v7-shell input[type=\"search\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "input[type=\"search\"]"
+},
+".v7-shell input[type=\"text\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "input[type=\"text\"]"
+},
+".v7-shell textarea": {
+"page": "avatar",
+"modal": "feedback",
+"where": "의견 보내기 시트",
+"label": "textarea"
+},
+".v7-shell.avatar-mode .app-footer": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "하단 영역"
+},
+".v7-shell.avatar-mode .chat-log .answer-card": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "대화 목록"
+},
+".v7-shell.avatar-mode .chat-log .answer-card .answer-links a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "대화 목록"
+},
+".v7-shell.chat-mode .chat-log": {
+"page": "avatar",
+"modal": null,
+"where": "아바타 화면",
+"label": "대화 목록"
+},
+".v7-shell.messenger-mode .answer-author": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "답변 프로필"
+},
+".v7-shell.messenger-mode .answer-pending": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".answer-pending"
+},
+".v7-shell.messenger-mode .avatar": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "아바타"
+},
+".v7-shell.messenger-mode .batu-content": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": ".batu-content"
+},
+".v7-shell.messenger-mode .batu-message": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "아바타 답변"
+},
+".v7-shell.messenger-mode .batu-message .answer-links a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell.messenger-mode .batu-message .answer-links button": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell.messenger-mode .batu-message a": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타 답변"
+},
+".v7-shell.messenger-mode .batu-row": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": ".batu-row"
+},
+".v7-shell.messenger-mode .chat-log": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "대화 목록"
+},
+".v7-shell.messenger-mode .chat-stage": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": ".chat-stage"
+},
+".v7-shell.messenger-mode .home-ask": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "입력창"
+},
+".v7-shell.messenger-mode .loading": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".loading"
+},
+".v7-shell.messenger-mode .typing-dots span": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "span"
+},
+".v7-shell.messenger-mode .user-message": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "사용자 말풍선"
+},
+".v7-shell.text-mode.compact .avatar": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "아바타"
+},
+".v7-shell:not(.chat-mode):not(.compact) > .stage": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "화면 영역"
+},
+".voice-input-status": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".voice-input-status"
+},
+".voice-level": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".voice-level"
+},
+".voice-level i": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "i"
+},
+":root": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": ":root"
+},
+":root:has(dialog.alert[open])": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "시트"
+},
+":root:has(dialog[open])": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+":where( .primary, .entry-conversations button, .instruction-action, .navigation-handoff, .facility-start, .v7-shell .send-button, .v7-shell .mic-button, .end-button, .navigation-links button, .suggest-list button, .park-options > button, .language-options button, .settings-list button, .map-controls button, .sound-toggle, .mode-switch, .v7-shell .quick-actions button, .answer-more, .text-button, .icon-button, .layer-heading button, .language-button, .v7-shell .park-picker, .v7-shell .rating-button, .help-button )": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+":where( .primary, .entry-conversations button, .instruction-action, .navigation-handoff, .facility-start, .v7-shell .send-button, .v7-shell .mic-button, .end-button, .navigation-links button, .suggest-list button, .park-options > button, .language-options button, .settings-list button, .map-controls button, .sound-toggle, .mode-switch, .v7-shell .quick-actions button, .answer-more, .text-button, .icon-button, .layer-heading button, .language-button, .v7-shell .park-picker, .v7-shell .rating-button, .help-button ):active:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "언어 버튼"
+},
+"[role=\"button\"]": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "[role=\"button\"]"
+},
+"a": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "a"
+},
+"a:focus-visible": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "a:focus-visible"
+},
+"body": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "body"
+},
+"body::after": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "body::after (장식)"
+},
+"body::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "body::before (장식)"
+},
+"button": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "button"
+},
+"button.location-chip::before": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "button.location-chip::before (장식)"
+},
+"button.primary:disabled": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+"button:disabled": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "button:disabled"
+},
+"button:focus-visible": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "button:focus-visible"
+},
+"button:hover:not(:disabled)": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "button:hover:not(:disabled)"
+},
+"dialog": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+"dialog .location-card": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트"
+},
+"dialog .location-card p": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트"
+},
+"dialog .location-card p.source": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트"
+},
+"dialog .location-card strong": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트"
+},
+"dialog .modal-body": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 내용"
+},
+"dialog .modal-body > .daylight-check": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트 내용"
+},
+"dialog .modal-body > .daylight-why": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트 내용"
+},
+"dialog .modal-body > .emergency-link": {
+"page": "avatar",
+"modal": "emergency",
+"where": "긴급 안내 시트",
+"label": "시트 내용"
+},
+"dialog .modal-body > .sheet-large": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트 내용"
+},
+"dialog .modal-body:has(> .location-card) > .text-button": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트 내용"
+},
+"dialog .modal-body:has(> .location-card) > button.primary": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "주요 버튼"
+},
+"dialog .modal-body:has(> .location-card) > p": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트 내용"
+},
+"dialog .modal-body:has(> .location-card) > p.muted": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트 내용"
+},
+"dialog .privacy-copy": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "시트"
+},
+"dialog .privacy-copy > button.primary": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "주요 버튼"
+},
+"dialog .privacy-copy h3": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "시트"
+},
+"dialog .privacy-copy h3:first-child": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "시트"
+},
+"dialog .privacy-copy p": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "시트"
+},
+"dialog .privacy-copy p:last-of-type": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "시트"
+},
+"dialog > .panel-heading": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+"dialog > .panel-heading .icon-button": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+"dialog > .panel-heading .modal-back": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트 제목"
+},
+"dialog > .panel-heading h2": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 제목"
+},
+"dialog > .panel-heading:has(> .modal-back) > h2": {
+"page": "avatar",
+"modal": "gps",
+"where": "GPS 시트",
+"label": "시트 제목"
+},
+"dialog.alert": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "시트"
+},
+"dialog.alert .alert-actions": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "버튼 쌍"
+},
+"dialog.alert .alert-actions > .secondary": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "보조 버튼"
+},
+"dialog.alert .alert-actions > button": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "버튼 쌍"
+},
+"dialog.alert .modal-body > p": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "시트 내용"
+},
+"dialog.alert .panel-heading h2": {
+"page": "avatar",
+"modal": "leave",
+"where": "나가기 다이얼로그",
+"label": "시트 제목"
+},
+"dialog.sheet": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트"
+},
+"dialog.sheet .modal-body": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트 내용"
+},
+"dialog.slide": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+"dialog.slide.leaving": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트"
+},
+"dialog.slide.leaving::backdrop": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "시트 (장식)"
+},
+"dialog.slide:not(.sheet)": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+"dialog::backdrop": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트 (장식)"
+},
+"dialog:focus": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+"dialog:focus-visible": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+"dialog[open]": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "시트"
+},
+"h1": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "h1"
+},
+"h2": {
+"page": "avatar",
+"modal": "language",
+"where": "언어 선택 시트",
+"label": "h2"
+},
+"h3": {
+"page": "avatar",
+"modal": "privacy",
+"where": "개인정보 시트",
+"label": "h3"
+},
+"html": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "html"
+},
+"html:lang(en) .v7-shell .app-header": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "상단바"
+},
+"html:lang(en) .v7-shell .header-title": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "제목"
+},
+"html:lang(en) .v7-shell .park-picker": {
+"page": null,
+"modal": null,
+"where": null,
+"label": ".park-picker"
+},
+"input": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "input"
+},
+"input:focus-visible": {
+"page": "chat",
+"modal": null,
+"where": "대화 화면",
+"label": "input:focus-visible"
+},
+"p": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "p"
+},
+"p + p": {
+"page": "avatar",
+"modal": "emergency",
+"where": "긴급 안내 시트",
+"label": "p"
+},
+"select": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "select"
+},
+"select:focus-visible": {
+"page": null,
+"modal": null,
+"where": null,
+"label": "select:focus-visible"
+},
+"summary": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "summary"
+},
+"summary:focus-visible": {
+"page": "avatar",
+"modal": "settings",
+"where": "설정 시트",
+"label": "summary:focus-visible"
+},
+"svg": {
+"page": "entry",
+"modal": null,
+"where": "대기화면",
+"label": "svg"
+}
+}

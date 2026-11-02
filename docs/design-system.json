@@ -806,6 +806,39 @@
       }
     ]
   },
+  "tokenNaming": {
+    "status": "proposal",
+    "tiers": {
+      "base": [
+        "gray/*",
+        "main/*",
+        "space/*",
+        "size/*",
+        "radius/*",
+        "font/size/*",
+        "font/line/*",
+        "font/weight/*",
+        "stroke-width/*"
+      ],
+      "role": [
+        "bg/*",
+        "fg/*",
+        "stroke/*",
+        "text/*",
+        "layout/*"
+      ],
+      "component": "component/variant/property, only when the value or its ownership differs from a role"
+    },
+    "policy": "Screens reference role and component tokens. Color roles use bg/fg/stroke; text/ is for type styles only.",
+    "cssNotation": "Replace slashes with hyphens: bg/page/top -> --bg-page-top",
+    "appliedIn": "Default preview screens",
+    "undecided": [
+      "screen gutter 18 or 20",
+      "default stroke colour",
+      "gray/950 palette step",
+      "fg/muted, bg/page/top and warning colours in the palette"
+    ]
+  },
   "resources": {
     "humanGuide": "guide.md",
     "machineRules": "design-system.json",

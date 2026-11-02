@@ -26,6 +26,20 @@
 
 승인된 프로젝트 예외 [확정]: 반달이 푸터의 AI 고지 문구와 공식 안내 링크는 10/16을 쓴다. 이 프로젝트의 이 문구에만 적용한다.
 
+## 토큰 이름표 [proposal]
+
+토큰은 3단계로 관리한다. 화면은 2단계와 3단계를 참조한다. 3단계는 역할 토큰과 값이나 관리 이유가 다를 때만 만든다. 디폴트 화면에 적용한 초안이며, 값은 반달이 현재 값이다.
+
+| 단계 | 이름 규칙 | 예시 |
+|---|---|---|
+| 1. 기본값 | `gray/*`, `main/*`, `space/*`, `size/*`, `radius/*`, `font/size/*`, `font/line/*`, `font/weight/*`, `stroke-width/*` | `gray/900`, `space/16` |
+| 2. 역할 | 색 `bg/*`, `fg/*`, `stroke/*`, 글자 `text/*`, 배치 `layout/*` | `fg/neutral`, `text/body/default`, `layout/sheet/padding` |
+| 3. 컴포넌트 | `컴포넌트/종류/속성` | `button/large/height`, `bubble/avatar/bg`, `sheet/radius` |
+
+색 이름은 확정 규칙의 `bg/fg/stroke`를 쓰고, 예시 표의 `surface/text/action`은 쓰지 않는다. `text/`는 글자 스타일에만 쓴다. CSS 표기는 슬래시를 하이픈으로 바꾼다. 예: `bg/page/top` → `--bg-page-top`.
+
+미정: 화면 좌우 여백 18과 20, 기본 선 색, `gray/950`의 팔레트 단계, `fg/muted`·`bg/page/top`·경고 색의 팔레트 연결.
+
 ## 간격 규칙
 
 기본 간격: **0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64**.
