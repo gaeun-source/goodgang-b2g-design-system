@@ -63,7 +63,7 @@ Promise.all([fetch(`tokens.json?t=${Date.now()}`).then((r) => r.json()), fetch("
   tokens = values;
   for (const group of groups) box.append(el("h3", { textContent: group.name }), ...group.items.map(itemView));
   paint();
-  if (location.hash.startsWith("#lib-")) document.querySelector(location.hash)?.scrollIntoView();
+  if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 });
 addEventListener("storage", (event) => {
   if (event.key === "studio-edits") paint();
