@@ -784,6 +784,20 @@
         ],
         "scope": "Both actions are equally important. Which action is primary decides the ratio; 3:7 applies only when one is clearly secondary."
       }
+    },
+    "content.aiNotice": {
+      "status": "confirmed",
+      "text": "AI 답변은 부정확할 수 있으니 {linkLabel}을(를) 확인해 주세요.",
+      "textScope": "all projects",
+      "linkLabel": "project-specific",
+      "linkUrl": "project-specific",
+      "projectSetting": "project-theme.json aiNotice",
+      "particle": "을/를 follows the final consonant of linkLabel",
+      "examples": {
+        "bandali": {
+          "linkLabel": "공식 안내"
+        }
+      }
     }
   },
   "constraints": [
@@ -799,7 +813,7 @@
       {
         "id": "aiNotice",
         "status": "confirmed",
-        "scope": "Footer AI notice and its official-guidance link",
+        "scope": "Footer AI notice and its link",
         "fontSizePx": 10,
         "lineHeightPx": 16,
         "note": "Approved exception to typography.baseScale for this project only. Do not apply to other text."

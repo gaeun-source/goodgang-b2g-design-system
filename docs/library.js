@@ -1,5 +1,6 @@
 // Shows the real components (library.json, captured from the preview) with the app's own CSS.
-// Values come from tokens.json; unapplied studio edits in this browser are laid over them.
+// Values come from tokens.json; the palettes as edited in the colors section above, and unapplied studio edits in
+// this browser, are laid over them.
 const box = document.querySelector("#library");
 const note = document.querySelector("#library-note");
 const hosts = [...document.querySelectorAll(".ds-project-modal")];
@@ -19,10 +20,25 @@ function readEdits() {
     return {};
   }
 }
+// app.js's palette editors, live: main and sub as they are now (with the H shift), gray as #neutral-code shows it.
+// Kept in this browser too (gg-palette-live), so the studio's preview follows them.
+let lastPalette = "";
+function palette() {
+  try {
+    const values = {};
+    for (const name of ["main", "sub"]) for (const n of brandEditors[name].current()) values[`--${name}-${n.step}`] = hsvHex(n.h, n.s, n.b);
+    for (const n of JSON.parse(document.querySelector("#neutral-code").textContent).scale) values[`--gray-${n.step}`] = n.hex;
+    const json = JSON.stringify(values);
+    if (json !== lastPalette) localStorage.setItem("gg-palette-live", (lastPalette = json));
+    return values;
+  } catch {
+    return {};
+  }
+}
 const finalValue = (value, all, depth = 0) => (value ?? "").replace(/var\((--[\w-]+)\)/g, (_, name) => (depth > 8 ? "" : finalValue(all[name], all, depth + 1)));
 function paint() {
   const edits = readEdits();
-  const all = { ...tokens, ...edits };
+  const all = { ...tokens, ...palette(), ...edits };
   for (const host of hosts) for (const [name, value] of Object.entries(all)) host.style.setProperty(name, value);
   for (const { cell, name } of cells) cell.textContent = finalValue(all[name], all);
   const count = Object.keys(edits).length;
@@ -65,6 +81,8 @@ Promise.all([fetch(`tokens.json?t=${Date.now()}`).then((r) => r.json()), fetch("
   paint();
   if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 });
+const colors = document.querySelector("#colors");
+if (colors) new MutationObserver(paint).observe(colors, { subtree: true, childList: true, characterData: true, attributes: true });
 addEventListener("storage", (event) => {
   if (event.key === "studio-edits") paint();
 });

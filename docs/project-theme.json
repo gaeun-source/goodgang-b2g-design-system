@@ -72,5 +72,9 @@
   },
   "navigationBarHeight": {
     "default": 56
+  },
+  "aiNotice": {
+    "linkLabel": null,
+    "linkUrl": null
   }
 }
