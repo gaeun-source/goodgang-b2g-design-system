@@ -76,5 +76,8 @@
   "aiNotice": {
     "linkLabel": null,
     "linkUrl": null
+  },
+  "bubbleAvatar": {
+    "image": null
   }
 }

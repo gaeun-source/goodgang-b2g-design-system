@@ -815,6 +815,15 @@
         "date": "2026-11-03"
       },
       "source": "반달이 src/lib/mic-slot.ts MIC_RING_MAX_PX"
+    },
+    "bubble.avatarProfile": {
+      "status": "confirmed",
+      "image": "project-specific",
+      "projectSetting": "project-theme.json bubbleAvatar.image",
+      "common": "Bubble size, shape and layout rules stay common",
+      "example": "반달이 (this site's preview only)",
+      "decidedBy": "조가은",
+      "date": "2026-11-03"
     }
   },
   "constraints": [

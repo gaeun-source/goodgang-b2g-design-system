@@ -270,7 +270,7 @@
      "name": "말풍선",
      "status": "confirmed",
      "studio": ".v7-shell .chat-log .batu-message",
-     "note": "아바타와 사용자 말풍선. 14/22.",
+     "note": "아바타와 사용자 말풍선. 14/22. 아바타 프로필 이미지는 프로젝트마다 다름(예시는 반달이).",
      "group": "대화",
      "states": [
       {
