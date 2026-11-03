@@ -806,7 +806,7 @@
       "transition": "border-width 0.08s linear",
       "tokens": {
         "--voice-mic-ring-max": "var(--size-8)",
-        "--voice-mic-ring-color": "color-mix(in srgb, var(--main-200) 50%, transparent)"
+        "--voice-mic-ring-color": "color-mix(in srgb, var(--main-200) 25%, transparent)"
       },
       "implementation": "Pass the level as --mic-level (0..1); border-width: calc(var(--mic-level) * var(--voice-mic-ring-max)) solid var(--voice-mic-ring-color).",
       "color": {
