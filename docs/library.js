@@ -243,7 +243,8 @@ function screenView({ label, html, scrim }) {
     const holder = el("div", { className: "v7-shell" });
     holder.style.display = "contents";
     holder.append(sheet);
-    sheet.style.cssText += ";position:absolute;inset:auto 0 0;margin:0 auto;z-index:21";
+    // overflow: what a modal dialog gets from the browser, so its heading keeps inside the rounded corners.
+    sheet.style.cssText += ";position:absolute;inset:auto 0 0;margin:0 auto;z-index:21;overflow:auto";
     inner.append(back, holder);
     const reopen = el("button", { type: "button", className: "lib-screen-reopen", textContent: "시트 다시 열기", hidden: true });
     reopen.addEventListener("click", () => {
