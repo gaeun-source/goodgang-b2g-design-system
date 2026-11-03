@@ -2705,6 +2705,16 @@ dialog .modal-body > .daylight-check {
 .v7-icon[data-icon="WeatherUnknown"] {
   --v7-art: url("/assets/v7/weather/unknown.svg");
 }
+/* 가은 11/03: never a second outline. A part with its own line shows focus by that line, stroke/brand 1px; a ring only
+   where there is no line (icon buttons, links). */
+:is(.entry-conversations button, .conversation-controls:not(.voice-controls) .mode-switch, .sound-toggle, .mic-button:not(.on), .send-button, .language-options button, .feedback-categories label, .feedback-text textarea, .rating-form textarea, .rating-reason, .rating-button, .primary, .secondary):is(:focus-visible, :focus-within) {
+  outline: none;
+  border-color: var(--stroke-brand);
+}
+.suggest-list button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 var(--stroke-width-1) var(--stroke-brand);
+}
 `,t=`/* Three steps, as the design system's token rule: 1 base values, 2 roles, 3 components. The screens use 2 and 3;
    a base value appears on a screen only where no role is named yet. Values are 반달이's as they were. */
 :root {

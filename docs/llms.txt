@@ -35,6 +35,7 @@
 - [반경과 선](./#shape)
 - [안전 영역](./#safe-area)
 - [실사용 컴포넌트](./#library-section): 앱 실제 마크업과 현재 토큰값
+- [전체 컴포넌트 미리보기](./#component-preview): 컴포넌트를 앱 화면 4개에 놓인 그대로
 - [컴포넌트 초안](./#component-bottom-sheet)
 - [프로젝트 제안](./#project-proposals)
 - [디자인 스튜디오](studio.html): 토큰을 화면에서 편집하는 도구

@@ -3,7 +3,8 @@
 // this browser, are laid over them.
 const box = document.querySelector("#library");
 const note = document.querySelector("#library-note");
-const hosts = [...document.querySelectorAll(".ds-project-modal")];
+// The page itself too, for the drafts (신규 컴포넌트 · 검토), which take the same tokens.
+const hosts = [document.documentElement, ...document.querySelectorAll(".ds-project-modal")];
 const cells = [];
 let tokens = {};
 const COMPONENT = /^--(button|chip|bubble|sheet|dialog|toggle|navigation|input|voice|icon-button|list-row|option-row|radio-chip|badge|callout|entry-button)-/;
@@ -66,7 +67,8 @@ function partOf(item, label, selector) {
   return part ?? null;
 }
 // The live sample behaves as the app does where the state shows on the component itself.
-function liveBehaviour(item, inner) {
+function liveBehaviour(items, inner) {
+  const has = (id) => items.some((one) => one?.id === id);
   // Switches, a single choice in a list, radio chips.
   inner.addEventListener("click", (event) => {
     const target = event.target.closest('[role="switch"], .language-options button');
@@ -128,7 +130,7 @@ function liveBehaviour(item, inner) {
     }
   });
   // Sheets and dialogs close; the sample offers to open them again.
-  if (item.id === "bottom-sheet" || item.id === "dialog") {
+  if (has("bottom-sheet") || has("dialog")) {
     inner.addEventListener("click", (event) => {
       if (!event.target.closest('dialog .icon-button[aria-label*="닫기"], dialog .modal-actions button, dialog footer button, dialog .secondary, dialog .primary')) return;
       const kept = [...inner.childNodes];
@@ -138,7 +140,8 @@ function liveBehaviour(item, inner) {
       inner.replaceChildren(again);
     });
   }
-  if (item.id === "text-input") {
+  if (has("text-input")) {
+    const item = ITEMS["text-input"];
     // Typing turns the round button into send; sending clears the box and takes its focus, and while 반달이 writes
     // the round button is ■, which stops the answer (가은 11/03). Here the made-up answer ends after 4 seconds.
     const swap = (from, to) => inner.querySelector(from)?.replaceWith(to.cloneNode(true));
@@ -176,7 +179,8 @@ function liveBehaviour(item, inner) {
       else if (event.target.closest(".send-button")) submit();
     });
   }
-  if (item.id === "voice-controls") {
+  if (has("voice-controls")) {
+    const item = ITEMS["voice-controls"];
     // The microphone: off ↔ on, the outline following a made-up voice while on; the speaker on ↔ off.
     let timer = 0;
     inner.addEventListener("click", (event) => {
@@ -211,9 +215,52 @@ function stage({ label, html, width }, live = false, item = null) {
   // Links and forms go nowhere here; buttons, switches and radios still work.
   root.addEventListener("click", (event) => event.target.closest("a") && event.preventDefault(), true);
   root.addEventListener("submit", (event) => event.preventDefault(), true);
-  if (live) liveBehaviour(item, inner);
+  if (live) liveBehaviour([item], inner);
   hosts.push(host);
   return el("figure", { className: "lib-state" }, el("figcaption", { textContent: label }), host);
+}
+// A whole screen (library.json screens), 393×660 like the page background preview; it works as the live samples do.
+function screenView({ label, html, scrim }) {
+  const host = el("div", { className: "lib-screen-host" });
+  const root = host.attachShadow({ mode: "open" });
+  root.append(el("link", { rel: "stylesheet", href: "preview/assets/library-screens.css" }));
+  // variant-default: the class the preview puts on <html>, for the default screen's own rules.
+  const inner = el("div", { className: "lib-stage lib-screen variant-default", innerHTML: html });
+  inner.style.cssText = "width:393px;height:660px;--lib-vh:6.6px";
+  root.append(inner);
+  root.addEventListener("click", (event) => event.target.closest("a") && event.preventDefault(), true);
+  root.addEventListener("submit", (event) => event.preventDefault(), true);
+  liveBehaviour([ITEMS["text-input"], ITEMS["voice-controls"]], inner);
+  const caption = el("figcaption", { textContent: label });
+  const sheet = inner.querySelector("dialog[open]");
+  if (sheet) {
+    // The sheet's backdrop as the app paints it; ✕ closes it and the caption opens it again.
+    // Out of the screen's stacking so it sits over the backdrop, still under .v7-shell for its rules; at the bottom as in
+    // the app (a modal sheet), which a dialog opened here is not.
+    const back = el("div", { className: "lib-scrim" });
+    back.style.background = scrim?.background ?? "";
+    back.style.backdropFilter = scrim?.filter ?? "";
+    const holder = el("div", { className: "v7-shell" });
+    holder.style.display = "contents";
+    holder.append(sheet);
+    sheet.style.cssText += ";position:absolute;inset:auto 0 0;margin:0 auto;z-index:21";
+    inner.append(back, holder);
+    const reopen = el("button", { type: "button", className: "lib-screen-reopen", textContent: "시트 다시 열기", hidden: true });
+    reopen.addEventListener("click", () => {
+      holder.before(back);
+      sheet.setAttribute("open", "");
+      reopen.hidden = true;
+    });
+    inner.addEventListener("click", (event) => {
+      if (!event.target.closest('dialog .icon-button[aria-label*="닫기"]')) return;
+      sheet.removeAttribute("open");
+      back.remove();
+      reopen.hidden = false;
+    });
+    caption.append(reopen);
+  }
+  hosts.push(host);
+  return el("figure", { className: "lib-screen-frame" }, caption, host);
 }
 function itemView(item) {
   const own = item.tokens.filter((name) => COMPONENT.test(name));
@@ -228,9 +275,20 @@ function itemView(item) {
   if (rest.length) view.append(el("details", { className: "lib-more" }, el("summary", { textContent: `역할·기본 토큰 ${rest.length}개` }), tokenTable(rest)));
   return view;
 }
-Promise.all([fetch(`tokens.json?t=${Date.now()}`).then((r) => r.json()), fetch("library.json").then((r) => r.json())]).then(([values, { groups }]) => {
+Promise.all([fetch(`tokens.json?t=${Date.now()}`).then((r) => r.json()), fetch("library.json").then((r) => r.json())]).then(([values, { groups, screens = [] }]) => {
   tokens = values;
   for (const group of groups) for (const one of group.items) ITEMS[one.id] = one;
+  if (screens.length)
+    box.append(
+      el("div", { className: "bg-studio-title", id: "component-preview" }, el("span", { textContent: "COMPONENT PREVIEW" }), el("h4", { textContent: "전체 컴포넌트 미리보기" })),
+      el("p", { className: "micro", textContent: "실사용 컴포넌트를 앱 화면에 놓인 그대로 봅니다. 값은 아래 컴포넌트와 같이 tokens.json, 컬러 섹션, 스튜디오의 미적용 변경을 따르고, 입력·마이크·평가·시트 닫기는 직접 해 볼 수 있습니다. 디자인 스튜디오와는 별개의 미리보기입니다." }),
+      el("div", { className: "lib-screens" }, ...screens.map(screenView)),
+    );
+  // The page background study (colors section) shows the design system's own avatar screen, not a drawing: its bars and
+  // gradient follow the Top, Middle and Bottom set there.
+  const study = document.querySelector(".bg-page-preview");
+  const avatar = screens.find((s) => s.label === "음성 대화");
+  if (study && avatar) study.replaceChildren(screenView(avatar).querySelector(".lib-screen-host"));
   for (const group of groups) box.append(el("h3", { textContent: group.name }), ...group.items.map(itemView));
   paint();
   if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
