@@ -202,7 +202,8 @@
       ],
       "unit": "css-px",
       "full": 9999,
-      "application": "component-specific; no universal radius"
+      "application": "component-specific; no universal radius",
+      "circle": "Use 9999px (radius/full) for circles too; never 50% (가은 2026-11-03)"
     },
     "border.widths": {
       "status": "proposal",

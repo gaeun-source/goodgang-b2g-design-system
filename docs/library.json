@@ -59,12 +59,12 @@
       },
       {
        "label": "입력 중",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask sending \"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"안녕하세요\"></form><button type=\"submit\" class=\"send-button\" aria-label=\"메시지 보내기\" form=\"ask-form\"><i class=\"icon v7-icon\" data-icon=\"Send\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask sending lib-focus\"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"안녕하세요\"></form><button type=\"submit\" class=\"send-button\" aria-label=\"메시지 보내기\" form=\"ask-form\"><i class=\"icon v7-icon\" data-icon=\"Send\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       },
       {
        "label": "답변 중",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask  \"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"\"></form><button type=\"submit\" class=\"send-button\" aria-label=\"메시지 보내기\" form=\"ask-form\" disabled=\"\"><i class=\"icon v7-icon\" data-icon=\"Send\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask lib-focus\"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"\"></form><button type=\"submit\" class=\"send-button\" aria-label=\"메시지 보내기\" form=\"ask-form\" disabled=\"\"><i class=\"icon v7-icon\" data-icon=\"Send\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       }
      ],
@@ -301,7 +301,6 @@
       "--gray-950",
       "--main-600",
       "--radius-4",
-      "--radius-circle",
       "--radius-full",
       "--shadow-bubble",
       "--size-28",
@@ -555,7 +554,7 @@
       "--option-row-radius",
       "--radius-20",
       "--radius-24",
-      "--radius-circle",
+      "--radius-full",
       "--sheet-close-size",
       "--size-17",
       "--size-20",

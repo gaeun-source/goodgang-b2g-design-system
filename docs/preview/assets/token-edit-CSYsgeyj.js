@@ -634,7 +634,7 @@ dialog::backdrop {
   flex: none;
   width: var(--size-34);
   height: var(--size-34);
-  border-radius: var(--radius-circle);
+  border-radius: var(--radius-full);
   object-fit: cover;
   object-position: 50% 8%;
   background: var(--bg-surface);
@@ -730,7 +730,7 @@ dialog::backdrop {
 .skeleton-face {
   width: var(--size-28);
   height: var(--size-28);
-  border-radius: var(--radius-circle);
+  border-radius: var(--radius-full);
 }
 .skeleton-name {
   width: var(--size-42);
@@ -1402,7 +1402,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   padding: 0;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-circle);
+  border-radius: var(--radius-full);
   background: var(--bg-brand-weak);
   color: var(--fg-brand);
 }
@@ -1622,7 +1622,7 @@ dialog {
   height: var(--sheet-close-size);
   min-height: var(--sheet-close-size);
   padding: 0;
-  border-radius: var(--radius-circle);
+  border-radius: var(--radius-full);
   background: transparent;
 }
 dialog .modal-body {
@@ -2147,7 +2147,7 @@ dialog.slide, dialog.slide.leaving {
   width: var(--size-28);
   height: var(--size-28);
   overflow: hidden;
-  border-radius: var(--radius-circle);
+  border-radius: var(--radius-full);
 }
 .answer-author img {
   position: absolute;
@@ -2776,7 +2776,6 @@ dialog .modal-body > .daylight-check {
   --radius-24: 24px;
   --radius-4: 4px;
   --radius-8: 8px;
-  --radius-circle: 50%;
   --radius-full: 9999px;
   --size-1: 1px;
   --size-100: 100px;
@@ -2948,7 +2947,7 @@ dialog .modal-body > .daylight-check {
   --callout-radius: var(--radius-12);
   --entry-button-height: var(--size-88);
   --entry-button-radius: var(--radius-20);
-  --icon-button-radius: var(--radius-circle);
+  --icon-button-radius: var(--radius-full);
   --icon-button-size: var(--size-48);
   --input-gap: var(--space-6);
   --input-height: var(--size-48);
