@@ -811,7 +811,7 @@
       "implementation": "Pass the level as --mic-level (0..1); border-width: calc(var(--mic-level) * var(--voice-mic-ring-max)) solid var(--voice-mic-ring-color).",
       "color": {
         "status": "confirmed",
-        "value": "main/200 at 50%",
+        "value": "main/200 at 25%",
         "decidedBy": "조가은",
         "date": "2026-11-03"
       },

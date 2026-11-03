@@ -323,7 +323,7 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 
 마이크 버튼은 녹음 중에만 음량에 따라 테두리가 굵어진다 [제안, 반달이 동작]. 음량 0~1을 테두리 0~`voice/mic/ring/max`(8px)로 바꾸며 조용하면 0이다. 굵기는 0.08초 linear로 바뀐다. 마이크 대기·답변 중(■ 정지)·꺼짐 상태에는 테두리가 없다.
 
-테두리 색 [확정, 가은 11/03]: `voice/mic/ring/color` = main/200 50% (`color-mix(in srgb, var(--main-200) 50%, transparent)`). 구현은 음량 비율을 `--mic-level`(0~1)로 넘기고 `border-width: calc(var(--mic-level) * var(--voice-mic-ring-max))`로 그린다.
+테두리 색 [확정, 가은 11/03, 25%로 조정]: `voice/mic/ring/color` = main/200 25% (`color-mix(in srgb, var(--main-200) 25%, transparent)`). 구현은 음량 비율을 `--mic-level`(0~1)로 넘기고 `border-width: calc(var(--mic-level) * var(--voice-mic-ring-max))`로 그린다.
 
 
 ## 안전 영역 배치 [확정]

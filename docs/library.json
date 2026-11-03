@@ -111,7 +111,7 @@
      "states": [
       {
        "label": "마이크 비활성",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" disabled=\"\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" disabled=\"\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"MicOff\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       },
       {
@@ -413,57 +413,64 @@
      "states": [
       {
        "label": "기본",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><main class=\"stage \" style=\"display: contents;\"><section class=\"chat-stage\" aria-label=\"AI 아바타 대화\" style=\"display: contents;\"><div class=\"chat-panel\" style=\"display: contents;\"><div class=\"chat-log\" role=\"log\" aria-label=\"AI 아바타와의 대화\" aria-live=\"polite\" style=\"display: contents;\"><div class=\"chat-turn\" data-turn=\"1\" style=\"display: contents;\"><div class=\"rating\" style=\"display: contents;\"><form class=\"rating-form lib-root\"><fieldset><legend>어떤 점이 아쉬웠나요?</legend><label class=\"rating-reason\"><input type=\"radio\" value=\"wrong\" name=\"reason\"><span>정보가 틀려요</span></label><label class=\"rating-reason\"><input type=\"radio\" value=\"offtopic\" name=\"reason\"><span>질문과 다른 답이에요</span></label><label class=\"rating-reason\"><input type=\"radio\" value=\"links\" name=\"reason\"><span>링크·지도가 이상해요</span></label><label class=\"rating-reason\"><input type=\"radio\" value=\"other\" name=\"reason\"><span>기타</span></label></fieldset><label class=\"rating-comment\"><span>의견 (선택)</span><textarea maxlength=\"300\" rows=\"2\"></textarea></label><p class=\"rating-hint\">이름·연락처 같은 개인정보는 적지 말아 주세요.</p><div class=\"rating-actions\"><button type=\"button\">취소</button><button type=\"submit\" disabled=\"\">보내기</button></div></form></div></div></div></div></section></main></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><main class=\"stage \" style=\"display: contents;\"><section class=\"chat-stage\" aria-label=\"AI 아바타 대화\" style=\"display: contents;\"><div class=\"chat-panel\" style=\"display: contents;\"><div class=\"chat-log\" role=\"log\" aria-label=\"AI 아바타와의 대화\" aria-live=\"polite\" style=\"display: contents;\"><div class=\"chat-turn\" data-turn=\"1\" style=\"display: contents;\"><div class=\"rating\" style=\"display: contents;\"><form class=\"rating-form lib-root\"><fieldset><legend>어떤 점이 아쉬웠나요?</legend><label class=\"rating-reason\"><input type=\"radio\" value=\"wrong\" name=\"reason\"><span>정보가 틀려요</span></label><label class=\"rating-reason\"><input type=\"radio\" value=\"offtopic\" name=\"reason\"><span>질문과 다른 답이에요</span></label><label class=\"rating-reason\"><input type=\"radio\" value=\"links\" name=\"reason\"><span>링크·지도가 이상해요</span></label><label class=\"rating-reason\"><input type=\"radio\" value=\"other\" name=\"reason\"><span>기타</span></label></fieldset><label class=\"rating-comment\"><span>의견<span class=\"rating-optional\">선택</span></span><textarea maxlength=\"300\" rows=\"2\"></textarea></label><p class=\"rating-hint\">이름·연락처 같은 개인정보는 적지 말아 주세요.</p><div class=\"rating-actions\"><button type=\"button\">취소</button><button type=\"submit\" disabled=\"\">보내기</button></div></form></div></div></div></div></section></main></div></div>",
        "width": 341
       }
      ],
      "tokens": [
+      "--badge-padding-x",
+      "--badge-radius",
       "--bg-brand-solid",
       "--bg-disabled",
       "--bg-surface",
+      "--button-small-gap",
       "--button-small-height",
       "--button-small-padding-x",
+      "--button-small-padding-y",
       "--button-small-radius",
       "--button-small-text-line",
       "--button-small-text-size",
-      "--fg-brand",
       "--fg-disabled",
       "--fg-muted",
       "--fg-neutral",
       "--fg-on-brand-solid",
+      "--font-line-15",
+      "--font-size-10",
       "--font-size-16",
       "--font-tracking-default",
       "--font-weight-bold",
       "--font-weight-medium",
       "--main-600",
-      "--radius-10",
+      "--radio-chip-height",
+      "--radio-chip-padding-x",
+      "--radio-chip-radius",
+      "--radius-12",
       "--radius-16",
-      "--radius-full",
       "--shadow-bubble",
-      "--size-18",
       "--size-340",
-      "--size-36",
       "--size-44",
       "--space-10",
       "--space-12",
       "--space-14",
-      "--space-16",
       "--space-3",
       "--space-4",
       "--space-6",
       "--space-8",
       "--stroke-brand",
-      "--stroke-input",
       "--stroke-subtle",
       "--stroke-width-1",
       "--stroke-width-3",
       "--text-body-compact-line",
       "--text-body-compact-size",
+      "--text-body-default-line",
+      "--text-body-default-size",
       "--text-caption-line",
       "--text-caption-size",
+      "--text-label-default-line",
+      "--text-label-default-size",
       "--text-meta-line",
       "--text-meta-size"
-    ]
+     ]
     },
     {
      "id": "badge",
@@ -879,7 +886,7 @@
  "screens": [
   {
    "label": "대기 화면",
-   "html": "<div id=\"root\"><div class=\"app entry-screen\" style=\"--entry-backdrop-x: -232.1108786610879px; --entry-backdrop-y: -524.0334728033473px; --entry-backdrop-w: 854.0585774058577px; --entry-backdrop-h: 1518.326359832636px;\"><div class=\"entry-backdrop\"></div><div class=\"entry-language\"><button class=\"language-button\" aria-label=\"언어 · 현재 한국어\"><i class=\"icon v7-icon\" data-icon=\"HeaderLanguage\" aria-hidden=\"true\"></i></button></div><header class=\"entry-heading\"><strong class=\"entry-wordmark\"><span class=\"entry-page-name\">AI 아바타</span><span class=\"entry-beta\"><span aria-hidden=\"true\">BETA</span><span class=\"sr-only\">베타</span></span></strong><div class=\"entry-service\"><span>무엇이든 물어보세요</span></div></header><main id=\"main\" class=\"entry-main\"><div class=\"entry-art\" aria-hidden=\"true\"></div><section class=\"entry-bottom\"><div class=\"entry-conversations\"><button class=\"entry-avatar\"><i class=\"icon v7-icon\" data-icon=\"Voice\" aria-hidden=\"true\"></i><span>아바타 음성 대화</span><i class=\"icon v7-icon\" data-icon=\"Chevron\" aria-hidden=\"true\"></i></button><button><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i><span>문자 대화</span><i class=\"icon v7-icon\" data-icon=\"Chevron\" aria-hidden=\"true\"></i></button></div><p class=\"entry-ai-notice\">AI 답변은 부정확할 수 있으니 <a class=\"ai-notice-link\" href=\"https://www.knps.or.kr/portal/main.do\" target=\"_blank\" rel=\"noopener noreferrer\">공식 안내</a>를 확인해 주세요.</p></section></main></div><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: none;\"><header class=\"app-header\"><button class=\"brand\" aria-label=\"진입화면으로 돌아가기\"><i class=\"icon v7-icon\" data-icon=\"HeaderBack\" aria-hidden=\"true\"></i></button><div class=\"header-title\"><strong>AI 아바타</strong></div><div class=\"header-actions\"><button class=\"language-button\" aria-label=\"언어 · 현재 한국어\"><i class=\"icon v7-icon\" data-icon=\"HeaderLanguage\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"language-button more-button\" aria-label=\"더보기\"><svg class=\"icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M12 4.5v.01m0 7.49v.01m0 7.49v.01\"></path></svg></button></div></header><div class=\"location-chip-row location-status\"><button type=\"button\" class=\"location-chip off\"><i aria-hidden=\"true\"></i><span>위치 꺼짐</span><span aria-hidden=\"true\">·</span><u>켜기</u></button></div><main class=\"stage \" id=\"main\"><section class=\"avatar\" aria-label=\"AI 아바타 안내\"><div class=\"avatar-image\"><img alt=\"레인저 모자를 쓴 AI 아바타 캐릭터\" src=\"preview/assets/v7/skeleton-bandali.webp\"></div><div class=\"greeting\"><p>안녕하세요! 저는 AI 아바타예요. 무엇을 도와드릴까요?</p></div></section><section class=\"chat-stage\" hidden=\"\" aria-label=\"AI 아바타 대화\"><div class=\"chat-panel\"><div class=\"chat-log\" role=\"log\" aria-label=\"AI 아바타와의 대화\" aria-live=\"polite\"><div></div></div></div></section></main><div class=\"suggest-list\" role=\"group\" aria-label=\"이어서 물어보기\"><button type=\"button\">무엇을 할 수 있어?</button><button type=\"button\">사용 방법 알려줘</button></div><footer class=\"app-footer\"><div class=\"conversation-controls voice-controls\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" disabled=\"\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div><p class=\"ai-notice\"><span class=\"header-beta\"><span aria-hidden=\"true\">BETA</span><span class=\"sr-only\">베타</span></span>AI 답변은 부정확할 수 있으니 <a class=\"ai-notice-link\" href=\"https://www.knps.or.kr/portal/main.do\" target=\"_blank\" rel=\"noopener noreferrer\">공식 안내</a>를 확인해 주세요.</p></footer></div></div>",
+   "html": "<div id=\"root\"><div class=\"app entry-screen\" style=\"--entry-backdrop-x: -232.1108786610879px; --entry-backdrop-y: -524.0334728033473px; --entry-backdrop-w: 854.0585774058577px; --entry-backdrop-h: 1518.326359832636px;\"><div class=\"entry-backdrop\"></div><div class=\"entry-language\"><button class=\"language-button\" aria-label=\"언어 · 현재 한국어\"><i class=\"icon v7-icon\" data-icon=\"HeaderLanguage\" aria-hidden=\"true\"></i></button></div><header class=\"entry-heading\"><strong class=\"entry-wordmark\"><span class=\"entry-page-name\">AI 아바타</span><span class=\"entry-beta\"><span aria-hidden=\"true\">BETA</span><span class=\"sr-only\">베타</span></span></strong><div class=\"entry-service\"><span>무엇이든 물어보세요</span></div></header><main id=\"main\" class=\"entry-main\"><div class=\"entry-art\" aria-hidden=\"true\"></div><section class=\"entry-bottom\"><div class=\"entry-conversations\"><button class=\"entry-avatar\"><i class=\"icon v7-icon\" data-icon=\"Voice\" aria-hidden=\"true\"></i><span>아바타 음성 대화</span><i class=\"icon v7-icon\" data-icon=\"Chevron\" aria-hidden=\"true\"></i></button><button><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i><span>문자 대화</span><i class=\"icon v7-icon\" data-icon=\"Chevron\" aria-hidden=\"true\"></i></button></div><p class=\"entry-ai-notice\">AI 답변은 부정확할 수 있으니 <a class=\"ai-notice-link\" href=\"https://www.knps.or.kr/portal/main.do\" target=\"_blank\" rel=\"noopener noreferrer\">공식 안내</a>를 확인해 주세요.</p></section></main></div><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: none;\"><header class=\"app-header\"><button class=\"brand\" aria-label=\"진입화면으로 돌아가기\"><i class=\"icon v7-icon\" data-icon=\"HeaderBack\" aria-hidden=\"true\"></i></button><div class=\"header-title\"><strong>AI 아바타</strong></div><div class=\"header-actions\"><button class=\"language-button\" aria-label=\"언어 · 현재 한국어\"><i class=\"icon v7-icon\" data-icon=\"HeaderLanguage\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"language-button more-button\" aria-label=\"더보기\"><svg class=\"icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M12 4.5v.01m0 7.49v.01m0 7.49v.01\"></path></svg></button></div></header><div class=\"location-chip-row location-status\"><button type=\"button\" class=\"location-chip off\"><i aria-hidden=\"true\"></i><span>위치 꺼짐</span><span aria-hidden=\"true\">·</span><u>켜기</u></button></div><main class=\"stage \" id=\"main\"><section class=\"avatar\" aria-label=\"AI 아바타 안내\"><div class=\"avatar-image\"><img alt=\"레인저 모자를 쓴 AI 아바타 캐릭터\" src=\"preview/assets/v7/skeleton-bandali.webp\"></div><div class=\"greeting\"><p>안녕하세요! 저는 AI 아바타예요. 무엇을 도와드릴까요?</p></div></section><section class=\"chat-stage\" hidden=\"\" aria-label=\"AI 아바타 대화\"><div class=\"chat-panel\"><div class=\"chat-log\" role=\"log\" aria-label=\"AI 아바타와의 대화\" aria-live=\"polite\"><div></div></div></div></section></main><div class=\"suggest-list\" role=\"group\" aria-label=\"이어서 물어보기\"><button type=\"button\">무엇을 할 수 있어?</button><button type=\"button\">사용 방법 알려줘</button></div><footer class=\"app-footer\"><div class=\"conversation-controls voice-controls\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" disabled=\"\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"MicOff\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div><p class=\"ai-notice\"><span class=\"header-beta\"><span aria-hidden=\"true\">BETA</span><span class=\"sr-only\">베타</span></span>AI 답변은 부정확할 수 있으니 <a class=\"ai-notice-link\" href=\"https://www.knps.or.kr/portal/main.do\" target=\"_blank\" rel=\"noopener noreferrer\">공식 안내</a>를 확인해 주세요.</p></footer></div></div>",
    "scrim": null
   },
   {

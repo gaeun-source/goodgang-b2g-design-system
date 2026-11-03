@@ -1688,6 +1688,7 @@ dialog:focus, dialog:focus-visible {
   color: var(--fg-muted);
 }
 .settings-options .toggle {
+  display: block;
   flex: none;
   position: relative;
   width: var(--toggle-width);
@@ -1699,20 +1700,23 @@ dialog:focus, dialog:focus-visible {
 .settings-options .toggle::after {
   content: "";
   position: absolute;
-  top: var(--toggle-inset);
+  /* 가은 11/03: the knob in the middle of the track's height, and its on place from the tokens. */
+  top: 50%;
   left: var(--toggle-inset);
+  translate: 0 -50%;
   width: var(--toggle-knob);
   height: var(--toggle-knob);
   border-radius: var(--radius-full);
   background: var(--bg-surface);
   box-shadow: 0 1px 2px var(--shadow-bubble);
-  transition: translate 0.2s ease;
+  transition: left 0.2s ease;
 }
 .settings-options > [aria-checked="true"] > .toggle {
   background: var(--bg-brand-solid);
 }
 .settings-options > [aria-checked="true"] > .toggle::after {
-  translate: 16px 0;
+  left: calc(100% - var(--toggle-inset) - var(--toggle-knob));
+  translate: 0 -50%;
 }
 @media (min-width: 600px) {
 .entry-screen, .v7-shell {
@@ -2014,47 +2018,84 @@ dialog.slide, dialog.slide.leaving {
   line-height: var(--text-meta-line);
   box-shadow: 0 0 16px var(--shadow-bubble);
 }
+/* 가은 11/03: the reasons are the design system's radio chips (as 의견 양식), not the browser's radios. */
 .v7-shell .rating-form fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
   margin: 0;
   padding: 0;
   border: 0;
 }
+/* 가은 11/03: the field titles 14/20 bold, the chips 14/20, the box 16/22, the hint 12/16; 8 inside a field, 14 between
+   fields as 의견 양식. */
 .v7-shell .rating-form legend {
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-8);
   padding: 0;
+  font-size: var(--text-label-default-size);
+  line-height: var(--text-label-default-line);
   font-weight: var(--font-weight-bold);
 }
 .v7-shell .rating-reason {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-8);
-  min-height: var(--size-36);
+  font-size: var(--text-body-compact-size);
+  line-height: var(--text-body-compact-line);
+  min-height: var(--radio-chip-height);
+  padding: 0 var(--radio-chip-padding-x);
+  border: var(--stroke-width-1) solid var(--stroke-subtle);
+  border-radius: var(--radio-chip-radius);
   cursor: pointer;
 }
+.v7-shell .rating-reason:has(input:checked) {
+  border-color: var(--stroke-brand);
+  background: var(--bg-selected);
+  font-weight: var(--font-weight-bold);
+}
 .v7-shell .rating-reason input {
-  width: var(--size-18);
-  height: var(--size-18);
-  margin: 0;
-  accent-color: var(--fg-brand);
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 .v7-shell .rating-comment {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-6);
+  gap: var(--space-8);
+  margin-top: var(--space-14);
 }
+.v7-shell .rating-comment > span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-label-default-size);
+  line-height: var(--text-label-default-line);
+  font-weight: var(--font-weight-bold);
+}
+/* The header's BETA badge, for 「선택」. */
+.v7-shell .rating-optional {
+  padding: 0 var(--badge-padding-x);
+  border-radius: var(--badge-radius);
+  background: var(--fg-muted);
+  color: var(--fg-on-brand-solid);
+  font-size: var(--font-size-10);
+  line-height: var(--font-line-15);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--font-tracking-default);
+}
+/* 가은 11/03: the box as 의견 양식's. */
 .v7-shell .rating-comment textarea {
   width: 100%;
-  padding: var(--space-8) var(--space-10);
-  border: var(--stroke-width-1) solid var(--stroke-input);
-  border-radius: var(--radius-10);
+  padding: var(--space-10) var(--space-12);
+  border: var(--stroke-width-1) solid var(--stroke-subtle);
+  border-radius: var(--radius-12);
   color: inherit;
   font: inherit;
-  font-size: var(--font-size-16);
+  font-size: var(--text-body-default-size);
+  line-height: var(--text-body-default-line);
   resize: vertical;
 }
 .v7-shell .rating-hint {
-  margin: var(--space-4) 0 0;
+  margin: var(--space-6) 0 0;
   color: var(--fg-muted);
   font-size: var(--text-caption-size);
   line-height: var(--text-caption-line);
@@ -2066,24 +2107,33 @@ dialog.slide, dialog.slide.leaving {
 .v7-shell .rating-actions {
   display: flex;
   justify-content: flex-end;
-  gap: var(--space-6);
-  margin-top: var(--space-10);
+  gap: var(--space-8);
+  margin-top: var(--space-14);
 }
+/* 가은 11/03: Action Button Small (h32 · 8/12 · 13/16 · 500 · r8). */
 .v7-shell .rating-actions button {
-  min-height: var(--size-36);
-  padding: 0 var(--space-16);
-  border: var(--stroke-width-1) solid var(--stroke-subtle);
-  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-small-gap);
+  min-height: var(--button-small-height);
+  padding: var(--button-small-padding-y) var(--button-small-padding-x);
+  /* The line inside, so the button stays 32. */
+  border: 0;
+  box-shadow: inset 0 0 0 var(--stroke-width-1) var(--stroke-subtle);
+  border-radius: var(--button-small-radius);
   background: var(--bg-surface);
   color: var(--fg-neutral);
+  font-size: var(--button-small-text-size);
+  line-height: var(--button-small-text-line);
+  font-weight: var(--font-weight-medium);
 }
 .v7-shell .rating-actions button[type="submit"] {
-  border-color: var(--stroke-brand);
+  box-shadow: none;
   background: var(--bg-brand-solid);
   color: var(--fg-on-brand-solid);
 }
 .v7-shell .rating-actions button[type="submit"]:disabled {
-  border-color: var(--bg-disabled);
   background: var(--bg-disabled);
   color: var(--fg-disabled);
 }
@@ -2715,6 +2765,10 @@ dialog .modal-body > .daylight-check {
   outline: none;
   box-shadow: inset 0 0 0 var(--stroke-width-1) var(--stroke-brand);
 }
+.v7-shell .rating-actions button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 var(--stroke-width-1) var(--stroke-brand);
+}
 `,t=`/* Three steps, as the design system's token rule: 1 base values, 2 roles, 3 components. The screens use 2 and 3;
    a base value appears on a screen only where no role is named yet. Values are 반달이's as they were. */
 :root {
@@ -2972,8 +3026,8 @@ dialog .modal-body > .daylight-check {
   --radio-chip-padding-x: var(--space-14);
   --radio-chip-radius: var(--radius-20);
   --voice-mic-size: var(--size-64);
-  /* While recording, the outline grows with the voice: 0 in silence to the max at the loudest (가은 11/03: main-200 50%). */
+  /* While recording, the outline grows with the voice: 0 in silence to the max at the loudest (가은 11/03: main-200 25%). */
   --voice-mic-ring-max: var(--size-8);
-  --voice-mic-ring-color: color-mix(in srgb, var(--main-200) 50%, transparent);
+  --voice-mic-ring-color: color-mix(in srgb, var(--main-200) 25%, transparent);
 }
 `,n={};for(let[,e,r]of t.matchAll(/(--[\w-]+):\s*([^;]+);/g))n[e]=r.trim();var r={};for(let[,n]of(e+t).matchAll(/var\((--[\w-]+)\)/g))r[n]=(r[n]??0)+1;var i=[];function a(e,t){let n=0;for(;;){let r=e.indexOf(`{`,n);if(r<0)return;let o=e.slice(n,r).replace(/\/\*[\s\S]*?\*\//g,``).trim(),s=1,c=r+1;for(;s;)e[c]===`{`&&(s+=1),e[c]===`}`&&--s,c+=1;let l=e.slice(r+1,c-1);o.startsWith(`@media`)?a(l,o.slice(6).trim()):o.startsWith(`@supports`)?a(l,t):o.startsWith(`@`)||i.push({selectors:o.split(/,(?![^(]*\))/).map(e=>e.trim()),media:t,decls:[...l.matchAll(/([\w-]+):\s*([^;]+);/g)].map(e=>[e[1],e[2].trim()]),order:i.length}),n=c}}a(e.slice(e.indexOf(`*/`)+2),null);var o=/::|:(hover|active|focus)/;function s(e){let t=(e.match(/#[\w-]+/g)??[]).length,n=(e.match(/\.[\w-]+|\[[^\]]+\]|:(?!:)[\w-]+/g)??[]).length,r=(e.replace(/[.#:\[][^\s>+~]*/g,` `).match(/\b[a-z][\w-]*/g)??[]).length;return t*1e4+n*100+r}var c=`width.height.min-width.min-height.max-width.padding.padding-top.padding-right.padding-bottom.padding-left.margin.margin-top.margin-right.margin-bottom.margin-left.gap.top.right.bottom.left.font-size.line-height.font-weight.letter-spacing.color.background.background-color.border.border-color.border-radius`.split(`.`),l=[`color`,`font-size`,`line-height`,`font-weight`,`letter-spacing`];function u(e){let t=new Map;for(let n of i){if(n.media&&!matchMedia(n.media).matches)continue;let r=-1;for(let t of n.selectors)if(!o.test(t))try{e.matches(t)&&(r=Math.max(r,s(t)))}catch{}if(r<0)continue;let i=r*1e4+n.order;for(let[e,r]of n.decls){let n=t.get(e);(!n||i>=n.rank)&&t.set(e,{value:r,rank:i})}}return t}function d(e){if(e instanceof HTMLElement)return{width:e.offsetWidth,height:e.offsetHeight};let t=e.getBoundingClientRect();return{width:Math.round(t.width),height:Math.round(t.height)}}function f(e){let t=[],r=e;for(;r&&t.length<6;){let e=(document.documentElement.style.getPropertyValue(r)||n[r]||``).trim();if(!e)break;t.push({name:r,value:e}),r=e.match(/^var\((--[\w-]+)\)$/)?.[1]}return t}function p(e){let t=u(e);for(let n of l)for(let r=e.parentElement;r&&!t.has(n);r=r.parentElement){let e=u(r).get(n);e&&t.set(n,e)}let r=getComputedStyle(e),i=c.flatMap(e=>{let i=t.get(e);if(!i)return[];let a=[...new Set([...i.value.matchAll(/var\((--[\w-]+)\)/g)].map(e=>e[1]))].filter(e=>n[e]!==void 0);return a.length?[{prop:e,computed:r.getPropertyValue(e===`background`?`background-color`:e),tokens:a.map(e=>({name:e,steps:f(e)}))}]:[]}),a=d(e);return{label:L(e),width:a.width,height:a.height,hasParent:e.parentElement!==document.body,rows:i}}var m=e=>parent.postMessage(e,location.origin),h=!1,g=null,_=e=>{let t=document.createElement(`div`);t.style.cssText=`position:fixed;display:none;z-index:2147483646;pointer-events:none;box-sizing:border-box;border:2px solid ${e}`;let n=document.createElement(`span`);return n.style.cssText=`position:absolute;left:-2px;top:-18px;padding:0 4px;background:${e};color:#fff;font:500 11px/16px system-ui;white-space:nowrap`,t.append(n),t},v=_(`#2f6bff`),y=_(`#ff2d9b`);function b(e,t){if(!h||!t){e.style.display=`none`;return}(document.querySelector(`dialog[open]`)??document.body).append(e);let n=t.getBoundingClientRect();Object.assign(e.style,{display:`block`,left:`${n.left}px`,top:`${n.top}px`,width:`${n.width}px`,height:`${n.height}px`});let r=e.firstElementChild,i=d(t);r.textContent=`${i.width} × ${i.height}`,r.style.top=n.top<20?`${n.height}px`:`-18px`}var x=document.createElement(`div`);x.dataset.overlay=``,x.style.cssText=`position:fixed;inset:0;z-index:2147483644;cursor:crosshair;background:transparent`;var S=(e,t)=>document.elementsFromPoint(e,t).find(e=>e!==x&&!e.closest(`[data-overlay], .sr-only`))??null;x.addEventListener(`pointermove`,e=>b(v,S(e.clientX,e.clientY))),x.addEventListener(`pointerleave`,()=>b(v,null)),x.addEventListener(`click`,e=>H(S(e.clientX,e.clientY))),x.addEventListener(`wheel`,e=>{for(let t=S(e.clientX,e.clientY);t;t=t.parentElement)if(t.scrollHeight>t.clientHeight+1&&/auto|scroll/.test(getComputedStyle(t).overflowY)){t.scrollTop+=e.deltaY;return}},{passive:!0});function C(){if(!h){x.remove();return}let e=document.querySelector(`dialog[open]`)??document.body;x.parentElement!==e&&e.append(x)}setInterval(C,300);var w={},T=[],E=document.createElement(`div`);E.dataset.overlay=``,E.style.cssText=`position:fixed;inset:0;z-index:2147483645;pointer-events:none`;function D(e){let t=new Set([e]);for(let e=!0;e;){e=!1;for(let[r,i]of Object.entries(n))!t.has(r)&&[...t].some(e=>i.includes(`var(${e})`))&&(t.add(r),e=!0)}return t}function O(e){if(E.replaceChildren(),E.remove(),!e)return;let t=[...D(e)],n=new Set;for(let e of i)if((!e.media||matchMedia(e.media).matches)&&e.decls.some(([,e])=>t.some(t=>e.includes(`var(${t})`)))){for(let t of e.selectors)if(!o.test(t))try{document.querySelectorAll(t).forEach(e=>n.add(e))}catch{}}let r=0;for(let e of n){let t=e.getBoundingClientRect();if(!t.width||!t.height||t.bottom<0||t.top>innerHeight)continue;r+=1;let n=document.createElement(`div`);n.style.cssText=`position:fixed;left:${t.left}px;top:${t.top}px;width:${t.width}px;height:${t.height}px;box-sizing:border-box;border:1.5px solid #12a150;background:#12a15022`,E.append(n)}(document.querySelector(`dialog[open]`)??document.body).append(E),m({kind:`token-where`,name:e,count:r})}function k(e){let t=`var(${e})`,r=Object.keys(n).filter(e=>n[e].includes(t)),a=new Set,o=[];for(let e of i)for(let[n,r]of e.decls)if(r.includes(t))for(let t of e.selectors){let e=`${t}|${n}`;a.has(e)||(a.add(e),o.push({selector:t,prop:n}))}return{tokens:r,places:o}}var A=e=>e.replace(/:not\(:disabled\)|::[-\w]+|:(hover|active|focus-visible|focus-within|focus|disabled)\b/g,``).trim();async function j(e){for(let t=0;t<30;t+=1){let t=[...document.querySelectorAll(A(e))].find(e=>e.getBoundingClientRect().width>0);if(t){t.scrollIntoView({block:`center`}),H(t);return}await new Promise(e=>setTimeout(e,150))}m({kind:`select-missed`})}var M=document.createElement(`div`);M.dataset.overlay=``,M.style.cssText=`position:fixed;inset:0;z-index:2147483646;pointer-events:none`;var N={size:`#2f6bff40`,padding:`#12a15055`,margin:`#ff8a0055`,gap:`#8a4dff55`,text:`#ffc40066`,fill:`#2f6bff33`,line:`#ff2d9b`};function P(e,t,n,r,i,a=``){if(n<=0||r<=0)return;let o=document.createElement(`div`);o.style.cssText=`position:fixed;left:${e}px;top:${t}px;width:${n}px;height:${r}px;background:${i};${a}`,M.append(o)}function F(e){if(M.replaceChildren(),M.remove(),!e||!g)return;let t=g,n=t.getBoundingClientRect(),r=getComputedStyle(t),i=e=>parseFloat(r.getPropertyValue(e))||0,a=(e,t)=>e===t?[`top`,`right`,`bottom`,`left`]:e.startsWith(`${t}-`)?[e.slice(t.length+1)]:[];for(let o of e){for(let e of a(o,`padding`)){let t=i(`padding-${e}`);e===`top`&&P(n.left,n.top,n.width,t,N.padding),e===`bottom`&&P(n.left,n.bottom-t,n.width,t,N.padding),e===`left`&&P(n.left,n.top,t,n.height,N.padding),e===`right`&&P(n.right-t,n.top,t,n.height,N.padding)}for(let e of a(o,`margin`)){let t=Math.max(0,i(`margin-${e}`));e===`top`&&P(n.left,n.top-t,n.width,t,N.margin),e===`bottom`&&P(n.left,n.bottom,n.width,t,N.margin),e===`left`&&P(n.left-t,n.top,t,n.height,N.margin),e===`right`&&P(n.right,n.top,t,n.height,N.margin)}if(o===`gap`){let e=[...t.children].map(e=>e.getBoundingClientRect()).filter(e=>e.width&&e.height);e.slice(1).forEach((t,r)=>{let i=e[r];t.left>=i.right?P(i.right,n.top,t.left-i.right,n.height,N.gap):t.top>=i.bottom&&P(n.left,i.bottom,n.width,t.top-i.bottom,N.gap)})}if(/^(min-|max-)?(width|height)$/.test(o)&&P(n.left,n.top,n.width,n.height,N.size),[`background`,`background-color`].includes(o)&&P(n.left,n.top,n.width,n.height,N.fill),[`top`,`right`,`bottom`,`left`].includes(o)){let e=t.offsetParent?.getBoundingClientRect()??{left:0,top:0,right:innerWidth,bottom:innerHeight};o===`top`&&P(n.left,e.top,n.width,n.top-e.top,N.margin),o===`bottom`&&P(n.left,n.bottom,n.width,e.bottom-n.bottom,N.margin),o===`left`&&P(e.left,n.top,n.left-e.left,n.height,N.margin),o===`right`&&P(n.right,n.top,e.right-n.right,n.height,N.margin)}if([`color`,`font-size`,`line-height`,`font-weight`,`letter-spacing`].includes(o)){let e=document.createRange();e.selectNodeContents(t);for(let t of e.getClientRects())P(t.left,t.top,t.width,t.height,N.text)}(o===`border-radius`||o.startsWith(`border`))&&P(n.left,n.top,n.width,n.height,`transparent`,`box-sizing:border-box;border:2px solid ${N.line};border-radius:${r.borderTopLeftRadius}`)}(document.querySelector(`dialog[open]`)??document.body).append(M)}var I=[[`entry-screen`,`대기화면`],[`entry-heading`,`제목 영역`],[`entry-wordmark`,`서비스 이름`],[`entry-service`,`안내 문구`],[`entry-language`,`언어 버튼 영역`],[`entry-conversations`,`시작 버튼`],[`entry-avatar`,`아바타 음성 대화`],[`entry-bottom`,`하단 영역`],[`entry-ai-notice`,`AI 고지`],[`entry-backdrop`,`배경 영상`],[`app-header`,`상단바`],[`brand`,`뒤로 버튼`],[`header-title`,`제목`],[`header-actions`,`상단바 버튼`],[`more-button`,`더보기 버튼`],[`language-button`,`언어 버튼`],[`stage`,`화면 영역`],[`avatar-image`,`아바타 이미지`],[`avatar`,`아바타`],[`greeting`,`말풍선`],[`chat-log`,`대화 목록`],[`batu-message`,`아바타 답변`],[`user-message`,`사용자 말풍선`],[`answer-author`,`답변 프로필`],[`suggest-list`,`추천 칩`],[`app-footer`,`하단 영역`],[`voice-controls`,`음성 버튼`],[`sound-toggle`,`스피커 버튼`],[`mic-button`,`마이크 버튼`],[`mode-switch`,`대화 전환 버튼`],[`conversation-controls`,`입력 영역`],[`home-ask`,`입력창`],[`send-button`,`보내기 버튼`],[`ai-notice`,`AI 고지`],[`footer-note`,`AI 고지`],[`panel-heading`,`시트 제목`],[`modal-body`,`시트 내용`],[`settings-options`,`설정 목록`],[`more-options`,`더보기 목록`],[`language-options`,`언어 목록`],[`toggle`,`토글`],[`alert-actions`,`버튼 쌍`],[`primary`,`주요 버튼`],[`secondary`,`보조 버튼`]],L=e=>{if(e.tagName===`DIALOG`)return e.classList.contains(`alert`)?`다이얼로그`:`바텀시트`;let t=I.find(([t])=>e.classList.contains(t));if(t)return t[1];let n=e.children.length?``:(e.textContent??``).trim().slice(0,18);if(n)return`“${n}”`;let r=e.tagName.toLowerCase();return{button:`버튼`,a:`링크`,img:`이미지`,i:`아이콘`,svg:`아이콘`,canvas:`아바타 3D`,input:`입력칸`,video:`영상`}[r]??(String(e.className).trim().split(/\s+/)[0]||r)},R=[],z=``;function B(){R=[];let e=[],t=(n,r,i,a)=>{if(n===v||n===y||[`SCRIPT`,`STYLE`,`SOURCE`,`TEMPLATE`].includes(n.tagName)||n.classList.contains(`sr-only`)||n.dataset?.overlay!==void 0)return;let o=getComputedStyle(n);if(o.display===`none`||o.visibility===`hidden`)return;let s=n.getBoundingClientRect(),c=n.tagName===`svg`?[]:[...n.children];if(n.tagName===`DIV`&&!n.className&&c.length===1||!s.width&&!s.height){c.forEach((e,n)=>t(e,r,`${i}.${n}`,a));return}let l=R.push(n)-1;e.push({id:l,name:L(n),depth:r,path:i,parent:a}),c.forEach((e,n)=>t(e,r+1,`${i}.${n}`,l))},n=document.getElementById(`root`);n&&[...n.children].forEach((e,n)=>t(e,0,String(n),null));let r=g?R.indexOf(g):-1,i=JSON.stringify({nodes:e,selected:r});i!==z&&(z=i,m({kind:`token-tree`,nodes:e,selected:r}))}var V=0;new MutationObserver(()=>{clearTimeout(V),V=window.setTimeout(B,300)}).observe(document.body,{subtree:!0,childList:!0,attributes:!0,attributeFilter:[`class`,`open`]}),setInterval(()=>h&&g&&b(y,g),200);function H(e){g=e,b(y,g),g&&m({kind:`token-pick`,...p(g)}),B()}function U(){try{return JSON.parse(localStorage.getItem(`gg-palette-live`)??`{}`)}catch{return{}}}var W={};function G(e){W=e;let t={...w,...U(),...e},n=document.documentElement.style;for(let e of T)n.removeProperty(e);T=Object.keys(t);for(let[e,r]of Object.entries(t))n.setProperty(e,r)}addEventListener(`storage`,e=>{e.key===`gg-palette-live`&&G(W)}),addEventListener(`message`,e=>{if(e.origin!==location.origin)return;let t=e.data;t?.kind===`token-mode`&&(h=t.on,h||(g=null),C(),b(v,null),b(y,g)),t?.kind===`token-parent`&&g?.parentElement&&H(g.parentElement),t?.kind===`token-show`&&O(t.name),t?.kind===`area-show`&&F(t.props),t?.kind===`token-usage`&&m({kind:`token-usage`,name:t.name,...k(t.name)}),t?.kind===`select-selector`&&j(t.selector),t?.kind===`layer-select`&&H(R[t.id]??null),t?.kind===`layer-hover`&&b(v,t.id===null?null:R[t.id]??null),t?.kind===`token-committed`&&(w={...w,...t.edits}),t?.kind===`token-apply`&&(G(t.edits),g&&(b(y,g),m({kind:`token-pick`,...p(g)})))});var K=await fetch(`../tokens.json`).then(e=>e.ok?e.json():{}).catch(()=>({}));w=Object.fromEntries(Object.entries(K).filter(([e,t])=>n[e]!==t)),G({}),m({kind:`token-ready`,defs:{...n,...K,...U()},uses:r}),setTimeout(B,300);
