@@ -269,7 +269,14 @@ function itemView(item) {
   const title = el("h4", { textContent: item.name }, el("span", { className: "lib-status", textContent: STATUS[item.status] }));
   const view = el("div", { className: "lib-item", id: `lib-${item.id}` }, title, el("p", { textContent: item.note }));
   const sample = item.states.find((s) => s.label === "기본") ?? item.states.find((s) => !/\sdisabled[\s=>]/.test(s.html)) ?? item.states[0];
-  view.append(el("div", { className: "lib-states" }, stage({ ...sample, label: "직접 해 보기" }, true, item)));
+  const sampleTemplate = document.createElement("template");
+  sampleTemplate.innerHTML = sample.html;
+  const hasInteraction = sampleTemplate.content.querySelector(
+    'button:not(:disabled), input:not(:disabled):not([type="hidden"]), textarea:not(:disabled), select:not(:disabled), a[href], summary, [role="button"], [role="switch"], [role="radio"], [role="checkbox"]'
+  );
+  if (hasInteraction) {
+    view.append(el("div", { className: "lib-states" }, stage({ ...sample, label: "직접 해 보기" }, true, item)));
+  }
   view.append(el("p", { className: "lib-states-label", textContent: "상태별 모습 · 고정" }), el("div", { className: "lib-states" }, ...item.states.map((s) => stage(s))));
   if (item.studio) view.append(el("a", { className: "lib-go", href: `studio.html?go=${encodeURIComponent(item.studio)}`, textContent: "스튜디오에서 수정 ↗" }));
   if (own.length) view.append(el("details", { className: "lib-more" }, el("summary", { textContent: `컴포넌트 토큰 ${own.length}개` }), tokenTable(own)));
