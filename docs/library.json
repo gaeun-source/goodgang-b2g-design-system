@@ -48,40 +48,52 @@
      "id": "text-input",
      "name": "텍스트 입력창",
      "status": "proposal",
-     "studio": ".v7-shell .home-ask",
-     "note": "문자 대화의 입력창과 보내기.",
+     "studio": ".v7-shell .conversation-controls",
+     "note": "문자 대화의 입력창, 보내기, 아바타 화면 전환.",
      "group": "입력과 버튼",
      "states": [
       {
        "label": "기본",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls \" style=\"display: contents;\"><form class=\"home-ask lib-root\"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"\"></form></div></footer></div></div>",
-       "width": 300
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask  \"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"\"></form><button type=\"button\" class=\"mode-switch\" aria-label=\"음성 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Voice\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "width": 358
       },
       {
        "label": "입력 중",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls \" style=\"display: contents;\"><form class=\"home-ask sending lib-root\"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"안녕하세요\"></form></div></footer></div></div>",
-       "width": 300
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask sending \"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"안녕하세요\"></form><button type=\"submit\" class=\"send-button\" aria-label=\"메시지 보내기\" form=\"ask-form\"><i class=\"icon v7-icon\" data-icon=\"Send\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "width": 358
       },
       {
        "label": "답변 중",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls \" style=\"display: contents;\"><form class=\"home-ask lib-root\"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"\"></form></div></footer></div></div>",
-       "width": 300
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell messenger-mode text-mode  chat-mode       \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls lib-root\"><form class=\"home-ask  \"><input aria-label=\"AI 아바타에게 물어보세요\" placeholder=\"AI 아바타에게 물어보세요\" maxlength=\"1000\" value=\"\"></form><button type=\"submit\" class=\"send-button\" aria-label=\"메시지 보내기\" form=\"ask-form\" disabled=\"\"><i class=\"icon v7-icon\" data-icon=\"Send\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "width": 358
       }
      ],
      "tokens": [
+      "--bg-brand-solid",
+      "--bg-brand-weak",
+      "--bg-brand-weak-pressed",
       "--bg-surface",
+      "--fg-brand",
       "--fg-neutral",
+      "--fg-on-brand-solid",
       "--fg-placeholder",
       "--font-size-16",
+      "--icon-button-radius",
+      "--icon-button-size",
       "--input-gap",
       "--input-height",
       "--input-padding-x",
       "--input-radius",
       "--main-600",
+      "--main-800",
+      "--size-22",
       "--size-24",
+      "--size-44",
       "--space-1",
+      "--space-10",
       "--space-2",
       "--space-3",
+      "--space-6",
       "--stroke-brand",
       "--stroke-subtle",
       "--stroke-width-1",
@@ -98,22 +110,37 @@
      "states": [
       {
        "label": "마이크 비활성",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" disabled=\"\" style=\"--mic-ring: 0px;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" disabled=\"\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       },
       {
        "label": "마이크 꺼짐",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" style=\"--mic-ring: 0px;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       },
       {
        "label": "마이크 켜짐",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button on\" aria-label=\"마이크 켜기\" aria-pressed=\"true\" style=\"--mic-ring: 0px;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button on\" aria-label=\"마이크 켜기\" aria-pressed=\"true\" style=\"--mic-ring: 0px; --mic-level: 0;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "width": 358
+      },
+      {
+       "label": "음성 입력 중 · 음량 중간",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button on\" aria-label=\"마이크 켜기\" aria-pressed=\"true\" style=\"--mic-ring: 0px; --mic-level: 0.5;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "width": 358
+      },
+      {
+       "label": "음성 입력 중 · 음량 최대",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button on\" aria-label=\"마이크 켜기\" aria-pressed=\"true\" style=\"--mic-ring: 0px; --mic-level: 1;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "width": 358
+      },
+      {
+       "label": "답변 중 · 정지",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"true\" aria-label=\"음성 안내 끄기\"><i class=\"icon v7-icon\" data-icon=\"Volume\" aria-hidden=\"true\"></i></button><button class=\"mic-button speaking\" aria-label=\"마이크 켜기\" style=\"--mic-ring: 0px;\"><span class=\"stop-glyph\" aria-hidden=\"true\"></span></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       },
       {
        "label": "소리 꺼짐",
-       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"false\" aria-label=\"음성 안내 켜기\"><i class=\"icon v7-icon\" data-icon=\"VolumeOff\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" aria-pressed=\"false\" style=\"--mic-ring: 0px;\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
+       "html": "<div style=\"display: contents;\"><div class=\"app bandali-app v7-shell avatar-mode          \" style=\"display: contents;\"><footer class=\"app-footer\" style=\"display: contents;\"><div class=\"conversation-controls voice-controls lib-root\"><button type=\"button\" class=\"sound-toggle\" aria-pressed=\"false\" aria-label=\"음성 안내 켜기\"><i class=\"icon v7-icon\" data-icon=\"VolumeOff\" aria-hidden=\"true\"></i></button><button class=\"mic-button off\" aria-label=\"마이크 켜기\" style=\"--mic-ring: 0px;\" aria-pressed=\"false\"><i class=\"icon v7-icon\" data-icon=\"Mic\" aria-hidden=\"true\"></i></button><button type=\"button\" class=\"mode-switch\" aria-label=\"문자 대화로 바꾸기\"><i class=\"icon v7-icon\" data-icon=\"Chat\" aria-hidden=\"true\"></i></button></div></footer></div></div>",
        "width": 358
       }
      ],
@@ -131,6 +158,8 @@
       "--icon-button-size",
       "--main-600",
       "--main-800",
+      "--radius-2",
+      "--size-16",
       "--size-20",
       "--size-22",
       "--size-24",
@@ -143,6 +172,8 @@
       "--stroke-subtle",
       "--stroke-width-1",
       "--stroke-width-3",
+      "--voice-mic-ring-color",
+      "--voice-mic-ring-max",
       "--voice-mic-size"
      ]
     },
@@ -477,7 +508,9 @@
       "--size-44",
       "--space-3",
       "--stroke-brand",
-      "--stroke-width-3"
+      "--stroke-width-3",
+      "--text-caption-line",
+      "--text-caption-size"
      ]
     }
    ]

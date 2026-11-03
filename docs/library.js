@@ -20,7 +20,8 @@ function readEdits() {
     return {};
   }
 }
-// app.js's palette editors, live: main and sub as they are now (with the H shift), gray as #neutral-code shows it.
+// app.js's palette editors, live: main and sub as they are now (with the H shift), gray as #neutral-code shows it,
+// and the page background's middle stop and stop positions (its top and bottom are main/100 and gray/50).
 // Kept in this browser too (gg-palette-live), so the studio's preview follows them.
 let lastPalette = "";
 function palette() {
@@ -28,6 +29,9 @@ function palette() {
     const values = {};
     for (const name of ["main", "sub"]) for (const n of brandEditors[name].current()) values[`--${name}-${n.step}`] = hsvHex(n.h, n.s, n.b);
     for (const n of JSON.parse(document.querySelector("#neutral-code").textContent).scale) values[`--gray-${n.step}`] = n.hex;
+    const [top, middle, bottom] = [...document.querySelectorAll("[data-bg-position]")].map((n) => n.value);
+    values["--bg-page-middle"] = document.querySelector('[data-bg-color="1"]').value;
+    values["--bg-page-gradient"] = `linear-gradient(to bottom, var(--bg-page-top) ${top}%, var(--bg-page-middle) ${middle}%, var(--bg-page-bottom) ${bottom}%)`;
     const json = JSON.stringify(values);
     if (json !== lastPalette) localStorage.setItem("gg-palette-live", (lastPalette = json));
     return values;

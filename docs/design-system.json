@@ -798,6 +798,23 @@
           "linkLabel": "공식 안내"
         }
       }
+    },
+    "voice.micRing": {
+      "status": "proposal",
+      "behavior": "While recording only, the mic button outline follows the input level: level 0..1 maps to 0..voice/mic/ring/max (8px); 0 in silence; no outline when idle, speaking (stop) or off.",
+      "transition": "border-width 0.08s linear",
+      "tokens": {
+        "--voice-mic-ring-max": "var(--size-8)",
+        "--voice-mic-ring-color": "color-mix(in srgb, var(--main-200) 50%, transparent)"
+      },
+      "implementation": "Pass the level as --mic-level (0..1); border-width: calc(var(--mic-level) * var(--voice-mic-ring-max)) solid var(--voice-mic-ring-color).",
+      "color": {
+        "status": "confirmed",
+        "value": "main/200 at 50%",
+        "decidedBy": "조가은",
+        "date": "2026-11-03"
+      },
+      "source": "반달이 src/lib/mic-slot.ts MIC_RING_MAX_PX"
     }
   },
   "constraints": [
@@ -1212,7 +1229,7 @@
         "name": "텍스트 입력창",
         "group": "입력과 버튼",
         "status": "proposal",
-        "note": "문자 대화의 입력창과 보내기."
+        "note": "문자 대화의 입력창, 보내기, 아바타 화면 전환."
       },
       {
         "id": "voice-controls",
