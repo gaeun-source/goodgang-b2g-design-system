@@ -57,14 +57,161 @@ function tokenTable(names) {
   });
   return el("div", { className: "table-scroll" }, el("table", {}, head, ...rows));
 }
-function stage({ label, html, width }) {
-  const host = el("div", { className: "lib-host" });
+const ITEMS = {};
+// One part of another state's markup, to swap into the live sample.
+function partOf(item, label, selector) {
+  const html = item.states.find((s) => s.label === label)?.html;
+  const part = html && el("template", { innerHTML: html }).content.querySelector(selector);
+  part?.classList.remove("lib-focus");
+  return part ?? null;
+}
+// The live sample behaves as the app does where the state shows on the component itself.
+function liveBehaviour(item, inner) {
+  // Switches, a single choice in a list, radio chips.
+  inner.addEventListener("click", (event) => {
+    const target = event.target.closest('[role="switch"], .language-options button');
+    if (target?.matches('[role="switch"]')) target.setAttribute("aria-checked", String(target.getAttribute("aria-checked") !== "true"));
+    else if (target) for (const b of target.parentElement.querySelectorAll("button")) b.setAttribute("aria-pressed", String(b === target));
+  });
+  inner.addEventListener("change", (event) => {
+    if (event.target.type !== "radio") return;
+    for (const r of inner.querySelectorAll(`input[name="${event.target.name}"]`)) r.closest("label")?.classList.toggle("selected", r.checked);
+  });
+  // Answer rating (AnswerRating.tsx): 👍 thanks at once, 👎 opens the reasons; a reason enables sending, cancel goes back.
+  const thanks = () => el("p", { className: "rating-thanks", role: "status", textContent: "의견 감사합니다." });
+  inner.addEventListener("click", (event) => {
+    const up = event.target.closest('.rating-button[aria-label="도움이 됐어요"]');
+    const down = event.target.closest('.rating-button[aria-label="도움이 안 됐어요"]');
+    const form = event.target.closest(".rating-form");
+    if (up) up.closest(".rating-row").replaceWith(thanks());
+    if (down) {
+      const row = down.closest(".rating-row");
+      const opened = partOf(ITEMS["rating-form"], "기본", ".rating-form");
+      opened.row = row;
+      row.replaceWith(opened);
+    }
+    if (form && event.target.closest('.rating-actions button[type="button"]')) {
+      if (form.row) form.replaceWith(form.row);
+      else form.reset(), form.querySelector('[type="submit"]').disabled = true;
+    }
+    if (form && event.target.closest('.rating-actions [type="submit"]:not(:disabled)')) form.replaceWith(thanks());
+  });
+  inner.addEventListener("change", (event) => {
+    const form = event.target.closest(".rating-form");
+    if (form && event.target.name === "reason") form.querySelector('[type="submit"]').disabled = false;
+  });
+  // Feedback (FeedbackSheet.tsx): two characters enable sending; sent, it thanks and closes back to the form.
+  inner.addEventListener("input", (event) => {
+    const sheet = event.target.closest(".feedback-sheet");
+    if (!sheet || !event.target.matches("textarea")) return;
+    const count = sheet.querySelector(".feedback-text small");
+    if (count) count.textContent = `${event.target.value.length.toLocaleString()} / ${Number(event.target.maxLength).toLocaleString()}`;
+    sheet.querySelector('[type="submit"]').disabled = event.target.value.trim().length < 2;
+  });
+  inner.addEventListener("click", (event) => {
+    const sheet = event.target.closest(".feedback-sheet");
+    if (sheet && event.target.closest('[type="submit"]:not(:disabled)')) {
+      const form = sheet.cloneNode(true);
+      const done = el("div", { className: "feedback-sheet", role: "status" },
+        el("p", { className: "feedback-done", textContent: "보내 주셔서 고마워요. 담당팀이 확인할게요." }),
+        el("p", { textContent: "접수번호 " }, el("strong", { className: "feedback-receipt", textContent: "예시-0000" })),
+        el("button", { className: "primary full-width", textContent: "닫기" }));
+      done.lastChild.addEventListener("click", () => {
+        const box = form.querySelector("textarea");
+        box.value = "";
+        const count = form.querySelector(".feedback-text small");
+        if (count) count.textContent = `0 / ${Number(box.maxLength).toLocaleString()}`;
+        form.querySelector('[type="submit"]').disabled = true;
+        done.replaceWith(form);
+      });
+      sheet.replaceWith(done);
+    }
+  });
+  // Sheets and dialogs close; the sample offers to open them again.
+  if (item.id === "bottom-sheet" || item.id === "dialog") {
+    inner.addEventListener("click", (event) => {
+      if (!event.target.closest('dialog .icon-button[aria-label*="닫기"], dialog .modal-actions button, dialog footer button, dialog .secondary, dialog .primary')) return;
+      const kept = [...inner.childNodes];
+      const again = el("button", { type: "button", textContent: "다시 열기" });
+      again.style.cssText = "margin:24px auto;padding:8px 16px;border:1px solid var(--stroke-subtle);border-radius:var(--radius-full);background:var(--bg-surface);color:var(--fg-neutral);font:inherit";
+      again.addEventListener("click", () => inner.replaceChildren(...kept));
+      inner.replaceChildren(again);
+    });
+  }
+  if (item.id === "text-input") {
+    // Typing turns the round button into send; sending clears the box and takes its focus, and while 반달이 writes
+    // the round button is ■, which stops the answer (가은 11/03). Here the made-up answer ends after 4 seconds.
+    const swap = (from, to) => inner.querySelector(from)?.replaceWith(to.cloneNode(true));
+    const send = partOf(item, "입력 중", ".send-button");
+    const toVoice = partOf(item, "기본", ".mode-switch");
+    const stop = partOf(item, "답변 중", ".answer-stop");
+    let answering = 0;
+    const rest = () => (answering ? stop : toVoice);
+    const answered = () => {
+      clearTimeout(answering);
+      answering = 0;
+      swap(".answer-stop", toVoice);
+    };
+    inner.addEventListener("input", (event) => {
+      const ready = event.target.value.trim() !== "";
+      inner.querySelector(".home-ask")?.classList.toggle("sending", ready);
+      if (ready) swap(".mode-switch, .answer-stop", send);
+      else swap(".send-button", rest());
+    });
+    const submit = () => {
+      const input = inner.querySelector(".home-ask input");
+      if (!input?.value.trim()) return;
+      input.value = "";
+      input.blur();
+      inner.querySelector(".home-ask").classList.remove("sending");
+      clearTimeout(answering);
+      answering = setTimeout(answered, 4000);
+      swap(".send-button", stop);
+    };
+    inner.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.isComposing && event.target.matches(".home-ask input")) submit();
+    });
+    inner.addEventListener("click", (event) => {
+      if (event.target.closest(".answer-stop")) answered();
+      else if (event.target.closest(".send-button")) submit();
+    });
+  }
+  if (item.id === "voice-controls") {
+    // The microphone: off ↔ on, the outline following a made-up voice while on; the speaker on ↔ off.
+    let timer = 0;
+    inner.addEventListener("click", (event) => {
+      const mic = event.target.closest(".mic-button");
+      const sound = event.target.closest(".sound-toggle");
+      if (mic) {
+        const on = mic.classList.contains("off");
+        const next = partOf(item, on ? "마이크 켜짐" : "마이크 꺼짐", ".mic-button");
+        clearInterval(timer);
+        mic.replaceWith(next);
+        if (on) {
+          let t = 0;
+          timer = setInterval(() => {
+            t += 0.35;
+            next.style.setProperty("--mic-level", Math.max(0, Math.min(1, 0.5 + 0.45 * Math.sin(t) * Math.sin(t * 0.37 + 1))).toFixed(2));
+          }, 90);
+        }
+      }
+      if (sound) sound.replaceWith(partOf(item, sound.getAttribute("aria-pressed") === "true" ? "소리 꺼짐" : "마이크 꺼짐", ".sound-toggle"));
+    });
+  }
+}
+// The live sample takes hover, press, focus and the states above; the states are still pictures (inert).
+function stage({ label, html, width }, live = false, item = null) {
+  const host = el("div", { className: live ? "lib-host lib-live" : "lib-host lib-still" });
   const root = host.attachShadow({ mode: "open" });
   root.append(el("link", { rel: "stylesheet", href: "preview/assets/library.css" }));
   const inner = el("div", { className: "lib-stage", innerHTML: html });
   inner.style.width = `${width}px`;
+  inner.inert = !live;
   root.append(inner);
-  for (const type of ["click", "submit"]) root.addEventListener(type, (event) => event.preventDefault(), true);
+  // Links and forms go nowhere here; buttons, switches and radios still work.
+  root.addEventListener("click", (event) => event.target.closest("a") && event.preventDefault(), true);
+  root.addEventListener("submit", (event) => event.preventDefault(), true);
+  if (live) liveBehaviour(item, inner);
   hosts.push(host);
   return el("figure", { className: "lib-state" }, el("figcaption", { textContent: label }), host);
 }
@@ -73,7 +220,9 @@ function itemView(item) {
   const rest = item.tokens.filter((name) => !COMPONENT.test(name));
   const title = el("h4", { textContent: item.name }, el("span", { className: "lib-status", textContent: STATUS[item.status] }));
   const view = el("div", { className: "lib-item", id: `lib-${item.id}` }, title, el("p", { textContent: item.note }));
-  view.append(el("div", { className: "lib-states" }, ...item.states.map(stage)));
+  const sample = item.states.find((s) => s.label === "기본") ?? item.states.find((s) => !/\sdisabled[\s=>]/.test(s.html)) ?? item.states[0];
+  view.append(el("div", { className: "lib-states" }, stage({ ...sample, label: "직접 해 보기" }, true, item)));
+  view.append(el("p", { className: "lib-states-label", textContent: "상태별 모습 · 고정" }), el("div", { className: "lib-states" }, ...item.states.map((s) => stage(s))));
   if (item.studio) view.append(el("a", { className: "lib-go", href: `studio.html?go=${encodeURIComponent(item.studio)}`, textContent: "스튜디오에서 수정 ↗" }));
   if (own.length) view.append(el("details", { className: "lib-more" }, el("summary", { textContent: `컴포넌트 토큰 ${own.length}개` }), tokenTable(own)));
   if (rest.length) view.append(el("details", { className: "lib-more" }, el("summary", { textContent: `역할·기본 토큰 ${rest.length}개` }), tokenTable(rest)));
@@ -81,6 +230,7 @@ function itemView(item) {
 }
 Promise.all([fetch(`tokens.json?t=${Date.now()}`).then((r) => r.json()), fetch("library.json").then((r) => r.json())]).then(([values, { groups }]) => {
   tokens = values;
+  for (const group of groups) for (const one of group.items) ITEMS[one.id] = one;
   for (const group of groups) box.append(el("h3", { textContent: group.name }), ...group.items.map(itemView));
   paint();
   if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();

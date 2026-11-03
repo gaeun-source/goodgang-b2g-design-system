@@ -825,6 +825,29 @@
       "example": "반달이 (this site's preview only)",
       "decidedBy": "조가은",
       "date": "2026-11-03"
+    },
+    "input.focus": {
+      "status": "confirmed",
+      "border": "stroke/brand 1px",
+      "outline": "none (tap and keyboard alike)",
+      "decidedBy": "조가은",
+      "date": "2026-11-03",
+      "answering": "No focus while answering, sent by button or keyboard alike: blur the box on send; gray border (stroke/subtle). The voice switch's place holds the answer stop (가은 2026-11-03)."
+    },
+    "input.answerStop": {
+      "status": "confirmed",
+      "when": "Text mode while the answer is being written",
+      "place": "Where the voice switch sits, beside the box",
+      "look": "Send button (48, bg/brand/solid) with the voice stop glyph ■ (16, radius 2, bg/surface)",
+      "label": {
+        "KR": "답변 멈추기",
+        "EN": "Stop the answer",
+        "JA": "回答を止める",
+        "ZH": "停止回答"
+      },
+      "action": "Stops the answer being written; when the answer ends or stops, the voice switch returns. Typing during the answer shows the send button.",
+      "decidedBy": "조가은",
+      "date": "2026-11-03"
     }
   },
   "constraints": [
@@ -1239,7 +1262,7 @@
         "name": "텍스트 입력창",
         "group": "입력과 버튼",
         "status": "proposal",
-        "note": "문자 대화의 입력창, 보내기, 아바타 화면 전환."
+        "note": "문자 대화의 입력창, 보내기, 아바타 화면 전환, 답변 중 멈추기."
       },
       {
         "id": "voice-controls",

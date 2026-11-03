@@ -1779,10 +1779,8 @@ dialog:focus, dialog:focus-visible {
 .v7-shell .home-ask:focus-within {
   border-color: var(--stroke-brand);
 }
+/* 가은 11/03: focus is the 1px brand border alone, by tap or keyboard (no ring). */
 .v7-shell .home-ask:has(input:focus-visible) {
-  outline-offset: calc(-1 * var(--space-1));
-}
-.v7-shell .home-ask.pointer-focus:has(input:focus-visible) {
   outline: none;
 }
 .v7-shell .chat-turn .nearby-results {
@@ -2296,7 +2294,7 @@ dialog.slide, dialog.slide.leaving {
 .v7-shell .voice-controls .mic-button.speaking {
   border: 0;
 }
-.v7-shell .voice-controls .mic-button .stop-glyph {
+.v7-shell .voice-controls .mic-button .stop-glyph, .v7-shell .answer-stop .stop-glyph {
   width: var(--size-16);
   height: var(--size-16);
   border-radius: var(--radius-2);
