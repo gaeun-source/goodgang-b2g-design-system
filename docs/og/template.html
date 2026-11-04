@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>OG 이미지 템플릿</title>
+<!--
+  OG 이미지 템플릿. Figma 「국립공원공단 반달이 UI」 OG 페이지(815:47189)의 세 프레임 수치를 그대로 옮겼다.
+  쓰는 법: template.html?size=facebook|x|kakao&config=example/bandali.json
+  render.mjs가 이 페이지를 열어 크기별 PNG로 저장한다. 문구·색·이미지는 config JSON만 바꾼다.
+-->
+<style>
+@font-face { font-family: "Pretendard Variable"; src: url(../assets/font.woff2) format("woff2"); font-weight: 100 900; }
+* { box-sizing: border-box; margin: 0; }
+html, body { background: #fff; }
+.og {
+  position: relative;
+  overflow: hidden;
+  width: var(--w);
+  height: var(--h);
+  background: var(--bg);
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+/* 배경: 풍경 그림을 50% 투명도로 깐다. */
+.og-background { position: absolute; object-fit: cover; opacity: 0.5; }
+/* 캐릭터: 투명 여백을 잘라낸 그림. 왼쪽·위·높이로 놓고 아래는 프레임 밖으로 잘린다. */
+.og-character { position: absolute; width: auto; }
+.og-copy {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateY(-50%);
+}
+.og-badge {
+  border-radius: var(--badge-radius);
+  background: var(--brand);
+  color: var(--badge-text);
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+.og-wordmark { display: block; object-fit: contain; object-position: left center; }
+.og-headline { align-self: flex-start; color: var(--ink); font-weight: 700; line-height: 1.4; white-space: nowrap; }
+.og-org { display: block; width: auto; }
+.og-ask { position: absolute; display: flex; align-items: center; }
+.og-input {
+  display: flex;
+  align-items: center;
+  border: solid var(--brand);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--input-text);
+  font-weight: 400;
+  white-space: nowrap;
+}
+.og-input b { color: var(--brand); font-weight: 400; }
+.og-send { display: grid; place-items: center; flex: none; border-radius: 9999px; background: var(--brand); }
+.og-send svg { display: block; }
+</style>
+</head>
+<body>
+<div class="og" id="og"></div>
+<script>
+// Figma 수치(px). facebook 1200×630(844:24776), x 1200×675(844:24790), kakao 800×400(844:24803).
+const SIZES = {
+  facebook: {
+    w: 1200, h: 630,
+    background: { left: 0, top: 0, width: 1200, height: 632 },
+    character: { left: 573, top: 36, height: 863 },
+    copy: { left: 80, width: 494, gap: 24, shiftY: 0, logoInside: true },
+    badge: { size: 40, padY: 10, padX: 20, radius: 21 },
+    wordmark: { width: 410, height: 160 },
+    headline: { size: 44, color: "ink" },
+    org: { height: 48 },
+    ask: { left: 614, top: 468, gap: 16, shadow: "0 16px 18px rgba(0,0,0,0.25)", blur: 7 },
+    input: { width: 442, height: 88, border: 1.819, radius: 54.568, padLeft: 32, size: 29.1, line: 43.654 },
+    send: { size: 88, icon: 36.667 },
+  },
+  x: {
+    w: 1200, h: 675,
+    background: { right: 0, bottom: 0, width: 1282, height: 675 },
+    character: { left: 573, top: 36, height: 863 },
+    // X는 로고가 문구 묶음 밖, 왼쪽 아래에 따로 있다(묶음은 49.5px 위로).
+    copy: { left: 80, width: 494, gap: 24, shiftY: -49.5, logoInside: false },
+    org: { height: 48, left: 80, top: 547 },
+    badge: { size: 40, padY: 10, padX: 20, radius: 21 },
+    wordmark: { width: 410, height: 160 },
+    headline: { size: 44, color: "ink" },
+    ask: { left: 594, top: 518, gap: 16, shadow: "0 16px 18px rgba(0,0,0,0.25)", blur: 7 },
+    input: { width: 442, height: 88, border: 1.819, radius: 54.568, padLeft: 32, size: 29.1, line: 43.654 },
+    send: { size: 88, icon: 36.667 },
+  },
+  kakao: {
+    w: 800, h: 400,
+    background: { left: 0, bottom: 0, width: 800, height: 421 },
+    character: { left: 386, top: 22, height: 509 },
+    copy: { left: 60, width: 320.948, gap: 16, shiftY: 0, logoInside: true },
+    badge: { size: 25.988, padY: 6.497, padX: 12.994, radius: 13.644 },
+    wordmark: { width: 256, height: 100 },
+    // Figma에서 카카오만 부제가 forest-700(brand)이다. 의도인지 가은 확인 전까지 Figma대로 둔다.
+    headline: { size: 28, color: "brand" },
+    org: { height: 32 },
+    ask: { left: 400, top: 301, gap: 10.182, shadow: "0 10.182px 11.455px rgba(0,0,0,0.25)", blur: 4.455 },
+    input: { width: 281.273, height: 56, border: 1.158, radius: 34.725, padLeft: 20.364, size: 18.52, line: 27.78 },
+    send: { size: 56, icon: 23.333 },
+  },
+};
+const px = (n) => `${n}px`;
+function el(tag, props = {}, style = {}) { const node = Object.assign(document.createElement(tag), props); Object.assign(node.style, style); return node; }
+
+async function draw() {
+  const params = new URLSearchParams(location.search);
+  const s = SIZES[params.get("size") ?? "facebook"];
+  const c = await (await fetch(params.get("config") ?? "example/bandali.json")).json();
+  const og = document.getElementById("og");
+  for (const [name, value] of Object.entries({ w: px(s.w), h: px(s.h), bg: c.color.bg, brand: c.color.brand, ink: c.color.ink, "badge-text": c.color.badgeText, "input-text": c.color.inputText, "badge-radius": px(s.badge.radius) }))
+    og.style.setProperty(`--${name}`, value);
+
+  const bg = s.background;
+  og.append(el("img", { className: "og-background", src: c.background, alt: "" }, { left: bg.left == null ? "auto" : px(bg.left), right: bg.right == null ? "auto" : px(bg.right), top: bg.top == null ? "auto" : px(bg.top), bottom: bg.bottom == null ? "auto" : px(bg.bottom), width: px(bg.width), height: px(bg.height) }));
+  og.append(el("img", { className: "og-character", src: c.character, alt: "" }, { left: px(s.character.left), top: px(s.character.top), height: px(s.character.height) }));
+
+  const copy = el("div", { className: "og-copy" }, { left: px(s.copy.left), width: px(s.copy.width), gap: px(s.copy.gap), transform: `translateY(calc(-50% + ${s.copy.shiftY}px))` });
+  copy.append(el("div", { className: "og-badge", textContent: c.badge }, { fontSize: px(s.badge.size), padding: `${px(s.badge.padY)} ${px(s.badge.padX)}` }));
+  copy.append(el("img", { className: "og-wordmark", src: c.wordmark, alt: c.name }, { width: px(s.wordmark.width), height: px(s.wordmark.height) }));
+  const headline = el("p", { className: "og-headline" }, { fontSize: px(s.headline.size), color: `var(--${s.headline.color})` });
+  c.headline.forEach((line, i) => { if (i) headline.append(document.createElement("br")); headline.append(line); });
+  copy.append(headline);
+  const org = el("img", { className: "og-org", src: c.orgLogo, alt: c.orgName }, { height: px(s.org.height) });
+  if (s.copy.logoInside) copy.append(org);
+  else { Object.assign(org.style, { position: "absolute", left: px(s.org.left), top: px(s.org.top) }); og.append(org); }
+  og.append(copy);
+
+  // 그림자는 입력창·버튼에 각각 건다. 묶음에 filter를 걸면 그 안의 배경 흐림(backdrop-filter)이 뒤의 캐릭터를 보지 못한다.
+  const ask = el("div", { className: "og-ask" }, { left: px(s.ask.left), top: px(s.ask.top), gap: px(s.ask.gap) });
+  const input = el("div", { className: "og-input" }, { width: px(s.input.width), height: px(s.input.height), borderWidth: px(s.input.border), borderRadius: px(s.input.radius), paddingLeft: px(s.input.padLeft), fontSize: px(s.input.size), lineHeight: px(s.input.line), boxShadow: s.ask.shadow, backdropFilter: `blur(${s.ask.blur}px)`, webkitBackdropFilter: `blur(${s.ask.blur}px)` });
+  input.append(c.question, el("b", { textContent: "|" }));
+  input.style.overflow = "hidden";
+  const send = el("div", { className: "og-send" }, { width: px(s.send.size), height: px(s.send.size), boxShadow: s.ask.shadow });
+  // 보내기 화살표: Figma V6/Base/Icon/Send(80:103), viewBox 36.667에서 선 2.674.
+  send.innerHTML = `<svg width="${s.send.icon}" height="${s.send.icon}" viewBox="0 0 36.6667 36.6667" fill="none" aria-hidden="true"><path d="M18.3333 29.0278V7.63889M27.5 16.8056L18.3333 7.63889L9.16667 16.8056" stroke="#fff" stroke-width="2.67361" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  ask.append(input, send);
+  og.append(ask);
+
+  await document.fonts.ready;
+  await Promise.all([...og.querySelectorAll("img")].map((img) => img.decode().catch(() => {})));
+  // 넘침 검사: 문구가 정해진 폭을 넘으면 render.mjs가 저장하지 않고 알려 준다. 줄이거나 다시 쓴다.
+  const over = [];
+  if (copy.querySelector(".og-badge").offsetWidth > s.copy.width) over.push("badge");
+  if (headline.offsetWidth > s.copy.width) over.push("headline");
+  if (c.headline.length > 2) over.push("headline-lines");
+  if (input.scrollWidth > input.clientWidth) over.push("question");
+  document.body.dataset.overflow = over.join(" ");
+  document.body.dataset.ready = "true";
+}
+draw();
+</script>
+</body>
+</html>

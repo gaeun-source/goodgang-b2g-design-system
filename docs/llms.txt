@@ -12,6 +12,8 @@
 - [구조화된 규칙](design-system.json): 확정값, 제안, 미정을 구분한 JSON. 수치 상태 판단의 기준.
 - [전체 가이드](guide.md): 설명과 맥락. JSON에서 proposal로 분류된 항목은 확정 규칙이 아니다.
 - [프로젝트 설정 양식](project-theme.json): 프로젝트별 컬러·역할 매핑. null은 미정이며 색상을 추측하지 않는다.
+- [캐릭터 이미지 생성](character-images.md): 프로젝트 캐릭터의 3D 이미지 4장(서 있기·인사·프로필·대기 화면 배경)을 만드는 순서, 프롬프트, 참조 그림.
+- [OG 이미지 생성](og-images.md): 링크 미리보기 이미지 3장(1200×630, 1200×675, 800×400)의 구성·수치, 배경 프롬프트, 템플릿과 렌더 방법.
 
 ## 적용 순서
 
@@ -63,6 +65,8 @@
 | 음성 버튼 음량 테두리 | 음성 버튼 음량 테두리 | voice.micRing |
 | 액션 버튼 | 액션 버튼 | actionButton.* |
 | 말풍선 | 말풍선 | typography.bubble, color.bubbleTokens, spacing.bubbleGap, bubble.avatarProfile |
+| 캐릭터 이미지 생성 | 캐릭터 이미지 | character-images.md, project-theme.json characterImages |
+| OG 이미지 생성 | OG 이미지 | og-images.md, og/template.html |
 | 실사용 컴포넌트 | 실사용 컴포넌트 | componentLibrary |
 | 신규 컴포넌트 | 컴포넌트와 상태 | componentDrafts |
 | 안전 영역, Safari | 안전 영역 배치, 모바일 Safari | layout.safeArea |

@@ -300,8 +300,8 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 | 말풍선 | 대화 | 확정 | 아바타와 사용자 말풍선. 14/22. 아바타 프로필 이미지는 프로젝트마다 다름(예시는 반달이). |
 | 출처 링크 | 대화 | 제안 | 답변 아래 공식 안내 링크. Action Button XSmall. |
 | 답변 평가 | 대화 | 제안 | 도움 여부를 묻는 행. |
-| 평가 의견 | 대화 | 제안 | 도움이 안 됐을 때 여는 폼. |
-| BETA 뱃지 | 대화 | 제안 | 서비스 시험 표시. |
+| 평가 의견 | 대화 | 제안 | 도움이 안 됐을 때 여는 바텀시트. 「선택」은 Badge 초안(Weak). |
+| BETA 뱃지 | 대화 | 제안 | 서비스 시험 표시. 대기 화면 이름 오른쪽 끝에서 10px(space-10). |
 | 경고 안내 | 대화 | 제안 | 호우 특보 같은 안전 경고. |
 | 바텀시트 | 시트와 목록 | 제안 | 언어 선택. 선택 상태는 브랜드 선. |
 | 옵션 행 | 시트와 목록 | 제안 | 바텀시트 안의 선택 행. |
@@ -325,6 +325,14 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 
 테두리 색 [확정, 가은 11/03, 25%로 조정]: `voice/mic/ring/color` = main/200 25% (`color-mix(in srgb, var(--main-200) 25%, transparent)`). 구현은 음량 비율을 `--mic-level`(0~1)로 넘기고 `border-width: calc(var(--mic-level) * var(--voice-mic-ring-max))`로 그린다.
 
+
+## 캐릭터 이미지 [확정, 가은 11/04]
+
+프로젝트 캐릭터의 3D 이미지 4장(서 있기, 인사, 프로필, 대기 화면 배경)은 [character-images.md](character-images.md)의 순서와 프롬프트로 만든다. 스타일 참조 그림(반달이·도리)은 이 사이트의 `character/refs/`에 있으며 항상 함께 넣는다. 서 있기 1장을 먼저 만들어 사용자 확정을 받고, 그 이미지를 원본으로 나머지 3장을 만든다. 파일 경로는 `project-theme.json`의 `bubbleAvatar.image`(프로필)와 `characterImages`에 적는다.
+
+## OG 이미지 [확정, 가은 11/04]
+
+링크 미리보기 이미지 3장(1200×630, 1200×675, 800×400)은 [og-images.md](og-images.md)의 순서로 만든다. 수치는 Figma OG 페이지(815:47189)를 옮긴 [og/template.html](og/template.html)에 있고, `og/render.mjs`가 config JSON으로 세 장을 렌더한다. 캐릭터는 캐릭터 이미지의 인사 그림을 쓰고, 배경만 새로 만든다. 문구가 넘치면 글자를 줄이지 않고 문구를 줄인다.
 
 ## 안전 영역 배치 [확정]
 

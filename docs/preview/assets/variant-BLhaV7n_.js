@@ -1,0 +1,1 @@
+var e=new URLSearchParams(location.search).get(`variant`);e&&sessionStorage.setItem(`sandbox-variant`,e);var t=sessionStorage.getItem(`sandbox-variant`)===`sangju`,n=sessionStorage.getItem(`sandbox-variant`)==="default"||t,r=n?new URLSearchParams(location.search).get(`page`):null,i=n?new URLSearchParams(location.search).get(`modal`):null;export{r as i,t as n,i as r,n as t};

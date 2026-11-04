@@ -58,7 +58,7 @@ function setToken(name, value) {
 let pending = null;
 function openFrame(modal = null) {
   const query = new URLSearchParams({ variant });
-  if (variant === "default" && page !== "entry") query.set("page", page);
+  if (variant !== "bandali" && page !== "entry") query.set("page", page);
   if (modal) query.set("modal", modal);
   frame.src = `preview/index.html?${query}`;
   pick = null;
@@ -368,7 +368,7 @@ document.querySelectorAll("[data-variant]").forEach((button) => {
   button.onclick = () => {
     variant = button.dataset.variant;
     document.querySelectorAll("[data-variant]").forEach((other) => other.setAttribute("aria-pressed", other === button));
-    document.querySelectorAll("[data-page], #mode").forEach((control) => (control.disabled = variant !== "default"));
+    document.querySelectorAll("[data-page], #mode").forEach((control) => (control.disabled = variant === "bandali"));
     openFrame();
   };
 });

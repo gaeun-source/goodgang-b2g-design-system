@@ -1311,14 +1311,14 @@
         "name": "평가 의견",
         "group": "대화",
         "status": "proposal",
-        "note": "도움이 안 됐을 때 여는 폼."
+        "note": "도움이 안 됐을 때 여는 바텀시트. 「선택」은 Badge 초안(Weak)."
       },
       {
         "id": "badge",
         "name": "BETA 뱃지",
         "group": "대화",
         "status": "proposal",
-        "note": "서비스 시험 표시."
+        "note": "서비스 시험 표시. 대기 화면 이름 오른쪽 끝에서 10px(space-10)."
       },
       {
         "id": "callout",

@@ -79,5 +79,10 @@
   },
   "bubbleAvatar": {
     "image": null
+  },
+  "characterImages": {
+    "stand": null,
+    "hello": null,
+    "entry": null
   }
 }
