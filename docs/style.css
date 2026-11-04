@@ -44,3 +44,6 @@ nav .nav-group{margin:16px 0 20px}nav .nav-group-title{font-size:11px;line-heigh
 .safe-image{aspect-ratio:1/1}.safe-image img{width:100%;height:100%;object-fit:contain}
 
 .button-ratio-example{display:flex;gap:12px;padding:24px;background:#f3f6f3;border-radius:12px;margin:20px 0}.button-ratio-example button{min-width:0;min-height:48px;border:0;border-radius:10px;font:500 16px/20px var(--font-ui);padding:12px 8px}.ratio-secondary{flex:3;background:#e5ebe6;color:#334c3d}.ratio-primary{flex:7;background:#294637;color:#fff}@media(max-width:360px){.button-ratio-example{flex-direction:column}}
+
+#token-table .token-tier{margin:28px 0 10px;font-size:15px;line-height:22px}#token-table .token-tier:first-child{margin-top:16px}
+#token-table .token-chip{display:inline-block;width:16px;height:16px;margin-right:8px;vertical-align:-3px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}

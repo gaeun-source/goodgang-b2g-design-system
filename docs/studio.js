@@ -448,8 +448,8 @@ const SCALES = {
   "--radius-": { title: "반경", scale: [2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 9999] },
   "--stroke-width-": { title: "선 두께", scale: [1, 2] },
 };
-// 일부러 둔 값: 화면 읽기용 숨김 처리와 승인된 AI 고지 10px.
-const KEEP = new Set(["--space-1", "--size-1", "--font-size-10"]);
+// 일부러 둔 값: 승인된 AI 고지 10px. 1px 상자(대체텍스트 숨김, 안전 영역 띠)는 역할 토큰이라 여기 오지 않는다.
+const KEEP = new Set(["--font-size-10"]);
 // 값이 크게 바뀌는 항목은 기본으로 고르지 않는다. 체크한 뒤 바꾼다.
 const isChosen = (row) => (row.name in choices ? choices[row.name] : !Number.isInteger(row.value) || Math.abs(row.target - row.value) <= 2);
 const followsToken = (name) => /^var\(/.test(edits[name] ?? defs[name] ?? "");

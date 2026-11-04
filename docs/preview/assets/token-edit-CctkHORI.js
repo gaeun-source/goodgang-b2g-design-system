@@ -93,8 +93,8 @@ button:disabled {
   opacity: 0.48;
 }
 button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible {
-  outline: var(--stroke-width-3) solid var(--stroke-brand);
-  outline-offset: var(--space-3);
+  outline: var(--stroke-width-2) solid var(--stroke-brand);
+  outline-offset: var(--focus-outline-offset);
 }
 @media (hover: hover) and (pointer: fine) {
 button:hover:not(:disabled) {
@@ -105,7 +105,7 @@ h1, h2, h3, p {
   margin: 0;
 }
 h3 {
-  font-size: var(--font-size-22);
+  font-size: var(--font-size-24);
   line-height: 1.35;
   font-weight: var(--font-weight-bold);
 }
@@ -116,8 +116,8 @@ svg {
   display: block;
 }
 .icon {
-  width: var(--size-22);
-  height: var(--size-22);
+  width: var(--size-24);
+  height: var(--size-24);
   flex: none;
   fill: none;
   stroke: currentColor;
@@ -185,7 +185,7 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 .text-button {
   color: var(--fg-brand);
   text-decoration: underline;
-  text-underline-offset: var(--space-3);
+  text-underline-offset: var(--space-4);
   font-size: var(--text-body-compact-size);
   line-height: var(--text-body-compact-line);
   padding: var(--space-8);
@@ -221,7 +221,7 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 .chat-panel > .muted {
   flex: none;
   margin: 0 0 var(--space-10);
-  font-size: var(--font-size-11);
+  font-size: var(--font-size-12);
 }
 .chat-log {
   overflow-y: auto;
@@ -243,9 +243,9 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 .suggestions button {
   border: var(--stroke-width-1) solid var(--stroke-subtle);
   border-radius: var(--radius-full);
-  min-height: var(--size-34);
+  min-height: var(--size-36);
   padding: var(--space-6) var(--space-10);
-  font-size: var(--font-size-11);
+  font-size: var(--font-size-12);
 }
 .loading {
   position: absolute;
@@ -267,10 +267,10 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 }
 .sr-only {
   position: absolute;
-  width: var(--size-1);
-  height: var(--size-1);
+  width: var(--sr-only-size);
+  height: var(--sr-only-size);
   padding: 0;
-  margin: calc(-1 * var(--space-1));
+  margin: calc(-1 * var(--sr-only-size));
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -318,7 +318,7 @@ dialog::backdrop {
   align-items: center;
   justify-content: center;
   gap: var(--space-6);
-  background: var(--bg-critical-solid);
+  background: var(--bg-danger-solid);
   color: var(--fg-on-brand-solid);
   border-radius: var(--radius-10);
   min-height: var(--size-48);
@@ -349,7 +349,7 @@ dialog::backdrop {
 }
 @media (max-height: 700px) {
 .brand {
-  font-size: var(--font-size-26);
+  font-size: var(--font-size-28);
 }
 }
 @media (max-height: 700px) {
@@ -410,7 +410,7 @@ dialog::backdrop {
   max-width: var(--size-430);
 }
 .bandali-app .brand {
-  font-size: var(--font-size-21);
+  font-size: var(--font-size-20);
   font-weight: var(--font-weight-bold);
   letter-spacing: -1px;
   align-items: flex-start;
@@ -488,7 +488,7 @@ dialog::backdrop {
 }
 @media (max-height: 720px) {
 .bandali-app .panel-heading {
-  min-height: var(--size-38);
+  min-height: var(--size-40);
   padding: var(--space-8) var(--space-12);
 }
 }
@@ -520,16 +520,16 @@ dialog::backdrop {
   width: 100%;
 }
 .home-ask button {
-  width: var(--size-34);
-  min-width: var(--size-34);
+  width: var(--size-36);
+  min-width: var(--size-36);
   padding: 0;
   display: grid;
   place-items: center;
   height: var(--size-44);
 }
 .home-ask .icon {
-  width: var(--size-19);
-  height: var(--size-19);
+  width: var(--size-20);
+  height: var(--size-20);
 }
 .bandali-app {
   width: 100%;
@@ -566,7 +566,7 @@ dialog::backdrop {
   outline: none;
 }
 .home-ask:has(input:focus-visible), .place-search:has(input:focus-visible) {
-  outline: var(--stroke-width-3) solid var(--stroke-brand);
+  outline: var(--stroke-width-2) solid var(--stroke-brand);
   outline-offset: var(--space-2);
 }
 .bandali-app.chat-mode .avatar {
@@ -628,8 +628,8 @@ dialog::backdrop {
 }
 .bandali-app .batu-face {
   flex: none;
-  width: var(--size-34);
-  height: var(--size-34);
+  width: var(--size-36);
+  height: var(--size-36);
   border-radius: var(--radius-full);
   object-fit: cover;
   object-position: 50% 8%;
@@ -729,13 +729,13 @@ dialog::backdrop {
   border-radius: var(--radius-full);
 }
 .skeleton-name {
-  width: var(--size-42);
+  width: var(--size-44);
   height: var(--size-16);
   border-radius: var(--radius-4);
 }
 .skeleton-line {
   height: var(--size-16);
-  margin: var(--space-3) 0;
+  margin: var(--space-4) 0;
   border-radius: var(--radius-4);
 }
 .skeleton-line-short {
@@ -758,9 +758,9 @@ dialog::backdrop {
   display: block;
   flex: 0 1 auto;
   min-height: 0;
-  width: var(--size-294_75);
+  width: var(--size-294);
   max-width: 100%;
-  height: var(--size-349_195);
+  height: var(--size-350);
   max-height: 100%;
   object-fit: contain;
 }
@@ -841,7 +841,7 @@ dialog::backdrop {
 .bubble-more::before {
   content: "";
   position: absolute;
-  inset: calc(-1 * var(--space-13)) calc(-1 * var(--space-4));
+  inset: calc(-1 * var(--space-12)) calc(-1 * var(--space-4));
 }
 .bubble-more.overlay {
   position: absolute;
@@ -874,12 +874,12 @@ body::before, body::after {
 }
 body::before {
   top: 0;
-  height: max(env(safe-area-inset-top), var(--size-1));
+  height: max(env(safe-area-inset-top), var(--layout-edge-min-height));
   background: var(--knps-edge-top);
 }
 body::after {
   bottom: 0;
-  height: max(env(safe-area-inset-bottom), var(--size-1));
+  height: max(env(safe-area-inset-bottom), var(--layout-edge-min-height));
   background: var(--knps-edge-bottom);
 }
 :root:has(dialog[open]) {
@@ -1031,7 +1031,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-on-brand-solid);
   font-family: var(--knps-font-family);
   font-size: var(--font-size-10);
-  line-height: var(--font-line-15);
+  line-height: var(--font-line-14);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--font-tracking-default);
   white-space: nowrap;
@@ -1046,7 +1046,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-on-brand-solid);
   font-family: var(--knps-font-family);
   font-size: var(--font-size-10);
-  line-height: var(--font-line-15);
+  line-height: var(--font-line-14);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--font-tracking-default);
   white-space: nowrap;
@@ -1073,8 +1073,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-language {
   position: absolute;
-  top: max(var(--space-7), env(safe-area-inset-top));
-  right: var(--space-15);
+  top: max(var(--space-8), env(safe-area-inset-top));
+  right: var(--space-16);
   z-index: 2;
 }
 .entry-language .language-button {
@@ -1124,7 +1124,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-conversations button > .v7-icon:last-child {
   width: var(--size-20);
-  height: var(--size-22);
+  height: var(--size-24);
 }
 .entry-ai-notice {
   margin: var(--space-10) 0 0;
@@ -1404,8 +1404,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-brand);
 }
 .v7-shell .home-ask .mode-switch .v7-icon {
-  width: var(--size-22);
-  height: var(--size-22);
+  width: var(--size-24);
+  height: var(--size-24);
 }
 .v7-shell .footer-note, .v7-shell .ai-notice {
   font-size: var(--font-size-10);
@@ -1416,7 +1416,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   align-items: center;
   justify-content: center;
   gap: var(--space-8);
-  min-height: var(--size-30);
+  min-height: var(--size-32);
   padding: var(--space-8) 0 var(--space-4);
   text-align: center;
   font-size: var(--text-caption-size);
@@ -1430,7 +1430,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   gap: var(--space-4);
 }
 .voice-level i {
-  width: var(--size-3);
+  width: var(--size-4);
   border-radius: var(--radius-full);
   background: var(--bg-brand-solid);
   transition: height 0.1s;
@@ -1584,8 +1584,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-muted);
 }
 .v7-shell .panel-heading .icon-button .v7-icon {
-  width: var(--size-17);
-  height: var(--size-17);
+  width: var(--size-18);
+  height: var(--size-18);
 }
 .v7-shell .primary, .v7-shell button.primary {
   border: var(--stroke-width-1) solid var(--stroke-brand);
@@ -1644,9 +1644,9 @@ dialog:focus, dialog:focus-visible {
   background: var(--bg-surface);
   text-align: left;
 }
+/* 가은 11/04: the chosen row stays white; only the brand line marks it. */
 .language-options > button[aria-pressed="true"] {
   border-color: var(--stroke-brand);
-  background: var(--bg-selected);
 }
 .park-options > button > span:not(.park-option-icon), .language-options > button > span {
   flex: 1;
@@ -1861,7 +1861,7 @@ dialog.slide.leaving::backdrop {
   text-underline-offset: var(--space-2);
 }
 dialog > .panel-heading .modal-back {
-  margin-left: calc(-1 * var(--space-9));
+  margin-left: calc(-1 * var(--space-10));
 }
 dialog > .panel-heading:has(> .modal-back) > h2 {
   flex: 1;
@@ -2204,7 +2204,7 @@ dialog.slide, dialog.slide.leaving {
 .v7-shell .panel-action .primary {
   justify-content: center;
   min-height: var(--button-large-height);
-  padding: var(--space-11) var(--button-large-padding-x);
+  padding: var(--space-12) var(--button-large-padding-x);
   border-radius: var(--button-large-radius);
   font-size: var(--button-large-text-size);
   line-height: var(--button-large-text-line);
@@ -2411,7 +2411,7 @@ dialog.slide, dialog.slide.leaving {
 }
 .feedback-error {
   margin: 0;
-  color: var(--fg-error);
+  color: var(--fg-danger);
 }
 .feedback-receipt {
   font-size: var(--font-size-20);
@@ -2732,7 +2732,6 @@ dialog .modal-body > .daylight-check {
 :root {
   /* 1. Base values */
   --font-line-14: 14px;
-  --font-line-15: 15px;
   --font-line-16: 16px;
   --font-line-18: 18px;
   --font-line-20: 20px;
@@ -2740,16 +2739,13 @@ dialog .modal-body > .daylight-check {
   --font-line-26: 26px;
   --font-line-40: 40px;
   --font-size-10: 10px;
-  --font-size-11: 11px;
   --font-size-12: 12px;
   --font-size-13: 13px;
   --font-size-14: 14px;
   --font-size-16: 16px;
   --font-size-18: 18px;
   --font-size-20: 20px;
-  --font-size-21: 21px;
-  --font-size-22: 22px;
-  --font-size-26: 26px;
+  --font-size-24: 24px;
   --font-size-28: 28px;
   --font-size-8: 8px;
   --font-size-9: 9px;
@@ -2797,32 +2793,23 @@ dialog .modal-body > .daylight-check {
   --radius-4: 4px;
   --radius-8: 8px;
   --radius-full: 9999px;
-  --size-1: 1px;
+  --size-4: 4px;
   --size-100: 100px;
   --size-120: 120px;
   --size-16: 16px;
-  --size-17: 17px;
   --size-18: 18px;
-  --size-19: 19px;
   --size-20: 20px;
   --size-200: 200px;
-  --size-22: 22px;
   --size-24: 24px;
   --size-240: 240px;
   --size-256: 256px;
   --size-28: 28px;
-  --size-294_75: 294.75px;
-  --size-3: 3px;
-  --size-30: 30px;
+  --size-294: 294px;
   --size-32: 32px;
-  --size-34: 34px;
-  --size-340: 340px;
-  --size-349_195: 349.195px;
+  --size-350: 350px;
   --size-36: 36px;
-  --size-38: 38px;
   --size-390: 390px;
   --size-40: 40px;
-  --size-42: 42px;
   --size-430: 430px;
   --size-44: 44px;
   --size-48: 48px;
@@ -2833,38 +2820,53 @@ dialog .modal-body > .daylight-check {
   --size-844: 844px;
   --size-88: 88px;
   --size-96: 96px;
-  --space-1: 1px;
   --space-10: 10px;
-  --space-11: 11px;
   --space-12: 12px;
-  --space-13: 13px;
   --space-14: 14px;
-  --space-15: 15px;
   --space-16: 16px;
   --space-18: 18px;
   --space-2: 2px;
   --space-20: 20px;
   --space-24: 24px;
   --space-28: 28px;
-  --space-3: 3px;
   --space-32: 32px;
   --space-4: 4px;
   --space-40: 40px;
   --space-6: 6px;
   --space-68: 68px;
-  --space-7: 7px;
   --space-8: 8px;
-  --space-9: 9px;
   --stroke-width-1: 1px;
   --stroke-width-2: 2px;
-  --stroke-width-3: 3px;
   --white: #ffffff;
+  /* 가은 11/04: 의미 색. 노랑은 주의(옐로카드), 빨강은 위험(레드카드, 더 중요한 경고). main·sub와 달리 프로젝트마다 바꾸지 않는다. */
+  --red-50: #fff5f5;
+  --red-100: #ffe6e6;
+  --red-200: #fcc9c9;
+  --red-300: #f5a3a3;
+  --red-400: #ea7171;
+  --red-500: #d94545;
+  --red-600: #c23030;
+  --red-700: #a52a2a;
+  --red-800: #842424;
+  --red-900: #5f1c1c;
+  --yellow-50: #fffbeb;
+  --yellow-100: #fff3c4;
+  --yellow-200: #ffe58a;
+  --yellow-300: #ffd54d;
+  --yellow-400: #fbc21a;
+  --yellow-500: #e5a800;
+  --yellow-600: #b88300;
+  --yellow-700: #8c6200;
+  --yellow-800: #6b4a00;
+  --yellow-900: #4a3300;
   /* 2. Roles */
   --bg-brand-solid: var(--main-700);
   --bg-brand-weak: var(--main-100);
   --bg-brand-weak-pressed: var(--main-200);
-  --bg-critical-solid: #a73141;
-  --bg-danger-weak: #fff8fa;
+  --bg-caution-solid: var(--yellow-400);
+  --bg-caution-weak: var(--yellow-50);
+  --bg-danger-solid: var(--red-700);
+  --bg-danger-weak: var(--red-50);
   --bg-disabled: var(--gray-100);
   --bg-entry: #f6faec;
   --bg-neutral-solid: var(--gray-950);
@@ -2879,9 +2881,9 @@ dialog .modal-body > .daylight-check {
   --bg-surface: var(--white);
   --fg-brand: var(--main-700);
   --fg-bubble-link: var(--main-200);
-  --fg-danger: #b23f35;
+  --fg-caution: var(--yellow-800);
+  --fg-danger: var(--red-700);
   --fg-disabled: var(--gray-500);
-  --fg-error: #a3321f;
   --fg-muted: #626f6c;
   --fg-neutral: var(--gray-950);
   --fg-on-brand-solid: var(--white);
@@ -2889,6 +2891,8 @@ dialog .modal-body > .daylight-check {
   --fg-secondary: var(--gray-700);
   --layout-sheet-padding: var(--space-24);
   --layout-sheet-title-gap: var(--space-20);
+  /* 가은 11/04: 안전 영역 띠(Safari 위아래 색)의 최소 높이. inset이 0이어도 1px은 둔다. 기본값 없이 역할에서 바로 정한다. */
+  --layout-edge-min-height: 1px;
   --shadow-bubble: rgba(27, 42, 33, 0.12);
   --shadow-medium: #1b2a2114;
   --shadow-soft: #1b2a210a;
@@ -2896,9 +2900,14 @@ dialog .modal-body > .daylight-check {
   --source-link-fg: #246249;
   --source-link-stroke: #c7dcd1;
   --stroke-brand: var(--main-700);
-  --stroke-danger-weak: #eadce4;
+  --stroke-caution-weak: var(--yellow-300);
+  --stroke-danger-weak: var(--red-200);
   --stroke-input: #c9d3cf;
   --stroke-subtle: var(--gray-100);
+  /* 가은 11/04: 키보드 포커스 외곽선(:focus-visible)과 요소 사이 간격. 터치·마우스로는 보이지 않는다. */
+  --focus-outline-offset: var(--space-4);
+  /* 가은 11/04: 대체텍스트(화면 읽기 전용 글자)·숨김 입력을 감추는 1px 상자. 기본값 없이 역할에서 바로 정한다. */
+  --sr-only-size: 1px;
   --text-body-compact-line: var(--font-line-20);
   --text-body-compact-size: var(--font-size-14);
   --text-body-default-line: var(--font-line-22);
@@ -2941,7 +2950,7 @@ dialog .modal-body > .daylight-check {
   --dialog-max-width: var(--size-430);
   --dialog-radius: var(--radius-20);
   --navigation-bar-height-default: 56px;
-  --sheet-close-size: var(--size-38);
+  --sheet-close-size: var(--size-40);
   --sheet-max-width: var(--size-430);
   --sheet-radius: var(--radius-20);
   --toggle-height: var(--size-24);

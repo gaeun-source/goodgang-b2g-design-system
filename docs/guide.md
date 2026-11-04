@@ -35,8 +35,12 @@
 | 단계 | 이름 규칙 | 예시 |
 |---|---|---|
 | 1. 기본값 | `gray/*`, `main/*`, `space/*`, `size/*`, `radius/*`, `font/size/*`, `font/line/*`, `font/weight/*`, `stroke-width/*` | `gray/900`, `space/16` |
-| 2. 역할 | 색 `bg/*`, `fg/*`, `stroke/*`, 글자 `text/*`, 배치 `layout/*` | `fg/neutral`, `text/body/default`, `layout/sheet/padding` |
+| 2. 역할 | 색 `bg/*`, `fg/*`, `stroke/*`, 글자 `text/*`, 배치 `layout/*`, 포커스 `focus/*`, 숨김 `sr-only/*` | `fg/neutral`, `text/body/default`, `layout/sheet/padding` |
 | 3. 컴포넌트 | `컴포넌트/종류/속성` | `button/large/height`, `bubble/avatar/bg`, `sheet/radius` |
+
+키보드 포커스 외곽선(:focus-visible)과 요소 사이 간격은 역할 토큰 `focus/outline/offset`(`--focus-outline-offset` → `space/4`)을 쓴다 [가은 11/04]. 터치·마우스에서는 보이지 않으며 접근성(WCAG 2.4.7)을 위해 둔다.
+
+1px 상자는 기본값(`size/1`) 없이 역할 토큰에서 바로 정한다 [가은 11/04]. 대체텍스트(화면 읽기 전용 글자)·숨김 입력은 `sr-only/size`(`--sr-only-size`), 안전 영역 띠의 최소 높이는 `layout/edge/min-height`(`--layout-edge-min-height`). `space/*`·`size/*` 스케일 값으로 대신하지 않으며 토큰 정리 대상이 아니다.
 
 색 이름은 확정 규칙의 `bg/fg/stroke`를 쓰고, 예시 표의 `surface/text/action`은 쓰지 않는다. `text/`는 글자 스타일에만 쓴다. CSS 표기는 슬래시를 하이픈으로 바꾼다. 예: `bg/page/top` → `--bg-page-top`.
 
@@ -96,6 +100,8 @@
 ## 컬러와 테마
 
 팔레트 키는 `gray/50,100,200,300,400,500,600,700,800,900`, `main/50…900`, `sub/50…900`이다. 50은 밝은 쪽, 900은 어두운 쪽으로 구성한다. 실제 HEX는 프로젝트 설정에서 채운다. white, black, transparent와 success, warning, danger, info는 별도 의미 색상이다. 브랜드 컬러 변경이 경고 의미를 바꾸지 않게 한다.
+
+의미 색 [가은 11/04]: `yellow/50…900`(주의, 옐로카드)과 `red/50…900`(위험, 레드카드, 더 중요한 경고)은 고정 스케일이며 프로젝트 설정에 넣지 않는다. 역할은 `bg/caution/weak`·`bg/caution/solid`·`fg/caution`·`stroke/caution/weak`(yellow 50·400·800·300), `bg/danger/weak`·`bg/danger/solid`·`fg/danger`·`stroke/danger/weak`(red 50·700·700·200). 경고 안내(Callout)와 뱃지는 톤에 맞는 역할을 쓴다.
 
 컴포넌트는 팔레트 HEX 대신 아래 역할을 참조한다. 다음 연결은 **밝은 테마의 초기 설정 예시**이며, 실제 색이 들어오면 대비를 확인한 뒤 확정한다. 숫자만으로 대비가 보장되지 않는다.
 
