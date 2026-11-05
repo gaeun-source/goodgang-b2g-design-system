@@ -93,9 +93,9 @@
       "width": "Hug",
       "sizes": {
         "XSmall": {
-          "height": 28,
-          "paddingY": 6,
-          "paddingX": 12,
+          "height": 24,
+          "paddingY": 4,
+          "paddingX": 10,
           "gap": 2,
           "icon": 16,
           "fontSize": 12,
@@ -134,7 +134,7 @@
           "fontSize": 16,
           "lineHeight": 20,
           "weight": 500,
-          "radius": 10
+          "radius": 12
         }
       },
       "note": "background and foreground are project Variant tokens; visual sizes do not define hit target policy"
@@ -188,13 +188,9 @@
     "radii": {
       "status": "confirmed",
       "values": [
-        2,
         4,
-        6,
         8,
-        10,
         12,
-        14,
         16,
         20,
         24,
@@ -1205,7 +1201,7 @@
       "purpose": "답변과 안내의 공식 출처로 이동합니다.",
       "optionsToReview": "안전 안내 카드 안에서도 같은 크기로 쓸지",
       "appliedIn": "반달이 knps-agent 적용값, 2026-10-30",
-      "appliedValues": "Action Button XSmall · h28 · 6/12 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44",
+      "appliedValues": "Action Button XSmall · h24 · 4/10 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44",
       "note": "Project value under review; not a confirmed token."
     },
     "toggle": {

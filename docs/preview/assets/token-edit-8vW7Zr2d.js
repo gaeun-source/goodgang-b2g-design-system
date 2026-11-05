@@ -133,7 +133,7 @@ svg {
 }
 .app {
   height: 100dvh;
-  max-width: var(--size-430);
+  max-width: var(--layout-max-width);
   margin: 0 auto;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
   isolation: isolate;
@@ -262,7 +262,7 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 }
 .fatal {
   padding: var(--space-32);
-  max-width: var(--size-430);
+  max-width: var(--layout-max-width);
   margin: auto;
 }
 .sr-only {
@@ -320,7 +320,7 @@ dialog::backdrop {
   gap: var(--space-6);
   background: var(--bg-danger-solid);
   color: var(--fg-on-brand-solid);
-  border-radius: var(--radius-10);
+  border-radius: var(--radius-12);
   min-height: var(--size-48);
   padding: var(--space-12) var(--space-16);
   text-decoration: none;
@@ -407,7 +407,7 @@ dialog::backdrop {
 }
 }
 .bandali-app {
-  max-width: var(--size-430);
+  max-width: var(--layout-max-width);
 }
 .bandali-app .brand {
   font-size: var(--font-size-20);
@@ -682,7 +682,7 @@ dialog::backdrop {
   gap: var(--space-4);
   padding: 0.5rem var(--space-10);
   border: var(--stroke-width-1) solid var(--source-link-stroke);
-  border-radius: var(--radius-10);
+  border-radius: var(--radius-12);
   color: var(--source-link-fg);
   background: var(--source-link-bg);
   font-size: 0.85rem;
@@ -758,9 +758,9 @@ dialog::backdrop {
   display: block;
   flex: 0 1 auto;
   min-height: 0;
-  width: var(--size-294);
+  width: 294px;
   max-width: 100%;
-  height: var(--size-350);
+  height: 350px;
   max-height: 100%;
   object-fit: contain;
 }
@@ -1054,8 +1054,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-wordmark img {
   display: block;
-  width: var(--size-256);
-  height: var(--size-100);
+  width: 256px;
+  height: 100px;
   max-width: 100%;
   object-fit: contain;
 }
@@ -1102,7 +1102,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-art {
   flex: 1 0 200px;
-  min-height: var(--size-200);
+  min-height: 200px;
 }
 .entry-bottom {
   position: relative;
@@ -1595,8 +1595,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   font-weight: var(--font-weight-medium);
 }
 dialog {
-  width: min(var(--size-430), 100%);
-  max-width: var(--size-430);
+  width: min(var(--dialog-max-width), 100%);
+  max-width: var(--dialog-max-width);
   border: var(--stroke-width-1) solid var(--stroke-subtle);
   border-radius: var(--radius-20) var(--radius-20) 0 0;
   background: var(--bg-page-bottom);
@@ -1717,8 +1717,8 @@ dialog:focus, dialog:focus-visible {
 }
 @media (min-width: 600px) {
 .entry-screen, .v7-shell {
-  max-width: var(--size-390);
-  height: min(var(--size-844), calc(100dvh - var(--size-48)));
+  max-width: var(--layout-frame-max-width);
+  height: min(var(--layout-frame-max-height), calc(100dvh - var(--size-48)));
   min-height: 0;
   margin: var(--space-24) auto;
   border-radius: var(--radius-24);
@@ -1749,8 +1749,8 @@ dialog:focus, dialog:focus-visible {
 }
 @media (max-width: 359px) {
 .entry-wordmark img {
-  width: var(--size-240);
-  height: var(--size-96);
+  width: 240px;
+  height: 96px;
 }
 }
 @media (max-width: 359px) {
@@ -2309,7 +2309,7 @@ dialog.slide, dialog.slide.leaving {
 .v7-shell .voice-controls .mic-button .stop-glyph, .v7-shell .answer-stop .stop-glyph {
   width: var(--size-16);
   height: var(--size-16);
-  border-radius: var(--radius-2);
+  border-radius: var(--icon-stop-radius);
   background: var(--bg-surface);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2389,7 +2389,7 @@ dialog.slide, dialog.slide.leaving {
 }
 .feedback-text textarea {
   width: 100%;
-  min-height: var(--size-120);
+  min-height: 120px;
   padding: var(--space-10) var(--space-12);
   border: var(--stroke-width-1) solid var(--stroke-subtle);
   border-radius: var(--radius-12);
@@ -2718,8 +2718,11 @@ dialog .modal-body > .daylight-check {
   --v7-art: url("/assets/v7/weather/unknown.svg");
 }
 /* 가은 11/03: never a second outline. A part with its own line shows focus by that line, stroke/brand 1px; a ring only
-   where there is no line (icon buttons, links). */
-:is(.entry-conversations button, .conversation-controls:not(.voice-controls) .mode-switch, .sound-toggle, .mic-button:not(.on), .send-button, .language-options button, .feedback-categories label, .feedback-text textarea, .rating-form textarea, .rating-reason, .rating-button, .primary, .secondary):is(:focus-visible, :focus-within) {
+   where there is no line (icon buttons, links).
+   가은 11/04: buttons and text fields only on :focus-visible, so a tapped button keeps no line. The labels hold their
+   input inside, so they take the input's keyboard focus (:has(:focus-visible)); :focus-within also matched a mouse click. */
+:is(.entry-conversations button, .conversation-controls:not(.voice-controls) .mode-switch, .sound-toggle, .mic-button:not(.on), .send-button, .language-options button, .feedback-text textarea, .rating-form textarea, .rating-button, .primary, .secondary):focus-visible,
+:is(.feedback-categories label, .rating-reason):has(:focus-visible) {
   outline: none;
   border-color: var(--stroke-brand);
 }
@@ -2784,42 +2787,29 @@ dialog .modal-body > .daylight-check {
   --sub-700: #76434e;
   --sub-800: #553038;
   --sub-900: #371f25;
-  --radius-10: 10px;
   --radius-12: 12px;
   --radius-16: 16px;
-  --radius-2: 2px;
   --radius-20: 20px;
   --radius-24: 24px;
   --radius-4: 4px;
   --radius-8: 8px;
   --radius-full: 9999px;
   --size-4: 4px;
-  --size-100: 100px;
-  --size-120: 120px;
   --size-16: 16px;
   --size-18: 18px;
   --size-20: 20px;
-  --size-200: 200px;
   --size-24: 24px;
-  --size-240: 240px;
-  --size-256: 256px;
   --size-28: 28px;
-  --size-294: 294px;
   --size-32: 32px;
-  --size-350: 350px;
   --size-36: 36px;
-  --size-390: 390px;
   --size-40: 40px;
-  --size-430: 430px;
   --size-44: 44px;
   --size-48: 48px;
   --size-60: 60px;
   --size-64: 64px;
   --size-72: 72px;
   --size-8: 8px;
-  --size-844: 844px;
   --size-88: 88px;
-  --size-96: 96px;
   --space-10: 10px;
   --space-12: 12px;
   --space-14: 14px;
@@ -2840,30 +2830,15 @@ dialog .modal-body > .daylight-check {
   --white: #ffffff;
   /* 가은 11/04: 의미 색. 노랑은 주의(옐로카드), 빨강은 위험(레드카드, 더 중요한 경고). main·sub와 달리 프로젝트마다 바꾸지 않는다. */
   --red-50: #fff5f5;
-  --red-100: #ffe6e6;
   --red-200: #fcc9c9;
-  --red-300: #f5a3a3;
-  --red-400: #ea7171;
-  --red-500: #d94545;
-  --red-600: #c23030;
   --red-700: #a52a2a;
-  --red-800: #842424;
-  --red-900: #5f1c1c;
   --yellow-50: #fffbeb;
-  --yellow-100: #fff3c4;
-  --yellow-200: #ffe58a;
   --yellow-300: #ffd54d;
-  --yellow-400: #fbc21a;
-  --yellow-500: #e5a800;
-  --yellow-600: #b88300;
-  --yellow-700: #8c6200;
   --yellow-800: #6b4a00;
-  --yellow-900: #4a3300;
   /* 2. Roles */
   --bg-brand-solid: var(--main-700);
   --bg-brand-weak: var(--main-100);
   --bg-brand-weak-pressed: var(--main-200);
-  --bg-caution-solid: var(--yellow-400);
   --bg-caution-weak: var(--yellow-50);
   --bg-danger-solid: var(--red-700);
   --bg-danger-weak: var(--red-50);
@@ -2893,6 +2868,10 @@ dialog .modal-body > .daylight-check {
   --layout-sheet-title-gap: var(--space-20);
   /* 가은 11/04: 안전 영역 띠(Safari 위아래 색)의 최소 높이. inset이 0이어도 1px은 둔다. 기본값 없이 역할에서 바로 정한다. */
   --layout-edge-min-height: 1px;
+  /* 가은 11/04: 한 곳에서만 쓰는 크기는 기본 size 스케일에 두지 않고 쓰는 곳 이름으로 바로 정한다. */
+  --layout-max-width: 430px;
+  --layout-frame-max-width: 390px;
+  --layout-frame-max-height: 844px;
   --shadow-bubble: rgba(27, 42, 33, 0.12);
   --shadow-medium: #1b2a2114;
   --shadow-soft: #1b2a210a;
@@ -2936,7 +2915,7 @@ dialog .modal-body > .daylight-check {
   --button-large-height: var(--size-48);
   --button-large-padding-x: var(--space-16);
   --button-large-padding-y: var(--space-12);
-  --button-large-radius: var(--radius-10);
+  --button-large-radius: var(--radius-12);
   --button-large-text-line: var(--font-line-20);
   --button-large-text-size: var(--font-size-16);
   --button-small-text-line: var(--font-line-16);
@@ -2947,11 +2926,11 @@ dialog .modal-body > .daylight-check {
   --chip-suggestion-padding-y: var(--space-8);
   --chip-suggestion-radius: var(--radius-full);
   --dialog-button-gap: var(--space-10);
-  --dialog-max-width: var(--size-430);
+  --dialog-max-width: var(--layout-max-width);
   --dialog-radius: var(--radius-20);
   --navigation-bar-height-default: 56px;
   --sheet-close-size: var(--size-40);
-  --sheet-max-width: var(--size-430);
+  --sheet-max-width: var(--layout-max-width);
   --sheet-radius: var(--radius-20);
   --toggle-height: var(--size-24);
   --toggle-inset: var(--space-2);
@@ -2966,9 +2945,9 @@ dialog .modal-body > .daylight-check {
   --button-small-padding-y: var(--space-8);
   --button-small-radius: var(--radius-8);
   --button-xsmall-gap: var(--space-2);
-  --button-xsmall-height: var(--size-28);
-  --button-xsmall-padding-x: var(--space-12);
-  --button-xsmall-padding-y: var(--space-6);
+  --button-xsmall-height: var(--size-24);
+  --button-xsmall-padding-x: var(--space-10);
+  --button-xsmall-padding-y: var(--space-4);
   --button-xsmall-radius: var(--radius-full);
   --callout-gap: var(--space-4);
   --callout-padding-x: var(--space-12);
@@ -2977,6 +2956,8 @@ dialog .modal-body > .daylight-check {
   --entry-button-height: var(--size-88);
   --entry-button-radius: var(--radius-20);
   --icon-button-radius: var(--radius-full);
+  /* 가은 11/04: 아이콘 경로 모서리(0·1·2px, 아이콘 가이드). 버튼·카드 반경 체계와 별개. ■ 멈추기는 2. */
+  --icon-stop-radius: 2px;
   --icon-button-size: var(--size-48);
   --input-gap: var(--space-6);
   --input-height: var(--size-48);

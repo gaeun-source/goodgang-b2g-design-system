@@ -445,7 +445,7 @@ const SCALES = {
   "--size-": { title: "크기", scale: [...SCALE, 44].sort((a, b) => a - b) },
   "--font-size-": { title: "글자 크기", scale: [12, 13, 14, 16, 18, 20, 24, 28] },
   "--font-line-": { title: "행간", scale: [14, 16, 18, 20, 22, 26, 28, 34, 40] },
-  "--radius-": { title: "반경", scale: [2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 9999] },
+  "--radius-": { title: "반경", scale: [4, 8, 12, 16, 20, 24, 9999] },
   "--stroke-width-": { title: "선 두께", scale: [1, 2] },
 };
 // 일부러 둔 값: 승인된 AI 고지 10px. 1px 상자(대체텍스트 숨김, 안전 영역 띠)는 역할 토큰이라 여기 오지 않는다.
