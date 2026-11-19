@@ -35,8 +35,12 @@
 | 단계 | 이름 규칙 | 예시 |
 |---|---|---|
 | 1. 기본값 | `gray/*`, `main/*`, `space/*`, `size/*`, `radius/*`, `font/size/*`, `font/line/*`, `font/weight/*`, `stroke-width/*` | `gray/900`, `space/16` |
-| 2. 역할 | 색 `bg/*`, `fg/*`, `stroke/*`, 글자 `text/*`, 배치 `layout/*` | `fg/neutral`, `text/body/default`, `layout/sheet/padding` |
+| 2. 역할 | 색 `bg/*`, `fg/*`, `stroke/*`, 글자 `text/*`, 배치 `layout/*`, 포커스 `focus/*`, 숨김 `sr-only/*` | `fg/neutral`, `text/body/default`, `layout/sheet/padding` |
 | 3. 컴포넌트 | `컴포넌트/종류/속성` | `button/large/height`, `bubble/avatar/bg`, `sheet/radius` |
+
+키보드 포커스 외곽선(:focus-visible)과 요소 사이 간격은 역할 토큰 `focus/outline/offset`(`--focus-outline-offset` → `space/4`)을 쓴다 [가은 11/04]. 터치·마우스에서는 보이지 않으며 접근성(WCAG 2.4.7)을 위해 둔다.
+
+1px 상자는 기본값(`size/1`) 없이 역할 토큰에서 바로 정한다 [가은 11/04]. 대체텍스트(화면 읽기 전용 글자)·숨김 입력은 `sr-only/size`(`--sr-only-size`), 안전 영역 띠의 최소 높이는 `layout/edge/min-height`(`--layout-edge-min-height`). `space/*`·`size/*` 스케일 값으로 대신하지 않으며 토큰 정리 대상이 아니다.
 
 색 이름은 확정 규칙의 `bg/fg/stroke`를 쓰고, 예시 표의 `surface/text/action`은 쓰지 않는다. `text/`는 글자 스타일에만 쓴다. CSS 표기는 슬래시를 하이픈으로 바꾼다. 예: `bg/page/top` → `--bg-page-top`.
 
@@ -96,6 +100,8 @@
 ## 컬러와 테마
 
 팔레트 키는 `gray/50,100,200,300,400,500,600,700,800,900`, `main/50…900`, `sub/50…900`이다. 50은 밝은 쪽, 900은 어두운 쪽으로 구성한다. 실제 HEX는 프로젝트 설정에서 채운다. white, black, transparent와 success, warning, danger, info는 별도 의미 색상이다. 브랜드 컬러 변경이 경고 의미를 바꾸지 않게 한다.
+
+의미 색 [가은 11/04]: `yellow/50·300·800`(주의, 옐로카드)과 `red/50·200·700`(위험, 레드카드, 더 중요한 경고)은 고정 값이며 프로젝트 설정에 넣지 않는다. 역할은 `bg/caution/weak`·`fg/caution`·`stroke/caution/weak`(yellow 50·800·300), `bg/danger/weak`·`bg/danger/solid`·`fg/danger`·`stroke/danger/weak`(red 50·700·700·200). 경고 안내(Callout)와 뱃지는 톤에 맞는 역할을 쓴다.
 
 컴포넌트는 팔레트 HEX 대신 아래 역할을 참조한다. 다음 연결은 **밝은 테마의 초기 설정 예시**이며, 실제 색이 들어오면 대비를 확인한 뒤 확정한다. 숫자만으로 대비가 보장되지 않는다.
 
@@ -170,7 +176,7 @@ Neutral H [확정]: 기준 H는 Main 500 H를 참조한다. Neutral 500은 같�
 
 ## 반경과 선
 
-반경 허용값은 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 9999px이다. 9999px은 Pill·원형용이다. 원형에도 50%를 쓰지 않고 9999px(`radius/full`)을 쓴다(가은 11/03). SEED 토큰명은 사용하지 않고 수치로 식별한다.
+반경 허용값은 4, 8, 12, 16, 20, 24, 9999px이다. 아이콘 경로 모서리(0·1·2px)는 아이콘 규칙을 따르며 이 목록과 별개다. 9999px은 Pill·원형용이다. 원형에도 50%를 쓰지 않고 9999px(`radius/full`)을 쓴다(가은 11/03). SEED 토큰명은 사용하지 않고 수치로 식별한다.
 
 반경은 컨테이너·컨트롤·원형 요소 등 역할별로 프로젝트에서 지정한다. 모든 컴포넌트에 같은 반경이나 하나의 계산식을 강제하지 않는다. 한 번 확정한 역할별 반경은 토큰으로 재사용한다.
 
@@ -221,10 +227,10 @@ OS별 지정 글꼴, weight 500. 너비는 Hug. 단위 px.
 
 | Size | 높이 | 상하/좌우 패딩 | gap | 아이콘 | 글자/행간 | 반경 |
 |---|---|---|---|---|---|---|---|
-| XSmall | 28 | 6/12 | 2 | 16 | 12/14 | 9999 |
+| XSmall | 24 | 4/10 | 2 | 16 | 12/14 | 9999 |
 | Small | 32 | 8/12 | 4 | 16 | 13/16 | 8 |
 | Medium | 40 | 10/14 | 4 | 20 | 14/18 | 8 |
-| Large | 48 | 12/16 | 6 | 24 | 16/20 | 10 |
+| Large | 48 | 12/16 | 6 | 24 | 16/20 | 12 |
 
 ### 아이콘 프레임과 실제 그림 크기 검수
 
@@ -301,13 +307,13 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 프로젝트 제안 [proposal]: 반달이 적용값. 확정 토큰이 아니며 웹 #project-proposals에서 검토한다.
 
 - Suggestion Chip: h36 · 패딩 8/14 · 14/20 · 500 · 전체 반경 · 안쪽 1px 선 · 터치 영역 44
-- Source Link: Action Button XSmall · h28 · 6/12 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44
+- Source Link: Action Button XSmall · h24 · 4/10 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44
 - Toggle: 40×24 · 손잡이 20 · 안쪽 2px · 전체 반경 · 켬 brand · 끔 gray/300 · 행 전체가 스위치
 - Option Row: 언어 등 값을 선택하는 행. 최소 높이 72 · 패딩 12/16 · 내부 gap 12 · 행 사이 10 · 반경 16 · 제목 14/20·700 · 보조문구 12/16·400 · 체크 20. 기본·선택 모두 white, 본문 neutral, 선택은 brand 선·체크로 구분한다.
 - List Row: 더보기 등 다른 화면으로 이동하는 행. 최소 높이 60. Option Row와 서로 대체하지 않는다.
 - Text Link: 12/16 · 패딩 0/12 · 밑줄 offset 2 · 터치 영역 44 · 흐린 글자색
 - Progress Bar: 높이 4 · 전체 반경 · 트랙 white · 채움 brand
-- Bottom Sheet: 최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 38 · 손잡이 없음 · 선택 행 white 배경 + main/700 선 · main/100·200 사용 안 함
+- Bottom Sheet: 최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 40 · 손잡이 없음 · 선택 행 white 배경 + main/700 선 · main/100·200 사용 안 함
 - Dialog: 너비 화면 − 40 (최대 430) · 반경 20 · 패딩은 Bottom Sheet와 같음 · 설명 14/20 · 설명 아래 16 · 버튼 Large 48 · 명확한 보조/주요 액션 3:7, 동등한 액션 5:5 · gap 10 · ✕ 없음
 - Callout 경고 톤: 패딩 8/12·반경 12·선 1·아이콘 20·12/16·제목 700·bg #FFF4EB·fg #8A452E·선 #E5BCA6
 
@@ -319,7 +325,7 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 - 언어 등 옵션 행의 선택 배경은 흰색이다. `--bg-selected`와 `--option-row-selected-bg`는 surface에 연결한다. Forest/main 50 또는 임의 연녹색을 만들지 않는다.
 - 옵션·이동 목록의 본문은 neutral, 보조문구·일반 아이콘은 muted를 사용한다. 선택 체크와 선택 선은 brand다. 이 예외를 상단바·입력창의 조작 버튼 전체에 확대하지 않는다.
 - 시트 닫기는 컨테이너 38px, 아이콘 프레임 20px로 구분한다. 문서 예시에 남은 17px은 별도 아이콘 단계가 아니다.
-- 출발 전 시트에는 SOS 액션을 넣지 않는다. ‘스트레칭’은 탐방 표지판 아이콘을 재사용하지 않는다. 지도 나침반은 면 채움·외곽 원 없이 선으로 그리고, 45도 기울어진 바늘의 시각적 크기를 확보한다. 마지막 두 아이콘은 프로젝트 추가 자산이며 공통 라이브러리의 확정 아이콘으로 취급하지 않는다.
+- 출발 전 시트에는 SOS 액션을 넣지 않는다. ‘스트레칭’은 탐방 표지판 아이콘을 재사용하지 않는다. 지도 나침반은 최초 바늘 경로·18px 프레임을 유지하고, 면 채움·외곽 원 없이 단색 선·45도 회전만 적용한다(사용자 지정 크기 예외). 마지막 두 아이콘은 프로젝트 추가 자산이며 공통 라이브러리의 확정 아이콘으로 취급하지 않는다.
 
 ### 실사용 컴포넌트
 
@@ -335,8 +341,8 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 | 말풍선 | 대화 | 확정 | 아바타와 사용자 말풍선. 14/22. 아바타 프로필 이미지는 프로젝트마다 다름(예시는 반달이). |
 | 출처 링크 | 대화 | 제안 | 답변 아래 공식 안내 링크. Action Button XSmall. |
 | 답변 평가 | 대화 | 제안 | 도움 여부를 묻는 행. |
-| 평가 의견 | 대화 | 제안 | 도움이 안 됐을 때 여는 폼. |
-| BETA 뱃지 | 대화 | 제안 | 서비스 시험 표시. |
+| 평가 의견 | 대화 | 제안 | 도움이 안 됐을 때 여는 바텀시트. 「선택」은 Badge 초안(Weak). |
+| BETA 뱃지 | 대화 | 제안 | 서비스 시험 표시. 대기 화면 이름 오른쪽 끝에서 10px(space-10). |
 | 경고 안내 | 대화 | 제안 | 호우 특보 같은 안전 경고. |
 | 바텀시트 | 시트와 목록 | 제안 | 언어 선택. 선택 상태는 브랜드 선. |
 | 옵션 행 | 시트와 목록 | 제안 | 바텀시트 안의 선택 행. |
@@ -358,8 +364,16 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 
 마이크 버튼은 녹음 중에만 음량에 따라 테두리가 굵어진다 [제안, 반달이 동작]. 음량 0~1을 테두리 0~`voice/mic/ring/max`(8px)로 바꾸며 조용하면 0이다. 굵기는 0.08초 linear로 바뀐다. 마이크 대기·답변 중(■ 정지)·꺼짐 상태에는 테두리가 없다.
 
-테두리 색 [확정, 가은 11/03]: `voice/mic/ring/color` = main/200 50% (`color-mix(in srgb, var(--main-200) 50%, transparent)`). 구현은 음량 비율을 `--mic-level`(0~1)로 넘기고 `border-width: calc(var(--mic-level) * var(--voice-mic-ring-max))`로 그린다.
+테두리 색 [확정, 가은 11/03, 25%로 조정]: `voice/mic/ring/color` = main/200 25% (`color-mix(in srgb, var(--main-200) 25%, transparent)`). 구현은 음량 비율을 `--mic-level`(0~1)로 넘기고 `border-width: calc(var(--mic-level) * var(--voice-mic-ring-max))`로 그린다.
 
+
+## 캐릭터 이미지 [확정, 가은 11/04]
+
+프로젝트 캐릭터의 3D 이미지 4장(서 있기, 인사, 프로필, 대기 화면 배경)은 [character-images.md](character-images.md)의 순서와 프롬프트로 만든다. 스타일 참조 그림(반달이·도리)은 이 사이트의 `character/refs/`에 있으며 항상 함께 넣는다. 서 있기 1장을 먼저 만들어 사용자 확정을 받고, 그 이미지를 원본으로 나머지 3장을 만든다. 파일 경로는 `project-theme.json`의 `bubbleAvatar.image`(프로필)와 `characterImages`에 적는다.
+
+## OG 이미지 [확정, 가은 11/04]
+
+링크 미리보기 이미지 3장(1200×630, 1200×675, 800×400)은 [og-images.md](og-images.md)의 순서로 만든다. 수치는 Figma OG 페이지(815:47189)를 옮긴 [og/template.html](og/template.html)에 있고, `og/render.mjs`가 config JSON으로 세 장을 렌더한다. 캐릭터는 캐릭터 이미지의 인사 그림을 쓰고, 배경만 새로 만든다. 문구가 넘치면 글자를 줄이지 않고 문구를 줄인다.
 
 ## 안전 영역 배치 [확정]
 

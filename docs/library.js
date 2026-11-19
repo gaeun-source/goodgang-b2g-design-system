@@ -79,28 +79,31 @@ function liveBehaviour(items, inner) {
     if (event.target.type !== "radio") return;
     for (const r of inner.querySelectorAll(`input[name="${event.target.name}"]`)) r.closest("label")?.classList.toggle("selected", r.checked);
   });
-  // Answer rating (AnswerRating.tsx): 👍 thanks at once, 👎 opens the reasons; a reason enables sending, cancel goes back.
+  // Answer rating (AnswerRating.tsx): 👍 thanks at once, 👎 opens the reasons in a bottom sheet (가은 11/04); a reason
+  // enables sending, ✕ goes back.
   const thanks = () => el("p", { className: "rating-thanks", role: "status", textContent: "의견 감사합니다." });
   inner.addEventListener("click", (event) => {
     const up = event.target.closest('.rating-button[aria-label="도움이 됐어요"]');
     const down = event.target.closest('.rating-button[aria-label="도움이 안 됐어요"]');
-    const form = event.target.closest(".rating-form");
+    const sheet = event.target.closest("dialog:has(.rating-form)");
     if (up) up.closest(".rating-row").replaceWith(thanks());
     if (down) {
       const row = down.closest(".rating-row");
-      const opened = partOf(ITEMS["rating-form"], "기본", ".rating-form");
+      const opened = partOf(ITEMS["rating-form"], "기본", "dialog");
       opened.row = row;
       row.replaceWith(opened);
     }
-    if (form && event.target.closest('.rating-actions button[type="button"]')) {
-      if (form.row) form.replaceWith(form.row);
+    if (sheet && event.target.closest(".panel-heading .icon-button")) {
+      const form = sheet.querySelector(".rating-form");
+      if (sheet.row) sheet.replaceWith(sheet.row);
       else form.reset(), form.querySelector('[type="submit"]').disabled = true;
     }
-    if (form && event.target.closest('.rating-actions [type="submit"]:not(:disabled)')) form.replaceWith(thanks());
+    if (sheet && event.target.closest('.rating-form [type="submit"]:not(:disabled)')) sheet.replaceWith(thanks());
   });
   inner.addEventListener("change", (event) => {
     const form = event.target.closest(".rating-form");
-    if (form && event.target.name === "reason") form.querySelector('[type="submit"]').disabled = false;
+    // More than one reason may be chosen (가은 11/03); sending waits for at least one.
+    if (form && event.target.name === "reason") form.querySelector('[type="submit"]').disabled = !form.querySelector('input[name="reason"]:checked');
   });
   // Feedback (FeedbackSheet.tsx): two characters enable sending; sent, it thanks and closes back to the form.
   inner.addEventListener("input", (event) => {

@@ -93,9 +93,9 @@
       "width": "Hug",
       "sizes": {
         "XSmall": {
-          "height": 28,
-          "paddingY": 6,
-          "paddingX": 12,
+          "height": 24,
+          "paddingY": 4,
+          "paddingX": 10,
           "gap": 2,
           "icon": 16,
           "fontSize": 12,
@@ -134,7 +134,7 @@
           "fontSize": 16,
           "lineHeight": 20,
           "weight": 500,
-          "radius": 10
+          "radius": 12
         }
       },
       "note": "background and foreground are project Variant tokens; visual sizes do not define hit target policy"
@@ -188,13 +188,9 @@
     "radii": {
       "status": "confirmed",
       "values": [
-        2,
         4,
-        6,
         8,
-        10,
         12,
-        14,
         16,
         20,
         24,
@@ -811,7 +807,7 @@
       "implementation": "Pass the level as --mic-level (0..1); border-width: calc(var(--mic-level) * var(--voice-mic-ring-max)) solid var(--voice-mic-ring-color).",
       "color": {
         "status": "confirmed",
-        "value": "main/200 at 50%",
+        "value": "main/200 at 25%",
         "decidedBy": "조가은",
         "date": "2026-11-03"
       },
@@ -875,7 +871,7 @@
         "sheet": {
           "width": "100% of app container",
           "bottom": 0,
-          "closeContainerPx": 38,
+          "closeContainerPx": 40,
           "closeIconPx": 20
         },
         "optionRow": {
@@ -892,7 +888,7 @@
         "scope": "Bandali pre-start and map compass",
         "prestartSos": false,
         "stretchIcon": "stretching person, not trail sign",
-        "compass": "line-only; no fill or outer ring; 45-degree needle; preserve live bounds when removing ring"
+        "compass": "Original needle geometry and 18px frame; monochrome line-only, no fill or outer ring, rotated 45 degrees. User-specified size exception."
       }
     ]
   },
@@ -1231,7 +1227,7 @@
       "purpose": "답변과 안내의 공식 출처로 이동합니다.",
       "optionsToReview": "안전 안내 카드 안에서도 같은 크기로 쓸지",
       "appliedIn": "반달이 knps-agent 적용값, 2026-10-30",
-      "appliedValues": "Action Button XSmall · h28 · 6/12 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44",
+      "appliedValues": "Action Button XSmall · h24 · 4/10 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44",
       "note": "Project value under review; not a confirmed token."
     },
     "toggle": {
@@ -1337,14 +1333,14 @@
         "name": "평가 의견",
         "group": "대화",
         "status": "proposal",
-        "note": "도움이 안 됐을 때 여는 폼."
+        "note": "도움이 안 됐을 때 여는 바텀시트. 「선택」은 Badge 초안(Weak)."
       },
       {
         "id": "badge",
         "name": "BETA 뱃지",
         "group": "대화",
         "status": "proposal",
-        "note": "서비스 시험 표시."
+        "note": "서비스 시험 표시. 대기 화면 이름 오른쪽 끝에서 10px(space-10)."
       },
       {
         "id": "callout",

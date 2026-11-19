@@ -1,4 +1,4 @@
-var e=`/* Generated from the 반달이 CSS: only the rules the default screens use, every size and colour as a token.
+import{n as e}from"./variant-BLhaV7n_.js";var t=`/* Generated from the 반달이 CSS: only the rules the default screens use, every size and colour as a token.
    Tokens: src/sandbox/default-tokens.css (three steps: base, role, component). Do not add raw values here. */
 @keyframes chat-rise {
   from {
@@ -93,8 +93,8 @@ button:disabled {
   opacity: 0.48;
 }
 button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible {
-  outline: var(--stroke-width-3) solid var(--stroke-brand);
-  outline-offset: var(--space-3);
+  outline: var(--stroke-width-2) solid var(--stroke-brand);
+  outline-offset: var(--focus-outline-offset);
 }
 @media (hover: hover) and (pointer: fine) {
 button:hover:not(:disabled) {
@@ -105,7 +105,7 @@ h1, h2, h3, p {
   margin: 0;
 }
 h3 {
-  font-size: var(--font-size-22);
+  font-size: var(--font-size-24);
   line-height: 1.35;
   font-weight: var(--font-weight-bold);
 }
@@ -116,8 +116,8 @@ svg {
   display: block;
 }
 .icon {
-  width: var(--size-22);
-  height: var(--size-22);
+  width: var(--size-24);
+  height: var(--size-24);
   flex: none;
   fill: none;
   stroke: currentColor;
@@ -133,7 +133,7 @@ svg {
 }
 .app {
   height: 100dvh;
-  max-width: var(--size-430);
+  max-width: var(--layout-max-width);
   margin: 0 auto;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
   isolation: isolate;
@@ -185,7 +185,7 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 .text-button {
   color: var(--fg-brand);
   text-decoration: underline;
-  text-underline-offset: var(--space-3);
+  text-underline-offset: var(--space-4);
   font-size: var(--text-body-compact-size);
   line-height: var(--text-body-compact-line);
   padding: var(--space-8);
@@ -221,7 +221,7 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 .chat-panel > .muted {
   flex: none;
   margin: 0 0 var(--space-10);
-  font-size: var(--font-size-11);
+  font-size: var(--font-size-12);
 }
 .chat-log {
   overflow-y: auto;
@@ -243,9 +243,9 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 .suggestions button {
   border: var(--stroke-width-1) solid var(--stroke-subtle);
   border-radius: var(--radius-full);
-  min-height: var(--size-34);
+  min-height: var(--size-36);
   padding: var(--space-6) var(--space-10);
-  font-size: var(--font-size-11);
+  font-size: var(--font-size-12);
 }
 .loading {
   position: absolute;
@@ -262,15 +262,15 @@ button.primary:disabled, .v7-shell button.primary:disabled {
 }
 .fatal {
   padding: var(--space-32);
-  max-width: var(--size-430);
+  max-width: var(--layout-max-width);
   margin: auto;
 }
 .sr-only {
   position: absolute;
-  width: var(--size-1);
-  height: var(--size-1);
+  width: var(--sr-only-size);
+  height: var(--sr-only-size);
   padding: 0;
-  margin: calc(-1 * var(--space-1));
+  margin: calc(-1 * var(--sr-only-size));
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -318,9 +318,9 @@ dialog::backdrop {
   align-items: center;
   justify-content: center;
   gap: var(--space-6);
-  background: var(--bg-critical-solid);
+  background: var(--bg-danger-solid);
   color: var(--fg-on-brand-solid);
-  border-radius: var(--radius-10);
+  border-radius: var(--radius-12);
   min-height: var(--size-48);
   padding: var(--space-12) var(--space-16);
   text-decoration: none;
@@ -328,12 +328,8 @@ dialog::backdrop {
   line-height: var(--button-large-text-line);
   font-weight: var(--font-weight-medium);
 }
-@media (min-width: 600px) {
-dialog {
-  margin: auto;
-  border-radius: var(--radius-24);
-}
-}
+/* 가은 11/03: a bottom sheet stays at bottom 0 at every width (no centring on wide screens); the alert dialog keeps its
+   own place in the middle (dialog.alert). */
 @media (min-width: 600px) {
 .app {
   border-left: var(--stroke-width-1) solid color-mix(in srgb, var(--gray-300) 31.37%, transparent);
@@ -353,7 +349,7 @@ dialog {
 }
 @media (max-height: 700px) {
 .brand {
-  font-size: var(--font-size-26);
+  font-size: var(--font-size-28);
 }
 }
 @media (max-height: 700px) {
@@ -411,10 +407,10 @@ dialog {
 }
 }
 .bandali-app {
-  max-width: var(--size-430);
+  max-width: var(--layout-max-width);
 }
 .bandali-app .brand {
-  font-size: var(--font-size-21);
+  font-size: var(--font-size-20);
   font-weight: var(--font-weight-bold);
   letter-spacing: -1px;
   align-items: flex-start;
@@ -492,7 +488,7 @@ dialog::backdrop {
 }
 @media (max-height: 720px) {
 .bandali-app .panel-heading {
-  min-height: var(--size-38);
+  min-height: var(--size-40);
   padding: var(--space-8) var(--space-12);
 }
 }
@@ -524,16 +520,16 @@ dialog::backdrop {
   width: 100%;
 }
 .home-ask button {
-  width: var(--size-34);
-  min-width: var(--size-34);
+  width: var(--size-36);
+  min-width: var(--size-36);
   padding: 0;
   display: grid;
   place-items: center;
   height: var(--size-44);
 }
 .home-ask .icon {
-  width: var(--size-19);
-  height: var(--size-19);
+  width: var(--size-20);
+  height: var(--size-20);
 }
 .bandali-app {
   width: 100%;
@@ -570,7 +566,7 @@ dialog::backdrop {
   outline: none;
 }
 .home-ask:has(input:focus-visible), .place-search:has(input:focus-visible) {
-  outline: var(--stroke-width-3) solid var(--stroke-brand);
+  outline: var(--stroke-width-2) solid var(--stroke-brand);
   outline-offset: var(--space-2);
 }
 .bandali-app.chat-mode .avatar {
@@ -632,8 +628,8 @@ dialog::backdrop {
 }
 .bandali-app .batu-face {
   flex: none;
-  width: var(--size-34);
-  height: var(--size-34);
+  width: var(--size-36);
+  height: var(--size-36);
   border-radius: var(--radius-full);
   object-fit: cover;
   object-position: 50% 8%;
@@ -686,7 +682,7 @@ dialog::backdrop {
   gap: var(--space-4);
   padding: 0.5rem var(--space-10);
   border: var(--stroke-width-1) solid var(--source-link-stroke);
-  border-radius: var(--radius-10);
+  border-radius: var(--radius-12);
   color: var(--source-link-fg);
   background: var(--source-link-bg);
   font-size: 0.85rem;
@@ -733,13 +729,13 @@ dialog::backdrop {
   border-radius: var(--radius-full);
 }
 .skeleton-name {
-  width: var(--size-42);
+  width: var(--size-44);
   height: var(--size-16);
   border-radius: var(--radius-4);
 }
 .skeleton-line {
   height: var(--size-16);
-  margin: var(--space-3) 0;
+  margin: var(--space-4) 0;
   border-radius: var(--radius-4);
 }
 .skeleton-line-short {
@@ -762,9 +758,9 @@ dialog::backdrop {
   display: block;
   flex: 0 1 auto;
   min-height: 0;
-  width: var(--size-294_75);
+  width: 294px;
   max-width: 100%;
-  height: var(--size-349_195);
+  height: 350px;
   max-height: 100%;
   object-fit: contain;
 }
@@ -845,7 +841,7 @@ dialog::backdrop {
 .bubble-more::before {
   content: "";
   position: absolute;
-  inset: calc(-1 * var(--space-13)) calc(-1 * var(--space-4));
+  inset: calc(-1 * var(--space-12)) calc(-1 * var(--space-4));
 }
 .bubble-more.overlay {
   position: absolute;
@@ -878,12 +874,12 @@ body::before, body::after {
 }
 body::before {
   top: 0;
-  height: max(env(safe-area-inset-top), var(--size-1));
+  height: max(env(safe-area-inset-top), var(--layout-edge-min-height));
   background: var(--knps-edge-top);
 }
 body::after {
   bottom: 0;
-  height: max(env(safe-area-inset-bottom), var(--size-1));
+  height: max(env(safe-area-inset-bottom), var(--layout-edge-min-height));
   background: var(--knps-edge-bottom);
 }
 :root:has(dialog[open]) {
@@ -1026,7 +1022,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-beta {
   position: absolute;
-  left: calc(95% + var(--space-3));
+  /* 가은 11/04: 10px right of the name's last letter. */
+  left: calc(100% + var(--space-10));
   bottom: 12%;
   padding: 0 var(--badge-padding-x);
   border-radius: var(--badge-radius);
@@ -1034,7 +1031,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-on-brand-solid);
   font-family: var(--knps-font-family);
   font-size: var(--font-size-10);
-  line-height: var(--font-line-15);
+  line-height: var(--font-line-14);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--font-tracking-default);
   white-space: nowrap;
@@ -1049,7 +1046,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-on-brand-solid);
   font-family: var(--knps-font-family);
   font-size: var(--font-size-10);
-  line-height: var(--font-line-15);
+  line-height: var(--font-line-14);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--font-tracking-default);
   white-space: nowrap;
@@ -1057,8 +1054,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-wordmark img {
   display: block;
-  width: var(--size-256);
-  height: var(--size-100);
+  width: 256px;
+  height: 100px;
   max-width: 100%;
   object-fit: contain;
 }
@@ -1076,8 +1073,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-language {
   position: absolute;
-  top: max(var(--space-7), env(safe-area-inset-top));
-  right: var(--space-15);
+  top: max(var(--space-8), env(safe-area-inset-top));
+  right: var(--space-16);
   z-index: 2;
 }
 .entry-language .language-button {
@@ -1105,7 +1102,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-art {
   flex: 1 0 200px;
-  min-height: var(--size-200);
+  min-height: 200px;
 }
 .entry-bottom {
   position: relative;
@@ -1127,7 +1124,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 }
 .entry-conversations button > .v7-icon:last-child {
   width: var(--size-20);
-  height: var(--size-22);
+  height: var(--size-24);
 }
 .entry-ai-notice {
   margin: var(--space-10) 0 0;
@@ -1407,8 +1404,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-brand);
 }
 .v7-shell .home-ask .mode-switch .v7-icon {
-  width: var(--size-22);
-  height: var(--size-22);
+  width: var(--size-24);
+  height: var(--size-24);
 }
 .v7-shell .footer-note, .v7-shell .ai-notice {
   font-size: var(--font-size-10);
@@ -1419,7 +1416,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   align-items: center;
   justify-content: center;
   gap: var(--space-8);
-  min-height: var(--size-30);
+  min-height: var(--size-32);
   padding: var(--space-8) 0 var(--space-4);
   text-align: center;
   font-size: var(--text-caption-size);
@@ -1433,7 +1430,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   gap: var(--space-4);
 }
 .voice-level i {
-  width: var(--size-3);
+  width: var(--size-4);
   border-radius: var(--radius-full);
   background: var(--bg-brand-solid);
   transition: height 0.1s;
@@ -1587,8 +1584,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   color: var(--fg-muted);
 }
 .v7-shell .panel-heading .icon-button .v7-icon {
-  width: var(--size-17);
-  height: var(--size-17);
+  width: var(--size-18);
+  height: var(--size-18);
 }
 .v7-shell .primary, .v7-shell button.primary {
   border: var(--stroke-width-1) solid var(--stroke-brand);
@@ -1598,8 +1595,8 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   font-weight: var(--font-weight-medium);
 }
 dialog {
-  width: min(var(--size-430), 100%);
-  max-width: var(--size-430);
+  width: min(var(--dialog-max-width), 100%);
+  max-width: var(--dialog-max-width);
   border: var(--stroke-width-1) solid var(--stroke-subtle);
   border-radius: var(--radius-20) var(--radius-20) 0 0;
   background: var(--bg-page-bottom);
@@ -1647,9 +1644,9 @@ dialog:focus, dialog:focus-visible {
   background: var(--bg-surface);
   text-align: left;
 }
+/* 가은 11/04: the chosen row stays white; only the brand line marks it. */
 .language-options > button[aria-pressed="true"] {
   border-color: var(--stroke-brand);
-  background: var(--bg-selected);
 }
 .park-options > button > span:not(.park-option-icon), .language-options > button > span {
   flex: 1;
@@ -1688,6 +1685,7 @@ dialog:focus, dialog:focus-visible {
   color: var(--fg-muted);
 }
 .settings-options .toggle {
+  display: block;
   flex: none;
   position: relative;
   width: var(--toggle-width);
@@ -1699,25 +1697,28 @@ dialog:focus, dialog:focus-visible {
 .settings-options .toggle::after {
   content: "";
   position: absolute;
-  top: var(--toggle-inset);
+  /* 가은 11/03: the knob in the middle of the track's height, and its on place from the tokens. */
+  top: 50%;
   left: var(--toggle-inset);
+  translate: 0 -50%;
   width: var(--toggle-knob);
   height: var(--toggle-knob);
   border-radius: var(--radius-full);
   background: var(--bg-surface);
   box-shadow: 0 1px 2px var(--shadow-bubble);
-  transition: translate 0.2s ease;
+  transition: left 0.2s ease;
 }
 .settings-options > [aria-checked="true"] > .toggle {
   background: var(--bg-brand-solid);
 }
 .settings-options > [aria-checked="true"] > .toggle::after {
-  translate: 16px 0;
+  left: calc(100% - var(--toggle-inset) - var(--toggle-knob));
+  translate: 0 -50%;
 }
 @media (min-width: 600px) {
 .entry-screen, .v7-shell {
-  max-width: var(--size-390);
-  height: min(var(--size-844), calc(100dvh - var(--size-48)));
+  max-width: var(--layout-frame-max-width);
+  height: min(var(--layout-frame-max-height), calc(100dvh - var(--size-48)));
   min-height: 0;
   margin: var(--space-24) auto;
   border-radius: var(--radius-24);
@@ -1748,8 +1749,8 @@ dialog:focus, dialog:focus-visible {
 }
 @media (max-width: 359px) {
 .entry-wordmark img {
-  width: var(--size-240);
-  height: var(--size-96);
+  width: 240px;
+  height: 96px;
 }
 }
 @media (max-width: 359px) {
@@ -1860,7 +1861,7 @@ dialog.slide.leaving::backdrop {
   text-underline-offset: var(--space-2);
 }
 dialog > .panel-heading .modal-back {
-  margin-left: calc(-1 * var(--space-9));
+  margin-left: calc(-1 * var(--space-10));
 }
 dialog > .panel-heading:has(> .modal-back) > h2 {
   flex: 1;
@@ -2003,58 +2004,89 @@ dialog.slide, dialog.slide.leaving {
   background: color-mix(in srgb, var(--bg-surface) 85%, transparent);
   color: var(--fg-secondary);
 }
+/* 가은 11/04: the reasons open in the bottom sheet (Modal) as 의견 양식, not a card under the answer. */
 .v7-shell .rating-form {
-  width: min(var(--size-340), 100%);
-  padding: var(--space-12) var(--space-14);
-  border: var(--stroke-width-1) solid var(--stroke-subtle);
-  border-radius: var(--radius-16);
-  background: var(--bg-surface);
   color: var(--fg-neutral);
   font-size: var(--text-meta-size);
   line-height: var(--text-meta-line);
-  box-shadow: 0 0 16px var(--shadow-bubble);
 }
+/* 가은 11/03: the reasons are the design system's radio chips (as 의견 양식), not the browser's radios. */
 .v7-shell .rating-form fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
   margin: 0;
   padding: 0;
   border: 0;
 }
+/* 가은 11/03: the field titles 14/20 bold, the chips 14/20, the box 16/22, the hint 12/16; 8 inside a field, 14 between
+   fields as 의견 양식. */
 .v7-shell .rating-form legend {
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-8);
   padding: 0;
+  font-size: var(--text-label-default-size);
+  line-height: var(--text-label-default-line);
   font-weight: var(--font-weight-bold);
 }
 .v7-shell .rating-reason {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-8);
-  min-height: var(--size-36);
+  font-size: var(--text-body-compact-size);
+  line-height: var(--text-body-compact-line);
+  min-height: var(--radio-chip-height);
+  padding: 0 var(--radio-chip-padding-x);
+  border: var(--stroke-width-1) solid var(--stroke-subtle);
+  border-radius: var(--radio-chip-radius);
   cursor: pointer;
 }
+.v7-shell .rating-reason:has(input:checked) {
+  border-color: var(--stroke-brand);
+  background: var(--bg-selected);
+  font-weight: var(--font-weight-bold);
+}
 .v7-shell .rating-reason input {
-  width: var(--size-18);
-  height: var(--size-18);
-  margin: 0;
-  accent-color: var(--fg-brand);
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 .v7-shell .rating-comment {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-6);
+  gap: var(--space-8);
+  margin-top: var(--space-14);
 }
+.v7-shell .rating-comment > span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-label-default-size);
+  line-height: var(--text-label-default-line);
+  font-weight: var(--font-weight-bold);
+}
+/* 가은 11/04: 「선택」 is the draft Badge (신규 · 검토용, Weak), its values as drawn there; 5 and 6 have no token yet. */
+.v7-shell .rating-optional {
+  padding: 5px var(--space-8);
+  border-radius: 6px;
+  background: var(--bg-subtle);
+  color: var(--fg-secondary);
+  font-size: var(--font-size-12);
+  line-height: var(--font-line-16);
+  font-weight: var(--font-weight-medium);
+}
+/* 가은 11/03: the box as 의견 양식's. */
 .v7-shell .rating-comment textarea {
   width: 100%;
-  padding: var(--space-8) var(--space-10);
-  border: var(--stroke-width-1) solid var(--stroke-input);
-  border-radius: var(--radius-10);
+  padding: var(--space-10) var(--space-12);
+  border: var(--stroke-width-1) solid var(--stroke-subtle);
+  border-radius: var(--radius-12);
   color: inherit;
   font: inherit;
-  font-size: var(--font-size-16);
-  resize: vertical;
+  font-size: var(--text-body-default-size);
+  line-height: var(--text-body-default-line);
+  resize: none;
 }
 .v7-shell .rating-hint {
-  margin: var(--space-4) 0 0;
+  margin: var(--space-6) 0 0;
   color: var(--fg-muted);
   font-size: var(--text-caption-size);
   line-height: var(--text-caption-line);
@@ -2063,29 +2095,9 @@ dialog.slide, dialog.slide.leaving {
   margin: var(--space-6) 0 0;
   color: var(--fg-danger);
 }
-.v7-shell .rating-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-6);
-  margin-top: var(--space-10);
-}
-.v7-shell .rating-actions button {
-  min-height: var(--size-36);
-  padding: 0 var(--space-16);
-  border: var(--stroke-width-1) solid var(--stroke-subtle);
-  border-radius: var(--radius-full);
-  background: var(--bg-surface);
-  color: var(--fg-neutral);
-}
-.v7-shell .rating-actions button[type="submit"] {
-  border-color: var(--stroke-brand);
-  background: var(--bg-brand-solid);
-  color: var(--fg-on-brand-solid);
-}
-.v7-shell .rating-actions button[type="submit"]:disabled {
-  border-color: var(--bg-disabled);
-  background: var(--bg-disabled);
-  color: var(--fg-disabled);
+/* The sheet's full-width send, as 의견 양식's; ✕ cancels. */
+.v7-shell .rating-submit {
+  margin-top: var(--space-14);
 }
 .entry-conversations {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2192,7 +2204,7 @@ dialog.slide, dialog.slide.leaving {
 .v7-shell .panel-action .primary {
   justify-content: center;
   min-height: var(--button-large-height);
-  padding: var(--space-11) var(--button-large-padding-x);
+  padding: var(--space-12) var(--button-large-padding-x);
   border-radius: var(--button-large-radius);
   font-size: var(--button-large-text-size);
   line-height: var(--button-large-text-line);
@@ -2297,7 +2309,7 @@ dialog.slide, dialog.slide.leaving {
 .v7-shell .voice-controls .mic-button .stop-glyph, .v7-shell .answer-stop .stop-glyph {
   width: var(--size-16);
   height: var(--size-16);
-  border-radius: var(--radius-2);
+  border-radius: var(--icon-stop-radius);
   background: var(--bg-surface);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2377,7 +2389,7 @@ dialog.slide, dialog.slide.leaving {
 }
 .feedback-text textarea {
   width: 100%;
-  min-height: var(--size-120);
+  min-height: 120px;
   padding: var(--space-10) var(--space-12);
   border: var(--stroke-width-1) solid var(--stroke-subtle);
   border-radius: var(--radius-12);
@@ -2399,7 +2411,7 @@ dialog.slide, dialog.slide.leaving {
 }
 .feedback-error {
   margin: 0;
-  color: var(--fg-error);
+  color: var(--fg-danger);
 }
 .feedback-receipt {
   font-size: var(--font-size-20);
@@ -2706,8 +2718,11 @@ dialog .modal-body > .daylight-check {
   --v7-art: url("/assets/v7/weather/unknown.svg");
 }
 /* 가은 11/03: never a second outline. A part with its own line shows focus by that line, stroke/brand 1px; a ring only
-   where there is no line (icon buttons, links). */
-:is(.entry-conversations button, .conversation-controls:not(.voice-controls) .mode-switch, .sound-toggle, .mic-button:not(.on), .send-button, .language-options button, .feedback-categories label, .feedback-text textarea, .rating-form textarea, .rating-reason, .rating-button, .primary, .secondary):is(:focus-visible, :focus-within) {
+   where there is no line (icon buttons, links).
+   가은 11/04: buttons and text fields only on :focus-visible, so a tapped button keeps no line. The labels hold their
+   input inside, so they take the input's keyboard focus (:has(:focus-visible)); :focus-within also matched a mouse click. */
+:is(.entry-conversations button, .conversation-controls:not(.voice-controls) .mode-switch, .sound-toggle, .mic-button:not(.on), .send-button, .language-options button, .feedback-text textarea, .rating-form textarea, .rating-button, .primary, .secondary):focus-visible,
+:is(.feedback-categories label, .rating-reason):has(:focus-visible) {
   outline: none;
   border-color: var(--stroke-brand);
 }
@@ -2715,12 +2730,11 @@ dialog .modal-body > .daylight-check {
   outline: none;
   box-shadow: inset 0 0 0 var(--stroke-width-1) var(--stroke-brand);
 }
-`,t=`/* Three steps, as the design system's token rule: 1 base values, 2 roles, 3 components. The screens use 2 and 3;
+`,n=`/* Three steps, as the design system's token rule: 1 base values, 2 roles, 3 components. The screens use 2 and 3;
    a base value appears on a screen only where no role is named yet. Values are 반달이's as they were. */
 :root {
   /* 1. Base values */
   --font-line-14: 14px;
-  --font-line-15: 15px;
   --font-line-16: 16px;
   --font-line-18: 18px;
   --font-line-20: 20px;
@@ -2728,16 +2742,13 @@ dialog .modal-body > .daylight-check {
   --font-line-26: 26px;
   --font-line-40: 40px;
   --font-size-10: 10px;
-  --font-size-11: 11px;
   --font-size-12: 12px;
   --font-size-13: 13px;
   --font-size-14: 14px;
   --font-size-16: 16px;
   --font-size-18: 18px;
   --font-size-20: 20px;
-  --font-size-21: 21px;
-  --font-size-22: 22px;
-  --font-size-26: 26px;
+  --font-size-24: 24px;
   --font-size-28: 28px;
   --font-size-8: 8px;
   --font-size-9: 9px;
@@ -2776,83 +2787,61 @@ dialog .modal-body > .daylight-check {
   --sub-700: #76434e;
   --sub-800: #553038;
   --sub-900: #371f25;
-  --radius-10: 10px;
   --radius-12: 12px;
   --radius-16: 16px;
-  --radius-2: 2px;
   --radius-20: 20px;
   --radius-24: 24px;
   --radius-4: 4px;
   --radius-8: 8px;
   --radius-full: 9999px;
-  --size-1: 1px;
-  --size-100: 100px;
-  --size-120: 120px;
+  --size-4: 4px;
   --size-16: 16px;
-  --size-17: 17px;
   --size-18: 18px;
-  --size-19: 19px;
   --size-20: 20px;
-  --size-200: 200px;
-  --size-22: 22px;
   --size-24: 24px;
-  --size-240: 240px;
-  --size-256: 256px;
   --size-28: 28px;
-  --size-294_75: 294.75px;
-  --size-3: 3px;
-  --size-30: 30px;
   --size-32: 32px;
-  --size-34: 34px;
-  --size-340: 340px;
-  --size-349_195: 349.195px;
   --size-36: 36px;
-  --size-38: 38px;
-  --size-390: 390px;
   --size-40: 40px;
-  --size-42: 42px;
-  --size-430: 430px;
   --size-44: 44px;
   --size-48: 48px;
   --size-60: 60px;
   --size-64: 64px;
   --size-72: 72px;
   --size-8: 8px;
-  --size-844: 844px;
   --size-88: 88px;
-  --size-96: 96px;
-  --space-1: 1px;
   --space-10: 10px;
-  --space-11: 11px;
   --space-12: 12px;
-  --space-13: 13px;
   --space-14: 14px;
-  --space-15: 15px;
   --space-16: 16px;
   --space-18: 18px;
   --space-2: 2px;
   --space-20: 20px;
   --space-24: 24px;
   --space-28: 28px;
-  --space-3: 3px;
   --space-32: 32px;
   --space-4: 4px;
   --space-40: 40px;
   --space-6: 6px;
   --space-68: 68px;
-  --space-7: 7px;
   --space-8: 8px;
-  --space-9: 9px;
   --stroke-width-1: 1px;
   --stroke-width-2: 2px;
-  --stroke-width-3: 3px;
   --white: #ffffff;
+  /* 가은 11/04: 의미 색. 노랑은 주의(옐로카드), 빨강은 위험(레드카드, 더 중요한 경고). main·sub와 달리 프로젝트마다 바꾸지 않는다. */
+  --red-50: #fff5f5;
+  --red-200: #fcc9c9;
+  --red-700: #a52a2a;
+  --yellow-50: #fffbeb;
+  --yellow-300: #ffd54d;
+  --yellow-800: #6b4a00;
   /* 2. Roles */
   --bg-brand-solid: var(--main-700);
   --bg-brand-weak: var(--main-100);
   --bg-brand-weak-pressed: var(--main-200);
-  --bg-critical-solid: #a73141;
-  --bg-danger-weak: #fff8fa;
+  --bg-caution-weak: var(--yellow-50);
+  --bg-danger-solid: var(--red-700);
+  --bg-danger-weak: var(--red-50);
   --bg-disabled: var(--gray-100);
   --bg-entry: #f6faec;
   --bg-neutral-solid: var(--gray-950);
@@ -2867,9 +2856,9 @@ dialog .modal-body > .daylight-check {
   --bg-surface: var(--white);
   --fg-brand: var(--main-700);
   --fg-bubble-link: var(--main-200);
-  --fg-danger: #b23f35;
+  --fg-caution: var(--yellow-800);
+  --fg-danger: var(--red-700);
   --fg-disabled: var(--gray-500);
-  --fg-error: #a3321f;
   --fg-muted: #626f6c;
   --fg-neutral: var(--gray-950);
   --fg-on-brand-solid: var(--white);
@@ -2877,6 +2866,12 @@ dialog .modal-body > .daylight-check {
   --fg-secondary: var(--gray-700);
   --layout-sheet-padding: var(--space-24);
   --layout-sheet-title-gap: var(--space-20);
+  /* 가은 11/04: 안전 영역 띠(Safari 위아래 색)의 최소 높이. inset이 0이어도 1px은 둔다. 기본값 없이 역할에서 바로 정한다. */
+  --layout-edge-min-height: 1px;
+  /* 가은 11/04: 한 곳에서만 쓰는 크기는 기본 size 스케일에 두지 않고 쓰는 곳 이름으로 바로 정한다. */
+  --layout-max-width: 430px;
+  --layout-frame-max-width: 390px;
+  --layout-frame-max-height: 844px;
   --shadow-bubble: rgba(27, 42, 33, 0.12);
   --shadow-medium: #1b2a2114;
   --shadow-soft: #1b2a210a;
@@ -2884,9 +2879,14 @@ dialog .modal-body > .daylight-check {
   --source-link-fg: #246249;
   --source-link-stroke: #c7dcd1;
   --stroke-brand: var(--main-700);
-  --stroke-danger-weak: #eadce4;
+  --stroke-caution-weak: var(--yellow-300);
+  --stroke-danger-weak: var(--red-200);
   --stroke-input: #c9d3cf;
   --stroke-subtle: var(--gray-100);
+  /* 가은 11/04: 키보드 포커스 외곽선(:focus-visible)과 요소 사이 간격. 터치·마우스로는 보이지 않는다. */
+  --focus-outline-offset: var(--space-4);
+  /* 가은 11/04: 대체텍스트(화면 읽기 전용 글자)·숨김 입력을 감추는 1px 상자. 기본값 없이 역할에서 바로 정한다. */
+  --sr-only-size: 1px;
   --text-body-compact-line: var(--font-line-20);
   --text-body-compact-size: var(--font-size-14);
   --text-body-default-line: var(--font-line-22);
@@ -2915,7 +2915,7 @@ dialog .modal-body > .daylight-check {
   --button-large-height: var(--size-48);
   --button-large-padding-x: var(--space-16);
   --button-large-padding-y: var(--space-12);
-  --button-large-radius: var(--radius-10);
+  --button-large-radius: var(--radius-12);
   --button-large-text-line: var(--font-line-20);
   --button-large-text-size: var(--font-size-16);
   --button-small-text-line: var(--font-line-16);
@@ -2926,11 +2926,11 @@ dialog .modal-body > .daylight-check {
   --chip-suggestion-padding-y: var(--space-8);
   --chip-suggestion-radius: var(--radius-full);
   --dialog-button-gap: var(--space-10);
-  --dialog-max-width: var(--size-430);
+  --dialog-max-width: var(--layout-max-width);
   --dialog-radius: var(--radius-20);
   --navigation-bar-height-default: 56px;
-  --sheet-close-size: var(--size-38);
-  --sheet-max-width: var(--size-430);
+  --sheet-close-size: var(--size-40);
+  --sheet-max-width: var(--layout-max-width);
   --sheet-radius: var(--radius-20);
   --toggle-height: var(--size-24);
   --toggle-inset: var(--space-2);
@@ -2945,9 +2945,9 @@ dialog .modal-body > .daylight-check {
   --button-small-padding-y: var(--space-8);
   --button-small-radius: var(--radius-8);
   --button-xsmall-gap: var(--space-2);
-  --button-xsmall-height: var(--size-28);
-  --button-xsmall-padding-x: var(--space-12);
-  --button-xsmall-padding-y: var(--space-6);
+  --button-xsmall-height: var(--size-24);
+  --button-xsmall-padding-x: var(--space-10);
+  --button-xsmall-padding-y: var(--space-4);
   --button-xsmall-radius: var(--radius-full);
   --callout-gap: var(--space-4);
   --callout-padding-x: var(--space-12);
@@ -2956,6 +2956,8 @@ dialog .modal-body > .daylight-check {
   --entry-button-height: var(--size-88);
   --entry-button-radius: var(--radius-20);
   --icon-button-radius: var(--radius-full);
+  /* 가은 11/04: 아이콘 경로 모서리(0·1·2px, 아이콘 가이드). 버튼·카드 반경 체계와 별개. ■ 멈추기는 2. */
+  --icon-stop-radius: 2px;
   --icon-button-size: var(--size-48);
   --input-gap: var(--space-6);
   --input-height: var(--size-48);
@@ -2972,8 +2974,8 @@ dialog .modal-body > .daylight-check {
   --radio-chip-padding-x: var(--space-14);
   --radio-chip-radius: var(--radius-20);
   --voice-mic-size: var(--size-64);
-  /* While recording, the outline grows with the voice: 0 in silence to the max at the loudest (가은 11/03: main-200 50%). */
+  /* While recording, the outline grows with the voice: 0 in silence to the max at the loudest (가은 11/03: main-200 25%). */
   --voice-mic-ring-max: var(--size-8);
-  --voice-mic-ring-color: color-mix(in srgb, var(--main-200) 50%, transparent);
+  --voice-mic-ring-color: color-mix(in srgb, var(--main-200) 25%, transparent);
 }
-`,n={};for(let[,e,r]of t.matchAll(/(--[\w-]+):\s*([^;]+);/g))n[e]=r.trim();var r={};for(let[,n]of(e+t).matchAll(/var\((--[\w-]+)\)/g))r[n]=(r[n]??0)+1;var i=[];function a(e,t){let n=0;for(;;){let r=e.indexOf(`{`,n);if(r<0)return;let o=e.slice(n,r).replace(/\/\*[\s\S]*?\*\//g,``).trim(),s=1,c=r+1;for(;s;)e[c]===`{`&&(s+=1),e[c]===`}`&&--s,c+=1;let l=e.slice(r+1,c-1);o.startsWith(`@media`)?a(l,o.slice(6).trim()):o.startsWith(`@supports`)?a(l,t):o.startsWith(`@`)||i.push({selectors:o.split(/,(?![^(]*\))/).map(e=>e.trim()),media:t,decls:[...l.matchAll(/([\w-]+):\s*([^;]+);/g)].map(e=>[e[1],e[2].trim()]),order:i.length}),n=c}}a(e.slice(e.indexOf(`*/`)+2),null);var o=/::|:(hover|active|focus)/;function s(e){let t=(e.match(/#[\w-]+/g)??[]).length,n=(e.match(/\.[\w-]+|\[[^\]]+\]|:(?!:)[\w-]+/g)??[]).length,r=(e.replace(/[.#:\[][^\s>+~]*/g,` `).match(/\b[a-z][\w-]*/g)??[]).length;return t*1e4+n*100+r}var c=`width.height.min-width.min-height.max-width.padding.padding-top.padding-right.padding-bottom.padding-left.margin.margin-top.margin-right.margin-bottom.margin-left.gap.top.right.bottom.left.font-size.line-height.font-weight.letter-spacing.color.background.background-color.border.border-color.border-radius`.split(`.`),l=[`color`,`font-size`,`line-height`,`font-weight`,`letter-spacing`];function u(e){let t=new Map;for(let n of i){if(n.media&&!matchMedia(n.media).matches)continue;let r=-1;for(let t of n.selectors)if(!o.test(t))try{e.matches(t)&&(r=Math.max(r,s(t)))}catch{}if(r<0)continue;let i=r*1e4+n.order;for(let[e,r]of n.decls){let n=t.get(e);(!n||i>=n.rank)&&t.set(e,{value:r,rank:i})}}return t}function d(e){if(e instanceof HTMLElement)return{width:e.offsetWidth,height:e.offsetHeight};let t=e.getBoundingClientRect();return{width:Math.round(t.width),height:Math.round(t.height)}}function f(e){let t=[],r=e;for(;r&&t.length<6;){let e=(document.documentElement.style.getPropertyValue(r)||n[r]||``).trim();if(!e)break;t.push({name:r,value:e}),r=e.match(/^var\((--[\w-]+)\)$/)?.[1]}return t}function p(e){let t=u(e);for(let n of l)for(let r=e.parentElement;r&&!t.has(n);r=r.parentElement){let e=u(r).get(n);e&&t.set(n,e)}let r=getComputedStyle(e),i=c.flatMap(e=>{let i=t.get(e);if(!i)return[];let a=[...new Set([...i.value.matchAll(/var\((--[\w-]+)\)/g)].map(e=>e[1]))].filter(e=>n[e]!==void 0);return a.length?[{prop:e,computed:r.getPropertyValue(e===`background`?`background-color`:e),tokens:a.map(e=>({name:e,steps:f(e)}))}]:[]}),a=d(e);return{label:L(e),width:a.width,height:a.height,hasParent:e.parentElement!==document.body,rows:i}}var m=e=>parent.postMessage(e,location.origin),h=!1,g=null,_=e=>{let t=document.createElement(`div`);t.style.cssText=`position:fixed;display:none;z-index:2147483646;pointer-events:none;box-sizing:border-box;border:2px solid ${e}`;let n=document.createElement(`span`);return n.style.cssText=`position:absolute;left:-2px;top:-18px;padding:0 4px;background:${e};color:#fff;font:500 11px/16px system-ui;white-space:nowrap`,t.append(n),t},v=_(`#2f6bff`),y=_(`#ff2d9b`);function b(e,t){if(!h||!t){e.style.display=`none`;return}(document.querySelector(`dialog[open]`)??document.body).append(e);let n=t.getBoundingClientRect();Object.assign(e.style,{display:`block`,left:`${n.left}px`,top:`${n.top}px`,width:`${n.width}px`,height:`${n.height}px`});let r=e.firstElementChild,i=d(t);r.textContent=`${i.width} × ${i.height}`,r.style.top=n.top<20?`${n.height}px`:`-18px`}var x=document.createElement(`div`);x.dataset.overlay=``,x.style.cssText=`position:fixed;inset:0;z-index:2147483644;cursor:crosshair;background:transparent`;var S=(e,t)=>document.elementsFromPoint(e,t).find(e=>e!==x&&!e.closest(`[data-overlay], .sr-only`))??null;x.addEventListener(`pointermove`,e=>b(v,S(e.clientX,e.clientY))),x.addEventListener(`pointerleave`,()=>b(v,null)),x.addEventListener(`click`,e=>H(S(e.clientX,e.clientY))),x.addEventListener(`wheel`,e=>{for(let t=S(e.clientX,e.clientY);t;t=t.parentElement)if(t.scrollHeight>t.clientHeight+1&&/auto|scroll/.test(getComputedStyle(t).overflowY)){t.scrollTop+=e.deltaY;return}},{passive:!0});function C(){if(!h){x.remove();return}let e=document.querySelector(`dialog[open]`)??document.body;x.parentElement!==e&&e.append(x)}setInterval(C,300);var w={},T=[],E=document.createElement(`div`);E.dataset.overlay=``,E.style.cssText=`position:fixed;inset:0;z-index:2147483645;pointer-events:none`;function D(e){let t=new Set([e]);for(let e=!0;e;){e=!1;for(let[r,i]of Object.entries(n))!t.has(r)&&[...t].some(e=>i.includes(`var(${e})`))&&(t.add(r),e=!0)}return t}function O(e){if(E.replaceChildren(),E.remove(),!e)return;let t=[...D(e)],n=new Set;for(let e of i)if((!e.media||matchMedia(e.media).matches)&&e.decls.some(([,e])=>t.some(t=>e.includes(`var(${t})`)))){for(let t of e.selectors)if(!o.test(t))try{document.querySelectorAll(t).forEach(e=>n.add(e))}catch{}}let r=0;for(let e of n){let t=e.getBoundingClientRect();if(!t.width||!t.height||t.bottom<0||t.top>innerHeight)continue;r+=1;let n=document.createElement(`div`);n.style.cssText=`position:fixed;left:${t.left}px;top:${t.top}px;width:${t.width}px;height:${t.height}px;box-sizing:border-box;border:1.5px solid #12a150;background:#12a15022`,E.append(n)}(document.querySelector(`dialog[open]`)??document.body).append(E),m({kind:`token-where`,name:e,count:r})}function k(e){let t=`var(${e})`,r=Object.keys(n).filter(e=>n[e].includes(t)),a=new Set,o=[];for(let e of i)for(let[n,r]of e.decls)if(r.includes(t))for(let t of e.selectors){let e=`${t}|${n}`;a.has(e)||(a.add(e),o.push({selector:t,prop:n}))}return{tokens:r,places:o}}var A=e=>e.replace(/:not\(:disabled\)|::[-\w]+|:(hover|active|focus-visible|focus-within|focus|disabled)\b/g,``).trim();async function j(e){for(let t=0;t<30;t+=1){let t=[...document.querySelectorAll(A(e))].find(e=>e.getBoundingClientRect().width>0);if(t){t.scrollIntoView({block:`center`}),H(t);return}await new Promise(e=>setTimeout(e,150))}m({kind:`select-missed`})}var M=document.createElement(`div`);M.dataset.overlay=``,M.style.cssText=`position:fixed;inset:0;z-index:2147483646;pointer-events:none`;var N={size:`#2f6bff40`,padding:`#12a15055`,margin:`#ff8a0055`,gap:`#8a4dff55`,text:`#ffc40066`,fill:`#2f6bff33`,line:`#ff2d9b`};function P(e,t,n,r,i,a=``){if(n<=0||r<=0)return;let o=document.createElement(`div`);o.style.cssText=`position:fixed;left:${e}px;top:${t}px;width:${n}px;height:${r}px;background:${i};${a}`,M.append(o)}function F(e){if(M.replaceChildren(),M.remove(),!e||!g)return;let t=g,n=t.getBoundingClientRect(),r=getComputedStyle(t),i=e=>parseFloat(r.getPropertyValue(e))||0,a=(e,t)=>e===t?[`top`,`right`,`bottom`,`left`]:e.startsWith(`${t}-`)?[e.slice(t.length+1)]:[];for(let o of e){for(let e of a(o,`padding`)){let t=i(`padding-${e}`);e===`top`&&P(n.left,n.top,n.width,t,N.padding),e===`bottom`&&P(n.left,n.bottom-t,n.width,t,N.padding),e===`left`&&P(n.left,n.top,t,n.height,N.padding),e===`right`&&P(n.right-t,n.top,t,n.height,N.padding)}for(let e of a(o,`margin`)){let t=Math.max(0,i(`margin-${e}`));e===`top`&&P(n.left,n.top-t,n.width,t,N.margin),e===`bottom`&&P(n.left,n.bottom,n.width,t,N.margin),e===`left`&&P(n.left-t,n.top,t,n.height,N.margin),e===`right`&&P(n.right,n.top,t,n.height,N.margin)}if(o===`gap`){let e=[...t.children].map(e=>e.getBoundingClientRect()).filter(e=>e.width&&e.height);e.slice(1).forEach((t,r)=>{let i=e[r];t.left>=i.right?P(i.right,n.top,t.left-i.right,n.height,N.gap):t.top>=i.bottom&&P(n.left,i.bottom,n.width,t.top-i.bottom,N.gap)})}if(/^(min-|max-)?(width|height)$/.test(o)&&P(n.left,n.top,n.width,n.height,N.size),[`background`,`background-color`].includes(o)&&P(n.left,n.top,n.width,n.height,N.fill),[`top`,`right`,`bottom`,`left`].includes(o)){let e=t.offsetParent?.getBoundingClientRect()??{left:0,top:0,right:innerWidth,bottom:innerHeight};o===`top`&&P(n.left,e.top,n.width,n.top-e.top,N.margin),o===`bottom`&&P(n.left,n.bottom,n.width,e.bottom-n.bottom,N.margin),o===`left`&&P(e.left,n.top,n.left-e.left,n.height,N.margin),o===`right`&&P(n.right,n.top,e.right-n.right,n.height,N.margin)}if([`color`,`font-size`,`line-height`,`font-weight`,`letter-spacing`].includes(o)){let e=document.createRange();e.selectNodeContents(t);for(let t of e.getClientRects())P(t.left,t.top,t.width,t.height,N.text)}(o===`border-radius`||o.startsWith(`border`))&&P(n.left,n.top,n.width,n.height,`transparent`,`box-sizing:border-box;border:2px solid ${N.line};border-radius:${r.borderTopLeftRadius}`)}(document.querySelector(`dialog[open]`)??document.body).append(M)}var I=[[`entry-screen`,`대기화면`],[`entry-heading`,`제목 영역`],[`entry-wordmark`,`서비스 이름`],[`entry-service`,`안내 문구`],[`entry-language`,`언어 버튼 영역`],[`entry-conversations`,`시작 버튼`],[`entry-avatar`,`아바타 음성 대화`],[`entry-bottom`,`하단 영역`],[`entry-ai-notice`,`AI 고지`],[`entry-backdrop`,`배경 영상`],[`app-header`,`상단바`],[`brand`,`뒤로 버튼`],[`header-title`,`제목`],[`header-actions`,`상단바 버튼`],[`more-button`,`더보기 버튼`],[`language-button`,`언어 버튼`],[`stage`,`화면 영역`],[`avatar-image`,`아바타 이미지`],[`avatar`,`아바타`],[`greeting`,`말풍선`],[`chat-log`,`대화 목록`],[`batu-message`,`아바타 답변`],[`user-message`,`사용자 말풍선`],[`answer-author`,`답변 프로필`],[`suggest-list`,`추천 칩`],[`app-footer`,`하단 영역`],[`voice-controls`,`음성 버튼`],[`sound-toggle`,`스피커 버튼`],[`mic-button`,`마이크 버튼`],[`mode-switch`,`대화 전환 버튼`],[`conversation-controls`,`입력 영역`],[`home-ask`,`입력창`],[`send-button`,`보내기 버튼`],[`ai-notice`,`AI 고지`],[`footer-note`,`AI 고지`],[`panel-heading`,`시트 제목`],[`modal-body`,`시트 내용`],[`settings-options`,`설정 목록`],[`more-options`,`더보기 목록`],[`language-options`,`언어 목록`],[`toggle`,`토글`],[`alert-actions`,`버튼 쌍`],[`primary`,`주요 버튼`],[`secondary`,`보조 버튼`]],L=e=>{if(e.tagName===`DIALOG`)return e.classList.contains(`alert`)?`다이얼로그`:`바텀시트`;let t=I.find(([t])=>e.classList.contains(t));if(t)return t[1];let n=e.children.length?``:(e.textContent??``).trim().slice(0,18);if(n)return`“${n}”`;let r=e.tagName.toLowerCase();return{button:`버튼`,a:`링크`,img:`이미지`,i:`아이콘`,svg:`아이콘`,canvas:`아바타 3D`,input:`입력칸`,video:`영상`}[r]??(String(e.className).trim().split(/\s+/)[0]||r)},R=[],z=``;function B(){R=[];let e=[],t=(n,r,i,a)=>{if(n===v||n===y||[`SCRIPT`,`STYLE`,`SOURCE`,`TEMPLATE`].includes(n.tagName)||n.classList.contains(`sr-only`)||n.dataset?.overlay!==void 0)return;let o=getComputedStyle(n);if(o.display===`none`||o.visibility===`hidden`)return;let s=n.getBoundingClientRect(),c=n.tagName===`svg`?[]:[...n.children];if(n.tagName===`DIV`&&!n.className&&c.length===1||!s.width&&!s.height){c.forEach((e,n)=>t(e,r,`${i}.${n}`,a));return}let l=R.push(n)-1;e.push({id:l,name:L(n),depth:r,path:i,parent:a}),c.forEach((e,n)=>t(e,r+1,`${i}.${n}`,l))},n=document.getElementById(`root`);n&&[...n.children].forEach((e,n)=>t(e,0,String(n),null));let r=g?R.indexOf(g):-1,i=JSON.stringify({nodes:e,selected:r});i!==z&&(z=i,m({kind:`token-tree`,nodes:e,selected:r}))}var V=0;new MutationObserver(()=>{clearTimeout(V),V=window.setTimeout(B,300)}).observe(document.body,{subtree:!0,childList:!0,attributes:!0,attributeFilter:[`class`,`open`]}),setInterval(()=>h&&g&&b(y,g),200);function H(e){g=e,b(y,g),g&&m({kind:`token-pick`,...p(g)}),B()}function U(){try{return JSON.parse(localStorage.getItem(`gg-palette-live`)??`{}`)}catch{return{}}}var W={};function G(e){W=e;let t={...w,...U(),...e},n=document.documentElement.style;for(let e of T)n.removeProperty(e);T=Object.keys(t);for(let[e,r]of Object.entries(t))n.setProperty(e,r)}addEventListener(`storage`,e=>{e.key===`gg-palette-live`&&G(W)}),addEventListener(`message`,e=>{if(e.origin!==location.origin)return;let t=e.data;t?.kind===`token-mode`&&(h=t.on,h||(g=null),C(),b(v,null),b(y,g)),t?.kind===`token-parent`&&g?.parentElement&&H(g.parentElement),t?.kind===`token-show`&&O(t.name),t?.kind===`area-show`&&F(t.props),t?.kind===`token-usage`&&m({kind:`token-usage`,name:t.name,...k(t.name)}),t?.kind===`select-selector`&&j(t.selector),t?.kind===`layer-select`&&H(R[t.id]??null),t?.kind===`layer-hover`&&b(v,t.id===null?null:R[t.id]??null),t?.kind===`token-committed`&&(w={...w,...t.edits}),t?.kind===`token-apply`&&(G(t.edits),g&&(b(y,g),m({kind:`token-pick`,...p(g)})))});var K=await fetch(`../tokens.json`).then(e=>e.ok?e.json():{}).catch(()=>({}));w=Object.fromEntries(Object.entries(K).filter(([e,t])=>n[e]!==t)),G({}),m({kind:`token-ready`,defs:{...n,...K,...U()},uses:r}),setTimeout(B,300);
+`,r={};for(let[,e,t]of n.matchAll(/(--[\w-]+):\s*([^;]+);/g))r[e]=t.trim();var i={};for(let[,e]of(t+n).matchAll(/var\((--[\w-]+)\)/g))i[e]=(i[e]??0)+1;var a=[];function o(e,t){let n=0;for(;;){let r=e.indexOf(`{`,n);if(r<0)return;let i=e.slice(n,r).replace(/\/\*[\s\S]*?\*\//g,``).trim(),s=1,c=r+1;for(;s;)e[c]===`{`&&(s+=1),e[c]===`}`&&--s,c+=1;let l=e.slice(r+1,c-1);i.startsWith(`@media`)?o(l,i.slice(6).trim()):i.startsWith(`@supports`)?o(l,t):i.startsWith(`@`)||a.push({selectors:i.split(/,(?![^(]*\))/).map(e=>e.trim()),media:t,decls:[...l.matchAll(/([\w-]+):\s*([^;]+);/g)].map(e=>[e[1],e[2].trim()]),order:a.length}),n=c}}o(t.slice(t.indexOf(`*/`)+2),null);var s=/::|:(hover|active|focus)/;function c(e){let t=(e.match(/#[\w-]+/g)??[]).length,n=(e.match(/\.[\w-]+|\[[^\]]+\]|:(?!:)[\w-]+/g)??[]).length,r=(e.replace(/[.#:\[][^\s>+~]*/g,` `).match(/\b[a-z][\w-]*/g)??[]).length;return t*1e4+n*100+r}var l=`width.height.min-width.min-height.max-width.padding.padding-top.padding-right.padding-bottom.padding-left.margin.margin-top.margin-right.margin-bottom.margin-left.gap.top.right.bottom.left.font-size.line-height.font-weight.letter-spacing.color.background.background-color.border.border-color.border-radius`.split(`.`),u=[`color`,`font-size`,`line-height`,`font-weight`,`letter-spacing`];function d(e){let t=new Map;for(let n of a){if(n.media&&!matchMedia(n.media).matches)continue;let r=-1;for(let t of n.selectors)if(!s.test(t))try{e.matches(t)&&(r=Math.max(r,c(t)))}catch{}if(r<0)continue;let i=r*1e4+n.order;for(let[e,r]of n.decls){let n=t.get(e);(!n||i>=n.rank)&&t.set(e,{value:r,rank:i})}}return t}function f(e){if(e instanceof HTMLElement)return{width:e.offsetWidth,height:e.offsetHeight};let t=e.getBoundingClientRect();return{width:Math.round(t.width),height:Math.round(t.height)}}function p(e){let t=[],n=e;for(;n&&t.length<6;){let e=(document.documentElement.style.getPropertyValue(n)||r[n]||``).trim();if(!e)break;t.push({name:n,value:e}),n=e.match(/^var\((--[\w-]+)\)$/)?.[1]}return t}function m(e){let t=d(e);for(let n of u)for(let r=e.parentElement;r&&!t.has(n);r=r.parentElement){let e=d(r).get(n);e&&t.set(n,e)}let n=getComputedStyle(e),i=l.flatMap(e=>{let i=t.get(e);if(!i)return[];let a=[...new Set([...i.value.matchAll(/var\((--[\w-]+)\)/g)].map(e=>e[1]))].filter(e=>r[e]!==void 0);return a.length?[{prop:e,computed:n.getPropertyValue(e===`background`?`background-color`:e),tokens:a.map(e=>({name:e,steps:p(e)}))}]:[]}),a=f(e);return{label:R(e),width:a.width,height:a.height,hasParent:e.parentElement!==document.body,rows:i}}var h=e=>parent.postMessage(e,location.origin),g=!1,_=null,v=e=>{let t=document.createElement(`div`);t.style.cssText=`position:fixed;display:none;z-index:2147483646;pointer-events:none;box-sizing:border-box;border:2px solid ${e}`;let n=document.createElement(`span`);return n.style.cssText=`position:absolute;left:-2px;top:-18px;padding:0 4px;background:${e};color:#fff;font:500 11px/16px system-ui;white-space:nowrap`,t.append(n),t},y=v(`#2f6bff`),b=v(`#ff2d9b`);function x(e,t){if(!g||!t){e.style.display=`none`;return}(document.querySelector(`dialog[open]`)??document.body).append(e);let n=t.getBoundingClientRect();Object.assign(e.style,{display:`block`,left:`${n.left}px`,top:`${n.top}px`,width:`${n.width}px`,height:`${n.height}px`});let r=e.firstElementChild,i=f(t);r.textContent=`${i.width} × ${i.height}`,r.style.top=n.top<20?`${n.height}px`:`-18px`}var S=document.createElement(`div`);S.dataset.overlay=``,S.style.cssText=`position:fixed;inset:0;z-index:2147483644;cursor:crosshair;background:transparent`;var C=(e,t)=>document.elementsFromPoint(e,t).find(e=>e!==S&&!e.closest(`[data-overlay], .sr-only`))??null;S.addEventListener(`pointermove`,e=>x(y,C(e.clientX,e.clientY))),S.addEventListener(`pointerleave`,()=>x(y,null)),S.addEventListener(`click`,e=>U(C(e.clientX,e.clientY))),S.addEventListener(`wheel`,e=>{for(let t=C(e.clientX,e.clientY);t;t=t.parentElement)if(t.scrollHeight>t.clientHeight+1&&/auto|scroll/.test(getComputedStyle(t).overflowY)){t.scrollTop+=e.deltaY;return}},{passive:!0});function w(){if(!g){S.remove();return}let e=document.querySelector(`dialog[open]`)??document.body;S.parentElement!==e&&e.append(S)}setInterval(w,300);var T={},E=[],D=document.createElement(`div`);D.dataset.overlay=``,D.style.cssText=`position:fixed;inset:0;z-index:2147483645;pointer-events:none`;function O(e){let t=new Set([e]);for(let e=!0;e;){e=!1;for(let[n,i]of Object.entries(r))!t.has(n)&&[...t].some(e=>i.includes(`var(${e})`))&&(t.add(n),e=!0)}return t}function k(e){if(D.replaceChildren(),D.remove(),!e)return;let t=[...O(e)],n=new Set;for(let e of a)if((!e.media||matchMedia(e.media).matches)&&e.decls.some(([,e])=>t.some(t=>e.includes(`var(${t})`)))){for(let t of e.selectors)if(!s.test(t))try{document.querySelectorAll(t).forEach(e=>n.add(e))}catch{}}let r=0;for(let e of n){let t=e.getBoundingClientRect();if(!t.width||!t.height||t.bottom<0||t.top>innerHeight)continue;r+=1;let n=document.createElement(`div`);n.style.cssText=`position:fixed;left:${t.left}px;top:${t.top}px;width:${t.width}px;height:${t.height}px;box-sizing:border-box;border:1.5px solid #12a150;background:#12a15022`,D.append(n)}(document.querySelector(`dialog[open]`)??document.body).append(D),h({kind:`token-where`,name:e,count:r})}function A(e){let t=`var(${e})`,n=Object.keys(r).filter(e=>r[e].includes(t)),i=new Set,o=[];for(let e of a)for(let[n,r]of e.decls)if(r.includes(t))for(let t of e.selectors){let e=`${t}|${n}`;i.has(e)||(i.add(e),o.push({selector:t,prop:n}))}return{tokens:n,places:o}}var j=e=>e.replace(/:not\(:disabled\)|::[-\w]+|:(hover|active|focus-visible|focus-within|focus|disabled)\b/g,``).trim();async function M(e){for(let t=0;t<30;t+=1){let t=[...document.querySelectorAll(j(e))].find(e=>e.getBoundingClientRect().width>0);if(t){t.scrollIntoView({block:`center`}),U(t);return}await new Promise(e=>setTimeout(e,150))}h({kind:`select-missed`})}var N=document.createElement(`div`);N.dataset.overlay=``,N.style.cssText=`position:fixed;inset:0;z-index:2147483646;pointer-events:none`;var P={size:`#2f6bff40`,padding:`#12a15055`,margin:`#ff8a0055`,gap:`#8a4dff55`,text:`#ffc40066`,fill:`#2f6bff33`,line:`#ff2d9b`};function F(e,t,n,r,i,a=``){if(n<=0||r<=0)return;let o=document.createElement(`div`);o.style.cssText=`position:fixed;left:${e}px;top:${t}px;width:${n}px;height:${r}px;background:${i};${a}`,N.append(o)}function I(e){if(N.replaceChildren(),N.remove(),!e||!_)return;let t=_,n=t.getBoundingClientRect(),r=getComputedStyle(t),i=e=>parseFloat(r.getPropertyValue(e))||0,a=(e,t)=>e===t?[`top`,`right`,`bottom`,`left`]:e.startsWith(`${t}-`)?[e.slice(t.length+1)]:[];for(let o of e){for(let e of a(o,`padding`)){let t=i(`padding-${e}`);e===`top`&&F(n.left,n.top,n.width,t,P.padding),e===`bottom`&&F(n.left,n.bottom-t,n.width,t,P.padding),e===`left`&&F(n.left,n.top,t,n.height,P.padding),e===`right`&&F(n.right-t,n.top,t,n.height,P.padding)}for(let e of a(o,`margin`)){let t=Math.max(0,i(`margin-${e}`));e===`top`&&F(n.left,n.top-t,n.width,t,P.margin),e===`bottom`&&F(n.left,n.bottom,n.width,t,P.margin),e===`left`&&F(n.left-t,n.top,t,n.height,P.margin),e===`right`&&F(n.right,n.top,t,n.height,P.margin)}if(o===`gap`){let e=[...t.children].map(e=>e.getBoundingClientRect()).filter(e=>e.width&&e.height);e.slice(1).forEach((t,r)=>{let i=e[r];t.left>=i.right?F(i.right,n.top,t.left-i.right,n.height,P.gap):t.top>=i.bottom&&F(n.left,i.bottom,n.width,t.top-i.bottom,P.gap)})}if(/^(min-|max-)?(width|height)$/.test(o)&&F(n.left,n.top,n.width,n.height,P.size),[`background`,`background-color`].includes(o)&&F(n.left,n.top,n.width,n.height,P.fill),[`top`,`right`,`bottom`,`left`].includes(o)){let e=t.offsetParent?.getBoundingClientRect()??{left:0,top:0,right:innerWidth,bottom:innerHeight};o===`top`&&F(n.left,e.top,n.width,n.top-e.top,P.margin),o===`bottom`&&F(n.left,n.bottom,n.width,e.bottom-n.bottom,P.margin),o===`left`&&F(e.left,n.top,n.left-e.left,n.height,P.margin),o===`right`&&F(n.right,n.top,e.right-n.right,n.height,P.margin)}if([`color`,`font-size`,`line-height`,`font-weight`,`letter-spacing`].includes(o)){let e=document.createRange();e.selectNodeContents(t);for(let t of e.getClientRects())F(t.left,t.top,t.width,t.height,P.text)}(o===`border-radius`||o.startsWith(`border`))&&F(n.left,n.top,n.width,n.height,`transparent`,`box-sizing:border-box;border:2px solid ${P.line};border-radius:${r.borderTopLeftRadius}`)}(document.querySelector(`dialog[open]`)??document.body).append(N)}var L=[[`entry-screen`,`대기화면`],[`entry-heading`,`제목 영역`],[`entry-wordmark`,`서비스 이름`],[`entry-service`,`안내 문구`],[`entry-language`,`언어 버튼 영역`],[`entry-conversations`,`시작 버튼`],[`entry-avatar`,`아바타 음성 대화`],[`entry-bottom`,`하단 영역`],[`entry-ai-notice`,`AI 고지`],[`entry-backdrop`,`배경 영상`],[`app-header`,`상단바`],[`brand`,`뒤로 버튼`],[`header-title`,`제목`],[`header-actions`,`상단바 버튼`],[`more-button`,`더보기 버튼`],[`language-button`,`언어 버튼`],[`stage`,`화면 영역`],[`avatar-image`,`아바타 이미지`],[`avatar`,`아바타`],[`greeting`,`말풍선`],[`chat-log`,`대화 목록`],[`batu-message`,`아바타 답변`],[`user-message`,`사용자 말풍선`],[`answer-author`,`답변 프로필`],[`suggest-list`,`추천 칩`],[`app-footer`,`하단 영역`],[`voice-controls`,`음성 버튼`],[`sound-toggle`,`스피커 버튼`],[`mic-button`,`마이크 버튼`],[`mode-switch`,`대화 전환 버튼`],[`conversation-controls`,`입력 영역`],[`home-ask`,`입력창`],[`send-button`,`보내기 버튼`],[`ai-notice`,`AI 고지`],[`footer-note`,`AI 고지`],[`panel-heading`,`시트 제목`],[`modal-body`,`시트 내용`],[`settings-options`,`설정 목록`],[`more-options`,`더보기 목록`],[`language-options`,`언어 목록`],[`toggle`,`토글`],[`alert-actions`,`버튼 쌍`],[`primary`,`주요 버튼`],[`secondary`,`보조 버튼`]],R=e=>{if(e.tagName===`DIALOG`)return e.classList.contains(`alert`)?`다이얼로그`:`바텀시트`;let t=L.find(([t])=>e.classList.contains(t));if(t)return t[1];let n=e.children.length?``:(e.textContent??``).trim().slice(0,18);if(n)return`“${n}”`;let r=e.tagName.toLowerCase();return{button:`버튼`,a:`링크`,img:`이미지`,i:`아이콘`,svg:`아이콘`,canvas:`아바타 3D`,input:`입력칸`,video:`영상`}[r]??(String(e.className).trim().split(/\s+/)[0]||r)},z=[],B=``;function V(){z=[];let e=[],t=(n,r,i,a)=>{if(n===y||n===b||[`SCRIPT`,`STYLE`,`SOURCE`,`TEMPLATE`].includes(n.tagName)||n.classList.contains(`sr-only`)||n.dataset?.overlay!==void 0)return;let o=getComputedStyle(n);if(o.display===`none`||o.visibility===`hidden`)return;let s=n.getBoundingClientRect(),c=n.tagName===`svg`?[]:[...n.children];if(n.tagName===`DIV`&&!n.className&&c.length===1||!s.width&&!s.height){c.forEach((e,n)=>t(e,r,`${i}.${n}`,a));return}let l=z.push(n)-1;e.push({id:l,name:R(n),depth:r,path:i,parent:a}),c.forEach((e,n)=>t(e,r+1,`${i}.${n}`,l))},n=document.getElementById(`root`);n&&[...n.children].forEach((e,n)=>t(e,0,String(n),null));let r=_?z.indexOf(_):-1,i=JSON.stringify({nodes:e,selected:r});i!==B&&(B=i,h({kind:`token-tree`,nodes:e,selected:r}))}var H=0;new MutationObserver(()=>{clearTimeout(H),H=window.setTimeout(V,300)}).observe(document.body,{subtree:!0,childList:!0,attributes:!0,attributeFilter:[`class`,`open`]}),setInterval(()=>g&&_&&x(b,_),200);function U(e){_=e,x(b,_),_&&h({kind:`token-pick`,...m(_)}),V()}function W(){try{return JSON.parse(localStorage.getItem(`gg-palette-live`)??`{}`)}catch{return{}}}var G=t=>e?Object.fromEntries(Object.entries(t).filter(([e])=>!/^--(main|sub|gray)-\d+$|^--bg-page-middle$/.test(e))):t,K={};function q(e){K=e;let t={...G(T),...G(W()),...e},n=document.documentElement.style;for(let e of E)n.removeProperty(e);E=Object.keys(t);for(let[e,r]of Object.entries(t))n.setProperty(e,r)}addEventListener(`storage`,e=>{e.key===`gg-palette-live`&&q(K)}),addEventListener(`message`,e=>{if(e.origin!==location.origin)return;let t=e.data;t?.kind===`token-mode`&&(g=t.on,g||(_=null),w(),x(y,null),x(b,_)),t?.kind===`token-parent`&&_?.parentElement&&U(_.parentElement),t?.kind===`token-show`&&k(t.name),t?.kind===`area-show`&&I(t.props),t?.kind===`token-usage`&&h({kind:`token-usage`,name:t.name,...A(t.name)}),t?.kind===`select-selector`&&M(t.selector),t?.kind===`layer-select`&&U(z[t.id]??null),t?.kind===`layer-hover`&&x(y,t.id===null?null:z[t.id]??null),t?.kind===`token-committed`&&(T={...T,...t.edits}),t?.kind===`token-apply`&&(q(t.edits),_&&(x(b,_),h({kind:`token-pick`,...m(_)})))});var J=await fetch(`../tokens.json`).then(e=>e.ok?e.json():{}).catch(()=>({}));T=Object.fromEntries(Object.entries(J).filter(([e,t])=>r[e]!==t)),q({}),h({kind:`token-ready`,defs:{...r,...J,...W()},uses:i}),setTimeout(V,300);

@@ -1,0 +1,18 @@
+{
+  "badge": "AI 국립공원 탐방 안내",
+  "wordmark": "example/wordmark.svg",
+  "name": "반달이",
+  "headline": ["탐방 코스부터 준비물까지,", "반달이에게 물어보세요."],
+  "question": "가족과 걷기 좋은 코스 추천해줘",
+  "orgLogo": "example/org-logo.svg",
+  "orgName": "국립공원",
+  "character": "example/character.png",
+  "background": "example/background.jpg",
+  "color": {
+    "bg": "#f5f4f0",
+    "brand": "#125c56",
+    "ink": "#142729",
+    "badgeText": "#f1f1f2",
+    "inputText": "#11151c"
+  }
+}

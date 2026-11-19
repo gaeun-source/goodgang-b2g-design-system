@@ -58,7 +58,7 @@ function setToken(name, value) {
 let pending = null;
 function openFrame(modal = null) {
   const query = new URLSearchParams({ variant });
-  if (variant === "default" && page !== "entry") query.set("page", page);
+  if (variant !== "bandali" && page !== "entry") query.set("page", page);
   if (modal) query.set("modal", modal);
   frame.src = `preview/index.html?${query}`;
   pick = null;
@@ -368,7 +368,7 @@ document.querySelectorAll("[data-variant]").forEach((button) => {
   button.onclick = () => {
     variant = button.dataset.variant;
     document.querySelectorAll("[data-variant]").forEach((other) => other.setAttribute("aria-pressed", other === button));
-    document.querySelectorAll("[data-page], #mode").forEach((control) => (control.disabled = variant !== "default"));
+    document.querySelectorAll("[data-page], #mode").forEach((control) => (control.disabled = variant === "bandali"));
     openFrame();
   };
 });
@@ -445,11 +445,11 @@ const SCALES = {
   "--size-": { title: "크기", scale: [...SCALE, 44].sort((a, b) => a - b) },
   "--font-size-": { title: "글자 크기", scale: [12, 13, 14, 16, 18, 20, 24, 28] },
   "--font-line-": { title: "행간", scale: [14, 16, 18, 20, 22, 26, 28, 34, 40] },
-  "--radius-": { title: "반경", scale: [2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 9999] },
+  "--radius-": { title: "반경", scale: [4, 8, 12, 16, 20, 24, 9999] },
   "--stroke-width-": { title: "선 두께", scale: [1, 2] },
 };
-// 일부러 둔 값: 화면 읽기용 숨김 처리와 승인된 AI 고지 10px.
-const KEEP = new Set(["--space-1", "--size-1", "--font-size-10"]);
+// 일부러 둔 값: 승인된 AI 고지 10px. 1px 상자(대체텍스트 숨김, 안전 영역 띠)는 역할 토큰이라 여기 오지 않는다.
+const KEEP = new Set(["--font-size-10"]);
 // 값이 크게 바뀌는 항목은 기본으로 고르지 않는다. 체크한 뒤 바꾼다.
 const isChosen = (row) => (row.name in choices ? choices[row.name] : !Number.isInteger(row.value) || Math.abs(row.target - row.value) <= 2);
 const followsToken = (name) => /^var\(/.test(edits[name] ?? defs[name] ?? "");
