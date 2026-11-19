@@ -863,6 +863,32 @@
         "fontSizePx": 10,
         "lineHeightPx": 16,
         "note": "Approved exception to typography.baseScale for this project only. Do not apply to other text."
+      },
+      {
+        "id": "sheetOptions20261119",
+        "status": "confirmed",
+        "scope": "Bandali bottom sheets and option/menu rows only",
+        "sheet": {
+          "width": "100% of app container",
+          "bottom": 0,
+          "closeContainerPx": 40,
+          "closeIconPx": 20
+        },
+        "optionRow": {
+          "selectedBackground": "surface/white",
+          "foreground": "neutral",
+          "secondaryForeground": "muted",
+          "selectedStrokeAndCheck": "brand"
+        },
+        "note": "User direction 2026-11-19. Option Row 72 and List Row 60 remain distinct project component proposals; not a universal size rule."
+      },
+      {
+        "id": "prestartIcons20261119",
+        "status": "confirmed",
+        "scope": "Bandali pre-start and map compass",
+        "prestartSos": false,
+        "stretchIcon": "stretching person, not trail sign",
+        "compass": "Original needle geometry and 18px frame; monochrome line-only, no fill or outer ring, rotated 45 degrees. User-specified size exception."
       }
     ]
   },
@@ -1112,7 +1138,7 @@
       "guidelineDraft": "콘텐츠와 가용 높이에 맞춰 내부 스크롤을 제공합니다. 닫기·드래그·입력 중 이탈 정책은 프로젝트별로 결정합니다.",
       "demoValues": "Same as 반달이 language sheet; not approved tokens",
       "appliedIn": "반달이 knps-agent 적용값, 2026-10-30",
-      "appliedValues": "최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 38 · 손잡이 없음 · 선택 행 main/50 배경 + main/700 선 · main/100·200 사용 안 함"
+      "appliedValues": "최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 38 · 손잡이 없음 · 선택 행 white 배경 + main/700 선 · main/100·200 사용 안 함"
     },
     "dialog": {
       "name": "Dialog",
