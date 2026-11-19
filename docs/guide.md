@@ -226,6 +226,16 @@ OS별 지정 글꼴, weight 500. 너비는 Hug. 단위 px.
 | Medium | 40 | 10/14 | 4 | 20 | 14/18 | 8 |
 | Large | 48 | 12/16 | 6 | 24 | 16/20 | 10 |
 
+### 아이콘 프레임과 실제 그림 크기 검수
+
+확정 Size 표의 아이콘 값은 그림을 담는 프레임 크기다. Large=24, Medium=20, Small·XSmall=16이며 모든 버튼에 Large를 적용하지 않는다. 버튼의 역할을 먼저 정하고 해당 Size의 높이·아이콘·글자·gap을 함께 적용한다. 일반 정보 행은 버튼 Size 표의 적용 대상이 아니며 해당 행의 컴포넌트 명세를 확인한다.
+
+검수할 때 CSS 프레임(width/height), SVG viewBox와 경로의 실제 외곽, stroke를 함께 확인한다. 원 등 외곽 요소를 제거하면 같은 프레임이어도 그림이 작아진다. 이때 버튼 크기를 키우지 말고 남은 경로의 시각적 크기와 내부 여백을 보완한다. 공통 획 두께를 새로 강제하거나 비율을 늘리지 않는다.
+
+컨테이너의 표기 높이는 테두리를 포함한 바깥 높이다. 예를 들어 48px 버튼에 선을 추가해 50px가 되면 안 된다. 안쪽 선이나 border-box 등으로 치수를 유지하고, 긴 번역 문구는 잘라내거나 축소하지 않고 높이 확장·세로 배치를 검토한다.
+
+`tokens.json`은 XSmall·Small·Medium·Large 각각의 height, padding-x/y, gap, icon-size, text-size/line, radius, font-weight를 제공한다. Medium 누락 시 Large 값으로 대체하지 않는다.
+
 ### Variant
 
 Action Button [확정]: Variant=Neutral Solid, Brand Solid, Critical Solid, Neutral Weak, Brand Outline, Neutral Outline. 두 Outline의 선 색상은 Neutral(gray) 300. Pressed·Disabled·Loading 색상 및 기타 Variant 색상 매핑은 검토용이며 미확정. #button-matrix에 전체 조합 시각 예시 제공.
@@ -262,6 +272,20 @@ Action Button 배치 [확정]: 두 동작이 똑같이 중요하면 가용 너�
 
 아바타 프로필 [확정, 가은 11/03]: 아바타 말풍선의 프로필 이미지는 프로젝트마다 다르며 `project-theme.json`의 `bubbleAvatar.image`에 적는다. 크기·모양 같은 말풍선 규칙은 공통이다. 이 사이트의 예시 이미지는 반달이다.
 
+### Layout·Width·버튼 쌍
+
+Layout [확정]: Text Only, Icon + Text, Text + Icon, Icon Only. Prefix와 Suffix를 동시에 넣지 않는다. 아이콘만 있는 버튼은 시각적 가로·세로를 같은 Size 높이로 맞추고 접근 가능한 이름을 제공한다. 기본 너비는 Hug이며, 화면의 액션 영역을 채울 때 Fill을 선택한다.
+
+버튼 쌍 [확정]: 명확한 취소/초기화 보조 액션(Neutral Weak)과 주 액션(Solid)의 가로 배치는 gap을 제외한 너비 3:7이다. 두 액션이 동등하면 5:5다. 서로 다른 두 Outline 버튼에 3:7을 자동 적용하지 않는다. 긴 라벨이 들어가지 않으면 축소·잘라내기 대신 세로 Fill로 배치한다.
+
+### Disabled 확정값
+
+- Neutral Solid·Brand Solid: 배경 gray/100, 라벨·아이콘 fg/disabled(gray/500).
+- Neutral Outline·Brand Outline: 배경 transparent, 테두리 없음, 라벨·아이콘 fg/disabled(gray/500).
+- Disabled는 opacity나 brightness로 흉내 내지 않는다.
+
+Outline Default 예시의 배경은 transparent이며, Pressed는 gray/50이다. 흰색 카드를 뒤에 깔아 Outline 버튼처럼 보이게 만들지 않는다. 문서 페이지의 Variant 색상 실험값과 프로젝트에서 승인한 브랜드 역할 매핑은 구분한다.
+
 ## 컴포넌트와 상태
 
 명세는 root와 label, icon, content, action 같은 슬롯을 나누고 상태별 바뀌는 속성을 기록한다. default, selected, disabled, expanded, empty, filled 등 필요한 상태를 명시한다. 선택 상태를 표현하려고 전체 크기나 텍스트 위치를 움직이지 않는다.
@@ -279,12 +303,23 @@ hover, focus, pressed, loading, error가 명세에 없으면 새로 정의할 �
 - Suggestion Chip: h36 · 패딩 8/14 · 14/20 · 500 · 전체 반경 · 안쪽 1px 선 · 터치 영역 44
 - Source Link: Action Button XSmall · h28 · 6/12 · gap 2 · 아이콘 16 · 12/14 · 500 · 전체 반경 · 터치 영역 44
 - Toggle: 40×24 · 손잡이 20 · 안쪽 2px · 전체 반경 · 켬 brand · 끔 gray/300 · 행 전체가 스위치
-- List Row: 최소 높이 60
+- Option Row: 언어 등 값을 선택하는 행. 최소 높이 72 · 패딩 12/16 · 내부 gap 12 · 행 사이 10 · 반경 16 · 제목 14/20·700 · 보조문구 12/16·400 · 체크 20. 기본·선택 모두 white, 본문 neutral, 선택은 brand 선·체크로 구분한다.
+- List Row: 더보기 등 다른 화면으로 이동하는 행. 최소 높이 60. Option Row와 서로 대체하지 않는다.
 - Text Link: 12/16 · 패딩 0/12 · 밑줄 offset 2 · 터치 영역 44 · 흐린 글자색
 - Progress Bar: 높이 4 · 전체 반경 · 트랙 white · 채움 brand
-- Bottom Sheet: 최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 38 · 손잡이 없음 · 선택 행 main/50 배경 + main/700 선 · main/100·200 사용 안 함
-- Dialog: 너비 화면 − 40 (최대 430) · 반경 20 · 패딩은 Bottom Sheet와 같음 · 설명 14/20 · 설명 아래 16 · 버튼 Large 48 · 5:5 · gap 10 · ✕ 없음
+- Bottom Sheet: 최대 너비 430 · 위 반경 20 · 배경 gray/50 · 선 1 · 패딩 위 24 · 옆 24 · 아래 24 · 제목 아래 20 · 제목 16/22 · 500 · ✕ 38 · 손잡이 없음 · 선택 행 white 배경 + main/700 선 · main/100·200 사용 안 함
+- Dialog: 너비 화면 − 40 (최대 430) · 반경 20 · 패딩은 Bottom Sheet와 같음 · 설명 14/20 · 설명 아래 16 · 버튼 Large 48 · 명확한 보조/주요 액션 3:7, 동등한 액션 5:5 · gap 10 · ✕ 없음
 - Callout 경고 톤: 패딩 8/12·반경 12·선 1·아이콘 20·12/16·제목 700·bg #FFF4EB·fg #8A452E·선 #E5BCA6
+
+### 반달이 프로젝트의 최신 적용 지시 (2026-11-19)
+
+다음은 사용자 지시를 기록한 프로젝트 범위 규칙이며, 다른 프로젝트의 공통 확정값으로 확대하지 않는다.
+
+- 바텀시트는 앱 컨테이너 전체 폭, 좌우 여백 0, bottom 0에 붙인다. 문서의 최대 폭 430px은 미리보기 컨테이너 기준이며 제품의 독립된 떠 있는 카드 폭으로 복사하지 않는다.
+- 언어 등 옵션 행의 선택 배경은 흰색이다. `--bg-selected`와 `--option-row-selected-bg`는 surface에 연결한다. Forest/main 50 또는 임의 연녹색을 만들지 않는다.
+- 옵션·이동 목록의 본문은 neutral, 보조문구·일반 아이콘은 muted를 사용한다. 선택 체크와 선택 선은 brand다. 이 예외를 상단바·입력창의 조작 버튼 전체에 확대하지 않는다.
+- 시트 닫기는 컨테이너 38px, 아이콘 프레임 20px로 구분한다. 문서 예시에 남은 17px은 별도 아이콘 단계가 아니다.
+- 출발 전 시트에는 SOS 액션을 넣지 않는다. ‘스트레칭’은 탐방 표지판 아이콘을 재사용하지 않는다. 지도 나침반은 면 채움·외곽 원 없이 선으로 그리고, 45도 기울어진 바늘의 시각적 크기를 확보한다. 마지막 두 아이콘은 프로젝트 추가 자산이며 공통 라이브러리의 확정 아이콘으로 취급하지 않는다.
 
 ### 실사용 컴포넌트
 
